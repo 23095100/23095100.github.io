@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>MYSQL连接，创建，增删改 - LGX 的个人博客</title><meta name="description" content="[TOC] 1、使用命令行连接到MYSQL数据库 首先，你需要查看连接到具体哪一个服务器，如果连接的不是本机服务器的话，那就需要安装mysql-client 客户端应用程序才可以进行连接，连接口令如下： shell&gt; mysql -h localhost -P 3306 -u &lt;username&gt; -p&lt;password&gt; shell&gt; mysql --host=localhost --port=3306 --user=root --password=&lt;password&gt; shell&gt; mysql --host localhost --port 3306 --user root --password=&lt;password&gt; 1.-P（大写）用于指定端口号 2.-p（小写）用于指定密码 3.-p（小写）参数后没有空格。 4.--password=后面没有空格，连接时要格外注意 5.-A参数，如果不使用的话，在使用 use dbname 语句时，会读取数据库中所有表的信息和列的完整名称，所以如果读取的是一个数据很多的数据库时...."/><meta property="og:description" content="[TOC] 1、使用命令行连接到MYSQL数据库 首先，你需要查看连接到具体哪一个服务器，如果连接的不是本机服务器的话，那就需要安装mysql-client 客户端应用程序才可以进行连接，连接口令如下： shell&gt; mysql -h localhost -P 3306 -u &lt;username&gt; -p&lt;password&gt; shell&gt; mysql --host=localhost --port=3306 --user=root --password=&lt;password&gt; shell&gt; mysql --host localhost --port 3306 --user root --password=&lt;password&gt; 1.-P（大写）用于指定端口号 2.-p（小写）用于指定密码 3.-p（小写）参数后没有空格。 4.--password=后面没有空格，连接时要格外注意 5.-A参数，如果不使用的话，在使用 use dbname 语句时，会读取数据库中所有表的信息和列的完整名称，所以如果读取的是一个数据很多的数据库时...."/>    <meta name="keywords" content="随笔,Java,博客,Linux,python"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="MYSQL连接，创建，增删改 - LGX 的个人博客"/><meta property="og:site_name" content="LGX 的个人博客"/><meta property="og:url"      content="https://23095100.github.io/articles/2020/07/21/1595293394033.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="MYSQL连接，创建，增删改 - LGX 的个人博客" href="/opensearch.xml"><link href="https://23095100.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://23095100.github.io/manifest.json">        <link rel="canonical" href="https://23095100.github.io/articles/2020/07/21/1595293394033.html">        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/css/base.css?1599441837118"/>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>MYSQL连接，创建，增删改 - LGX 的个人博客</title><meta name="description" content="  [TOC] 1、使用命令行连接到 MySQL 数据库 首先，你需要查看连接到具体哪一个服务器，如果连接的不是本机服务器的话，那就需要安装 mysql-client 客户端应用程序才可以进行连接，连接口令如下： shell&gt; MySQL -h localhost -P 3306 -u &lt;username&gt; -p&lt;password&gt; shell&gt; MySQL --host=localhost --port=3306 --user=root --password=&lt;password&gt; shell&gt; MySQL --host localhost --port 3306 --user root --password=&lt;password&gt; 1.-P（大写）用于指定端口号 2.-p（小写）用于指定密码 3.-p（小写）参数后没有空格。 4.--password= 后面没有空格，连接时要格外注意 5.-A 参数，如果不使用的话，在使用 use dbname 语句时，会读取数据库中所有表的信息和列的完整名称，所以如果读取的是一个数据很多的数据库时...."/><meta property="og:description" content="  [TOC] 1、使用命令行连接到 MySQL 数据库 首先，你需要查看连接到具体哪一个服务器，如果连接的不是本机服务器的话，那就需要安装 mysql-client 客户端应用程序才可以进行连接，连接口令如下： shell&gt; MySQL -h localhost -P 3306 -u &lt;username&gt; -p&lt;password&gt; shell&gt; MySQL --host=localhost --port=3306 --user=root --password=&lt;password&gt; shell&gt; MySQL --host localhost --port 3306 --user root --password=&lt;password&gt; 1.-P（大写）用于指定端口号 2.-p（小写）用于指定密码 3.-p（小写）参数后没有空格。 4.--password= 后面没有空格，连接时要格外注意 5.-A 参数，如果不使用的话，在使用 use dbname 语句时，会读取数据库中所有表的信息和列的完整名称，所以如果读取的是一个数据很多的数据库时...."/>    <meta name="keywords" content="随笔,Java,博客,Linux,python"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="MYSQL连接，创建，增删改 - LGX 的个人博客"/><meta property="og:site_name" content="LGX 的个人博客"/><meta property="og:url"      content="https://23095100.github.io/articles/2020/07/21/1595293394033.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="MYSQL连接，创建，增删改 - LGX 的个人博客" href="/opensearch.xml"><link href="https://23095100.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://23095100.github.io/manifest.json">        <link rel="canonical" href="https://23095100.github.io/articles/2020/07/21/1595293394033.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/css/base.css?1599471736118"/>
             <link rel="prev" title="还不会安装MYSQL？一篇文章带你装个够！" href="https://23095100.github.io/articles/2020/07/15/1594804709459.html">
             <link rel="next" title="重生之我是大司马 第六章 遇到the shy？" href="https://23095100.github.io/articles/2020/07/21/1595314685461.html">
     </head>
@@ -10,7 +10,7 @@
 <header class="header">
     <div class="wrapper">
         <a href="https://23095100.github.io" rel="start" class="header__logo">
-            <img src="https://b3logfile.com/avatar/1594718285889.png?imageView2/1/w/128/h/128/interlace/0/q/100" alt="LGX 的个人博客"/>
+            <img src="https://b3logfile.com/avatar/1594718285889_1599444034163.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="LGX 的个人博客"/>
             LGX 的个人博客
         </a>
 
@@ -64,9 +64,6 @@
             <a rel="bookmark" href="https://23095100.github.io/articles/2020/07/21/1595293394033.html">
                 MYSQL连接，创建，增删改
             </a>
-                <sup>
-                    置顶！
-                </sup>
         </h2>
         <div class="ft__fade item__meta">
                 Published on
@@ -82,411 +79,411 @@
                 </a>
         </div>
         <div class="vditor-reset">
-            <p><img src="https://b3logfile.com/file/2020/08/77258641f8d6b96ff4fe7f1248ce96ca-f1e508e6.gif" alt="77258641f8d6b96ff4fe7f1248ce96ca.gif"></p>
-<p>[TOC]</p>
-<h2 id="toc_h2_0">1、使用命令行连接到MYSQL数据库</h2>
-<p>首先，你需要查看连接到具体哪一个服务器，如果连接的不是本机服务器的话，那就需要安装mysql-client 客户端应用程序才可以进行连接，连接口令如下：</p>
-<pre><code class="language-bash">shell&gt; mysql -h localhost -P 3306 -u &lt;username&gt; -p&lt;password&gt;
-shell&gt; mysql --host=localhost --port=3306 --user=root --password=&lt;password&gt;
-shell&gt; mysql --host localhost --port 3306 --user root --password=&lt;password&gt;
+            <p>  <img src="https://b3logfile.com/file/2020/08/77258641f8d6b96ff4fe7f1248ce96ca-f1e508e6.gif" alt="77258641f8d6b96ff4fe7f1248ce96ca.gif"></p>
+<div class="vditor-toc">  <span class="toc-h2"><a class="toc-a" href="#1-使用命令行连接到MYSQL数据库">1、使用命令行连接到MYSQL数据库</a></span><br>  <span class="toc-h2"><a class="toc-a" href="#2-创建数据库-表">2、创建数据库,表</a></span><br>    <span class="toc-h3"><a class="toc-a" href="#2-1-创建数据库">2.1 创建数据库</a></span><br>    <span class="toc-h3"><a class="toc-a" href="#2-2-创建表">2.2 创建表</a></span><br>  <span class="toc-h2"><a class="toc-a" href="#3-插入-删除-修改">3、插入，删除，修改</a></span><br>    <span class="toc-h3"><a class="toc-a" href="#3-1-插入">3.1 插入</a></span><br>    <span class="toc-h3"><a class="toc-a" href="#3-2-更新">3.2 更新</a></span><br>    <span class="toc-h3"><a class="toc-a" href="#3-3-删除">3.3 删除</a></span><br></div>
+<h2 id="1-使用命令行连接到MYSQL数据库">1、使用命令行连接到 MySQL 数据库</h2>
+<p>  首先，你需要查看连接到具体哪一个服务器，如果连接的不是本机服务器的话，那就需要安装 mysql-client 客户端应用程序才可以进行连接，连接口令如下：</p>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-ln">1</span>shell&gt; mysql -h localhost -P <span class="highlight-m">3306</span> -u &lt;username&gt; -p&lt;password&gt;
+<span class="highlight-ln">2</span>shell&gt; mysql --host<span class="highlight-o">=</span>localhost --port<span class="highlight-o">=</span><span class="highlight-m">3306</span> --user<span class="highlight-o">=</span>root --password<span class="highlight-o">=</span>&lt;password&gt;
+<span class="highlight-ln">3</span>shell&gt; mysql --host localhost --port <span class="highlight-m">3306</span> --user root --password<span class="highlight-o">=</span>&lt;password&gt;
 </code></pre>
-<p>1.-P（大写）用于指定端口号</p>
-<p>2.-p（小写）用于指定密码</p>
-<p>3.-p（小写）参数后没有空格。</p>
-<p>4.--password=后面没有空格，连接时要格外注意</p>
-<p>5.-A参数，如果不使用的话，在使用 <code>use dbname</code> 语句时，会读取数据库中所有表的信息和列的完整名称，所以如果读取的是一个数据很多的数据库时，-A个人建议是一定要加上，不加的话，很有可能会卡死服务器。mysql在我们不使用这个登陆的时候，也会给与我们提示</p>
-<pre><code class="language-sql">Reading table information for completion of table and column names
-You can turn off this feature to get a quicker startup with -A
+<p>  1.-P（大写）用于指定端口号</p>
+<p>  2.-p（小写）用于指定密码</p>
+<p>  3.-p（小写）参数后没有空格。</p>
+<p>  4.--password= 后面没有空格，连接时要格外注意</p>
+<p>  5.-A 参数，如果不使用的话，在使用 <code>use dbname</code> 语句时，会读取数据库中所有表的信息和列的完整名称，所以如果读取的是一个数据很多的数据库时，-A 个人建议是一定要加上，不加的话，很有可能会卡死服务器。MySQL 在我们不使用这个登陆的时候，也会给与我们提示</p>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-n">Reading</span> <span class="highlight-k">table</span> <span class="highlight-n">information</span> <span class="highlight-k">for</span> <span class="highlight-k">completion</span> <span class="highlight-k">of</span> <span class="highlight-k">table</span> <span class="highlight-k">and</span> <span class="highlight-k">column</span> <span class="highlight-k">names</span>
+<span class="highlight-ln">2</span><span class="highlight-n">You</span> <span class="highlight-n">can</span> <span class="highlight-n">turn</span> <span class="highlight-k">off</span> <span class="highlight-n">this</span> <span class="highlight-n">feature</span> <span class="highlight-k">to</span> <span class="highlight-k">get</span> <span class="highlight-n">a</span> <span class="highlight-n">quicker</span> <span class="highlight-n">startup</span> <span class="highlight-k">with</span> <span class="highlight-o">-</span><span class="highlight-n">A</span>
 </code></pre>
-<p>默认连接情况下，host为 <code>localhost</code>，端口号为 <code>3306</code></p>
-<p>在连接mysql时，强烈建议<strong>不要</strong>用明文密码进行连接MYSQL数据库，其他替代方法在之后的博客中进行讨论。使用 <code>mysql -u &lt;username&gt; -p</code>进行连接是最为常用的方式。</p>
-<pre><code>[root@zabbix /usr/local/nginx-1.18/conf]# mysql -u root -p123456
-mysql: [Warning] Using a password on the command line interface can be insecure.
+<p>  默认连接情况下，host 为 <code>localhost</code>，端口号为 <code>3306</code></p>
+<p>  在连接 MySQL 时，强烈建议<strong>不要</strong>用明文密码进行连接 MySQL 数据库，其他替代方法在之后的博客中进行讨论。使用 <code>mysql  -u &lt;username&gt; -p</code> 进行连接是最为常用的方式。</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>[root@zabbix /usr/local/nginx-1.18/conf]# mysql -u root -p123456
+<span class="highlight-ln">2</span>mysql: [Warning] Using a password on the command line interface can be insecure.
 </code></pre>
-<p>在进行查询时，可以以 <strong>；</strong>|<strong>\G</strong>|<strong>\g</strong>|进行结尾，一般的sql语句以**;** 结尾，<strong>\g</strong>输出以水平显示，<strong>\G</strong>输出以垂直显示。</p>
-<pre><code class="language-sql">mysql&gt; select user,host from mysql.user where user='root'\G;
-*************************** 1. row ***************************
-user: root
-host: %
-*************************** 2. row ***************************
-user: root
-host: localhost
-2 rows in set (0.00 sec)
-
-mysql&gt; select user,host from mysql.user where user='root'\g;
-+------+-----------+
-| user | host      |
-+------+-----------+
-| root | %         |
-| root | localhost |
-+------+-----------+
-2 rows in set (0.00 sec)
+<p>  在进行查询时，可以以 <strong>；</strong>|<strong>\G</strong>|<strong>\g</strong>| 进行结尾，一般的 SQL 语句以**;** 结尾，<strong>\g</strong> 输出以水平显示，<strong>\G</strong> 输出以垂直显示。</p>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">select</span> <span class="highlight-k">user</span><span class="highlight-p">,</span><span class="highlight-k">host</span> <span class="highlight-k">from</span> <span class="highlight-n">mysql</span><span class="highlight-p">.</span><span class="highlight-k">user</span> <span class="highlight-k">where</span> <span class="highlight-k">user</span><span class="highlight-o">=</span><span class="highlight-s1">'root'</span><span class="highlight-err">\</span><span class="highlight-k">G</span><span class="highlight-p">;</span>
+<span class="highlight-ln"> 2</span><span class="highlight-o">***************************</span> <span class="highlight-mi">1</span><span class="highlight-p">.</span> <span class="highlight-k">row</span> <span class="highlight-o">***************************</span>
+<span class="highlight-ln"> 3</span><span class="highlight-k">user</span><span class="highlight-p">:</span> <span class="highlight-n">root</span>
+<span class="highlight-ln"> 4</span><span class="highlight-k">host</span><span class="highlight-p">:</span> <span class="highlight-o">%</span>
+<span class="highlight-ln"> 5</span><span class="highlight-o">***************************</span> <span class="highlight-mi">2</span><span class="highlight-p">.</span> <span class="highlight-k">row</span> <span class="highlight-o">***************************</span>
+<span class="highlight-ln"> 6</span><span class="highlight-k">user</span><span class="highlight-p">:</span> <span class="highlight-n">root</span>
+<span class="highlight-ln"> 7</span><span class="highlight-k">host</span><span class="highlight-p">:</span> <span class="highlight-n">localhost</span>
+<span class="highlight-ln"> 8</span><span class="highlight-mi">2</span> <span class="highlight-k">rows</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">0</span><span class="highlight-p">.</span><span class="highlight-mi">00</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
+<span class="highlight-ln"> 9</span>
+<span class="highlight-ln">10</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">select</span> <span class="highlight-k">user</span><span class="highlight-p">,</span><span class="highlight-k">host</span> <span class="highlight-k">from</span> <span class="highlight-n">mysql</span><span class="highlight-p">.</span><span class="highlight-k">user</span> <span class="highlight-k">where</span> <span class="highlight-k">user</span><span class="highlight-o">=</span><span class="highlight-s1">'root'</span><span class="highlight-err">\</span><span class="highlight-k">g</span><span class="highlight-p">;</span>
+<span class="highlight-ln">11</span><span class="highlight-o">+</span><span class="highlight-c1">------+-----------+
+</span><span class="highlight-ln">12</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-k">user</span> <span class="highlight-o">|</span> <span class="highlight-k">host</span>      <span class="highlight-o">|</span>
+<span class="highlight-ln">13</span><span class="highlight-o">+</span><span class="highlight-c1">------+-----------+
+</span><span class="highlight-ln">14</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-n">root</span> <span class="highlight-o">|</span> <span class="highlight-o">%</span>         <span class="highlight-o">|</span>
+<span class="highlight-ln">15</span><span class="highlight-o">|</span> <span class="highlight-n">root</span> <span class="highlight-o">|</span> <span class="highlight-n">localhost</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">16</span><span class="highlight-o">+</span><span class="highlight-c1">------+-----------+
+</span><span class="highlight-ln">17</span><span class="highlight-c1"></span><span class="highlight-mi">2</span> <span class="highlight-k">rows</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">0</span><span class="highlight-p">.</span><span class="highlight-mi">00</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
 </code></pre>
-<h2 id="toc_h2_1">2、创建数据库,表</h2>
+<h2 id="2-创建数据库-表">2、创建数据库，表</h2>
 <blockquote>
 <p>数据库定义语言（DDL：）</p>
 </blockquote>
 <blockquote>
-<p>其语句包括动词CREATE和DROP。在数据库中创建新表或删除表（CREAT TABLE 或 DROP TABLE）为表加入索引等。简而言之，对数据进行维护和管理的语句，就是DDL</p>
+<p>其语句包括动词 CREATE 和 DROP。在数据库中创建新表或删除表（CREAT TABLE 或 DROP TABLE）为表加入索引等。简而言之，对数据进行维护和管理的语句，就是 DDL</p>
 </blockquote>
-<p>数据库是许多表的集合，而数据库服务器可以容纳许多这样的数据库。逻辑关系如下：</p>
-<p><em>数据库服务器-&gt;数据库-&gt;表（由列定义）-&gt;行</em></p>
-<p><strong>数据库</strong>和<strong>表</strong>称为数据库对象。任何操作(如<strong>创建</strong>、<strong>修改</strong>或<strong>删除</strong>数据库对象)都称为数据定义语言(<strong>DDL:Data Definition Language</strong>)操作.</p>
-<p>数据按某种蓝图组织构建数据库（分为数据库和表），这种数据的组织形式被称为 <strong>schema</strong>。</p>
-<h3 id="toc_h3_2">2.1 创建数据库</h3>
-<pre><code>mysql&gt; CREATE DATABASE company;
-Query OK, 1 row affected (0.00 sec)
-mysql&gt; CREATE DATABASE `my.contacts`;
-Query OK, 1 row affected (0.00 sec)
+<p>  数据库是许多表的集合，而数据库服务器可以容纳许多这样的数据库。逻辑关系如下：</p>
+<p>  <em>数据库服务器-&gt; 数据库-&gt; 表（由列定义）-&gt; 行</em></p>
+<p>  <strong>数据库</strong>和<strong>表</strong>称为数据库对象。任何操作(如<strong>创建</strong>、<strong>修改</strong>或<strong>删除</strong>数据库对象)都称为数据定义语言(<strong>DDL:Data Definition Language</strong>)操作。</p>
+<p>  数据按某种蓝图组织构建数据库（分为数据库和表），这种数据的组织形式被称为 <strong>schema</strong>。</p>
+<h3 id="2-1-创建数据库">2.1 创建数据库</h3>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>mysql&gt; CREATE DATABASE company;
+<span class="highlight-ln">2</span>Query OK, 1 row affected (0.00 sec)
+<span class="highlight-ln">3</span>mysql&gt; CREATE DATABASE `my.contacts`;
+<span class="highlight-ln">4</span>Query OK, 1 row affected (0.00 sec)
 </code></pre>
-<p>反标记字符 (`) 用于引用标识符，如数据库和表名。当数据库名称包含特殊字符，如 <code>.</code> 需要使用反标记字符</p>
-<p>查看当前连接的数据库：</p>
-<pre><code>mysql&gt; select database();
-+------------+
-| database() |
-+------------+
-| company    |
-+------------+
-1 row in set (0.00 sec)
+<p>  反标记字符 (`) 用于引用标识符，如数据库和表名。当数据库名称包含特殊字符，如 <code>.</code> 需要使用反标记字符</p>
+<p>  查看当前连接的数据库：</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>mysql&gt; select database();
+<span class="highlight-ln">2</span>+------------+
+<span class="highlight-ln">3</span>| database() |
+<span class="highlight-ln">4</span>+------------+
+<span class="highlight-ln">5</span>| company    |
+<span class="highlight-ln">6</span>+------------+
+<span class="highlight-ln">7</span>1 row in set (0.00 sec)
 </code></pre>
-<p>查看你能够访问的数据库：</p>
-<pre><code>mysql&gt; show databases;
-+--------------------+
-| Database           |
-+--------------------+
-| company            |
-| information_schema |
-| my.contacts        |
-| mysql              |
-| performance_schema |
-| sys                |
-| zabbix             |
-+--------------------+
-7 rows in set (0.01 sec)
+<p>  查看你能够访问的数据库：</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln"> 1</span>mysql&gt; show databases;
+<span class="highlight-ln"> 2</span>+--------------------+
+<span class="highlight-ln"> 3</span>| Database           |
+<span class="highlight-ln"> 4</span>+--------------------+
+<span class="highlight-ln"> 5</span>| company            |
+<span class="highlight-ln"> 6</span>| information_schema |
+<span class="highlight-ln"> 7</span>| my.contacts        |
+<span class="highlight-ln"> 8</span>| mysql              |
+<span class="highlight-ln"> 9</span>| performance_schema |
+<span class="highlight-ln">10</span>| sys                |
+<span class="highlight-ln">11</span>| zabbix             |
+<span class="highlight-ln">12</span>+--------------------+
+<span class="highlight-ln">13</span>7 rows in set (0.01 sec)
 </code></pre>
-<p>查看当前数据库文件存放位置，YUM/APT安装的默认位置是 <code>/var/lib/mysql/</code> ,如果是基于二进制文件安装的话，存放位置则在 <code>/usr/local/mysql/data/</code></p>
-<pre><code>mysql&gt; show variables like 'datadir';
-+---------------+-----------------+
-| Variable_name | Value           |
-+---------------+-----------------+
-| datadir       | /var/lib/mysql/ |
-+---------------+-----------------+
-1 row in set (0.01 sec)
+<p>  查看当前数据库文件存放位置，YUM/APT 安装的默认位置是 <code>/var/lib/mysql/</code> ，如果是基于二进制文件安装的话，存放位置则在 <code>/usr/local/mysql/data/</code></p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>mysql&gt; show variables like 'datadir';
+<span class="highlight-ln">2</span>+---------------+-----------------+
+<span class="highlight-ln">3</span>| Variable_name | Value           |
+<span class="highlight-ln">4</span>+---------------+-----------------+
+<span class="highlight-ln">5</span>| datadir       | /var/lib/mysql/ |
+<span class="highlight-ln">6</span>+---------------+-----------------+
+<span class="highlight-ln">7</span>1 row in set (0.01 sec)
 </code></pre>
-<p>查看数据库目录文件：</p>
-<pre><code class="language-shell">mysql&gt; system sudo ls -lhtr /var/lib/mysql
-total 289M
--rw-r----- 1 mysql mysql   56 Jun  1 14:05 auto.cnf
-drwxr-x--- 2 mysql mysql   28 Jun  1 14:06 sys
-drwxr-x--- 2 mysql mysql 8.0K Jun  1 14:06 performance_schema
-drwxr-x--- 2 mysql mysql  143 Jun  1 14:06 mysql
--rw-r----- 1 mysql mysql    6 Jun  1 14:06 mysql_upgrade_info
--rw------- 1 mysql mysql 1.7K Jun  1 14:06 ca-key.pem
--rw-r--r-- 1 mysql mysql 1.1K Jun  1 14:06 ca.pem
--rw------- 1 mysql mysql 1.7K Jun  1 14:06 server-key.pem
--rw-r--r-- 1 mysql mysql 1.1K Jun  1 14:06 server-cert.pem
--rw------- 1 mysql mysql 1.7K Jun  1 14:06 client-key.pem
--rw-r--r-- 1 mysql mysql 1.1K Jun  1 14:06 client-cert.pem
--rw-r--r-- 1 mysql mysql  452 Jun  1 14:06 public_key.pem
--rw------- 1 mysql mysql 1.7K Jun  1 14:06 private_key.pem
-drwxr-x--- 2 mysql mysql 8.0K Jun  1 15:03 zabbix
--rw-r----- 1 mysql mysql  17K Jul 15 11:35 ib_buffer_pool
-drwxr-x--- 2 mysql mysql  187 Jul 15 11:36 #innodb_temp
--rw------- 1 mysql mysql    5 Jul 15 11:36 mysql.sock.lock
-srwxrwxrwx 1 mysql mysql    0 Jul 15 11:36 mysql.sock
--rw-r----- 1 mysql mysql  12M Jul 15 11:36 ibtmp1
--rw-r----- 1 mysql mysql 8.2M Jul 15 12:27 #ib_16384_1.dblwr
--rw-r----- 1 mysql mysql  48M Jul 21 15:14 ib_logfile1
-drwxr-x--- 2 mysql mysql   27 Jul 21 15:14 company
-drwxr-x--- 2 mysql mysql    6 Jul 21 15:29 my@002econtacts
--rw-r----- 1 mysql mysql  28M Jul 21 15:45 mysql.ibd
--rw-r----- 1 mysql mysql  76M Jul 21 15:46 ibdata1
--rw-r----- 1 mysql mysql  32M Jul 21 15:46 undo_001
--rw-r----- 1 mysql mysql  36M Jul 21 15:46 undo_002
--rw-r----- 1 mysql mysql 192K Jul 21 15:46 #ib_16384_0.dblwr
--rw-r----- 1 mysql mysql  48M Jul 21 15:46 ib_logfile0
+<p>  查看数据库目录文件：</p>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-ln"> 1</span>mysql&gt; system sudo ls -lhtr /var/lib/mysql
+<span class="highlight-ln"> 2</span>total 289M
+<span class="highlight-ln"> 3</span>-rw-r----- <span class="highlight-m">1</span> mysql mysql   <span class="highlight-m">56</span> Jun  <span class="highlight-m">1</span> 14:05 auto.cnf
+<span class="highlight-ln"> 4</span>drwxr-x--- <span class="highlight-m">2</span> mysql mysql   <span class="highlight-m">28</span> Jun  <span class="highlight-m">1</span> 14:06 sys
+<span class="highlight-ln"> 5</span>drwxr-x--- <span class="highlight-m">2</span> mysql mysql 8.0K Jun  <span class="highlight-m">1</span> 14:06 performance_schema
+<span class="highlight-ln"> 6</span>drwxr-x--- <span class="highlight-m">2</span> mysql mysql  <span class="highlight-m">143</span> Jun  <span class="highlight-m">1</span> 14:06 mysql
+<span class="highlight-ln"> 7</span>-rw-r----- <span class="highlight-m">1</span> mysql mysql    <span class="highlight-m">6</span> Jun  <span class="highlight-m">1</span> 14:06 mysql_upgrade_info
+<span class="highlight-ln"> 8</span>-rw------- <span class="highlight-m">1</span> mysql mysql 1.7K Jun  <span class="highlight-m">1</span> 14:06 ca-key.pem
+<span class="highlight-ln"> 9</span>-rw-r--r-- <span class="highlight-m">1</span> mysql mysql 1.1K Jun  <span class="highlight-m">1</span> 14:06 ca.pem
+<span class="highlight-ln">10</span>-rw------- <span class="highlight-m">1</span> mysql mysql 1.7K Jun  <span class="highlight-m">1</span> 14:06 server-key.pem
+<span class="highlight-ln">11</span>-rw-r--r-- <span class="highlight-m">1</span> mysql mysql 1.1K Jun  <span class="highlight-m">1</span> 14:06 server-cert.pem
+<span class="highlight-ln">12</span>-rw------- <span class="highlight-m">1</span> mysql mysql 1.7K Jun  <span class="highlight-m">1</span> 14:06 client-key.pem
+<span class="highlight-ln">13</span>-rw-r--r-- <span class="highlight-m">1</span> mysql mysql 1.1K Jun  <span class="highlight-m">1</span> 14:06 client-cert.pem
+<span class="highlight-ln">14</span>-rw-r--r-- <span class="highlight-m">1</span> mysql mysql  <span class="highlight-m">452</span> Jun  <span class="highlight-m">1</span> 14:06 public_key.pem
+<span class="highlight-ln">15</span>-rw------- <span class="highlight-m">1</span> mysql mysql 1.7K Jun  <span class="highlight-m">1</span> 14:06 private_key.pem
+<span class="highlight-ln">16</span>drwxr-x--- <span class="highlight-m">2</span> mysql mysql 8.0K Jun  <span class="highlight-m">1</span> 15:03 zabbix
+<span class="highlight-ln">17</span>-rw-r----- <span class="highlight-m">1</span> mysql mysql  17K Jul <span class="highlight-m">15</span> 11:35 ib_buffer_pool
+<span class="highlight-ln">18</span>drwxr-x--- <span class="highlight-m">2</span> mysql mysql  <span class="highlight-m">187</span> Jul <span class="highlight-m">15</span> 11:36 <span class="highlight-c1">#innodb_temp</span>
+<span class="highlight-ln">19</span>-rw------- <span class="highlight-m">1</span> mysql mysql    <span class="highlight-m">5</span> Jul <span class="highlight-m">15</span> 11:36 mysql.sock.lock
+<span class="highlight-ln">20</span>srwxrwxrwx <span class="highlight-m">1</span> mysql mysql    <span class="highlight-m">0</span> Jul <span class="highlight-m">15</span> 11:36 mysql.sock
+<span class="highlight-ln">21</span>-rw-r----- <span class="highlight-m">1</span> mysql mysql  12M Jul <span class="highlight-m">15</span> 11:36 ibtmp1
+<span class="highlight-ln">22</span>-rw-r----- <span class="highlight-m">1</span> mysql mysql 8.2M Jul <span class="highlight-m">15</span> 12:27 <span class="highlight-c1">#ib_16384_1.dblwr</span>
+<span class="highlight-ln">23</span>-rw-r----- <span class="highlight-m">1</span> mysql mysql  48M Jul <span class="highlight-m">21</span> 15:14 ib_logfile1
+<span class="highlight-ln">24</span>drwxr-x--- <span class="highlight-m">2</span> mysql mysql   <span class="highlight-m">27</span> Jul <span class="highlight-m">21</span> 15:14 company
+<span class="highlight-ln">25</span>drwxr-x--- <span class="highlight-m">2</span> mysql mysql    <span class="highlight-m">6</span> Jul <span class="highlight-m">21</span> 15:29 my@002econtacts
+<span class="highlight-ln">26</span>-rw-r----- <span class="highlight-m">1</span> mysql mysql  28M Jul <span class="highlight-m">21</span> 15:45 mysql.ibd
+<span class="highlight-ln">27</span>-rw-r----- <span class="highlight-m">1</span> mysql mysql  76M Jul <span class="highlight-m">21</span> 15:46 ibdata1
+<span class="highlight-ln">28</span>-rw-r----- <span class="highlight-m">1</span> mysql mysql  32M Jul <span class="highlight-m">21</span> 15:46 undo_001
+<span class="highlight-ln">29</span>-rw-r----- <span class="highlight-m">1</span> mysql mysql  36M Jul <span class="highlight-m">21</span> 15:46 undo_002
+<span class="highlight-ln">30</span>-rw-r----- <span class="highlight-m">1</span> mysql mysql 192K Jul <span class="highlight-m">21</span> 15:46 <span class="highlight-c1">#ib_16384_0.dblwr</span>
+<span class="highlight-ln">31</span>-rw-r----- <span class="highlight-m">1</span> mysql mysql  48M Jul <span class="highlight-m">21</span> 15:46 ib_logfile0
 </code></pre>
-<h3 id="toc_h3_3">2.2 创建表</h3>
-<pre><code class="language-sql">mysql&gt; CREATE TABLE IF NOT EXISTS `company`.`customers` (
-`id` int unsigned AUTO_INCREMENT PRIMARY KEY,
-`first_name` varchar(20),
-`last_name` varchar(20),
-`country` varchar(20)
-) ENGINE=InnoDB;
-Query OK, 0 rows affected (0.20 sec)
+<h3 id="2-2-创建表">2.2 创建表</h3>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">CREATE</span> <span class="highlight-k">TABLE</span> <span class="highlight-k">IF</span> <span class="highlight-k">NOT</span> <span class="highlight-k">EXISTS</span> <span class="highlight-o">`</span><span class="highlight-n">company</span><span class="highlight-o">`</span><span class="highlight-p">.</span><span class="highlight-o">`</span><span class="highlight-n">customers</span><span class="highlight-o">`</span> <span class="highlight-p">(</span>
+<span class="highlight-ln">2</span><span class="highlight-o">`</span><span class="highlight-n">id</span><span class="highlight-o">`</span> <span class="highlight-nb">int</span> <span class="highlight-n">unsigned</span> <span class="highlight-n">AUTO_INCREMENT</span> <span class="highlight-k">PRIMARY</span> <span class="highlight-k">KEY</span><span class="highlight-p">,</span>
+<span class="highlight-ln">3</span><span class="highlight-o">`</span><span class="highlight-n">first_name</span><span class="highlight-o">`</span> <span class="highlight-nb">varchar</span><span class="highlight-p">(</span><span class="highlight-mi">20</span><span class="highlight-p">),</span>
+<span class="highlight-ln">4</span><span class="highlight-o">`</span><span class="highlight-n">last_name</span><span class="highlight-o">`</span> <span class="highlight-nb">varchar</span><span class="highlight-p">(</span><span class="highlight-mi">20</span><span class="highlight-p">),</span>
+<span class="highlight-ln">5</span><span class="highlight-o">`</span><span class="highlight-n">country</span><span class="highlight-o">`</span> <span class="highlight-nb">varchar</span><span class="highlight-p">(</span><span class="highlight-mi">20</span><span class="highlight-p">)</span>
+<span class="highlight-ln">6</span><span class="highlight-p">)</span> <span class="highlight-n">ENGINE</span><span class="highlight-o">=</span><span class="highlight-n">InnoDB</span><span class="highlight-p">;</span>
+<span class="highlight-ln">7</span><span class="highlight-n">Query</span> <span class="highlight-n">OK</span><span class="highlight-p">,</span> <span class="highlight-mi">0</span> <span class="highlight-k">rows</span> <span class="highlight-n">affected</span> <span class="highlight-p">(</span><span class="highlight-mi">0</span><span class="highlight-p">.</span><span class="highlight-mi">20</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
 </code></pre>
 <blockquote>
 <ul>
-<li><strong>句点符号</strong>：表可以使用database.table引用。如果巳经连接到数据库，则可以简单地使用customers而不是company.customers</li>
+<li><strong>句点符号</strong>：表可以使用 database.table 引用。如果巳经连接到数据库，则可以简单地使用 customers 而不是 company.customers</li>
 </ul>
 </blockquote>
 <ul>
-<li><strong>IF NOT EXISTS</strong>: 如果存在一个具有相同名字的表，并且你指定了这个子句， MySQL只会抛出一个警告，告知表已经存在。否则，MySQL将抛出一个错误。</li>
-<li>id : 它被声明为一个整型数，因为它只包含整型数。除此之外，还有两个关键字，AUTO INCREMENT和PRIMARY KEY。(自动增长和主键约束)</li>
-<li><strong>AUTO_INCREMENT</strong>: 自动生成<strong>线性递增序列</strong>， 因此不必担心为每一行的id分配值。</li>
-<li><strong>PRIMARY KEY</strong>: 主键约束：每行都由一个非空的<strong>UNIQUE</strong>列标识。 只有一列应该在表中定义。 如果一个表包含AUTO_INCREMENT列，则它会被视为PRIMARY KEY。first_name、 last_name和country: 它们包含字符串， 因此它们被定义为 varchar类型。</li>
-<li><strong>Engine</strong>: 存储引擎。一些类型的存储引擎包括<strong>InnoDB</strong>、 <strong>MyISAM</strong>、<strong>FEDERATED</strong>、<strong>BLACKHOLE</strong>、<strong>CSV</strong>和<strong>MEMORY</strong>。在所有引擎中，InnoDB 是唯一的<strong>事务引擎</strong>，也是默认引擎。</li>
+<li><strong>IF NOT EXISTS</strong>: 如果存在一个具有相同名字的表，并且你指定了这个子句， MySQL 只会抛出一个警告，告知表已经存在。否则，MySQL 将抛出一个错误。</li>
+<li>id : 它被声明为一个整型数，因为它只包含整型数。除此之外，还有两个关键字，AUTO INCREMENT 和 PRIMARY KEY。(自动增长和主键约束)</li>
+<li><strong>AUTO_INCREMENT</strong>: 自动生成<strong>线性递增序列</strong>， 因此不必担心为每一行的 id 分配值。</li>
+<li><strong>PRIMARY KEY</strong>: 主键约束：每行都由一个非空的 <strong>UNIQUE</strong> 列标识。 只有一列应该在表中定义。 如果一个表包含 AUTO_INCREMENT 列，则它会被视为 PRIMARY KEY。first_name、 last_name 和 country: 它们包含字符串， 因此它们被定义为 varchar 类型。</li>
+<li><strong>Engine</strong>: 存储引擎。一些类型的存储引擎包括 <strong>InnoDB</strong>、 <strong>MyISAM</strong>、<strong>FEDERATED</strong>、<strong>BLACKHOLE</strong>、<strong>CSV</strong> 和 <strong>MEMORY</strong>。在所有引擎中，InnoDB 是唯一的<strong>事务引擎</strong>，也是默认引擎。</li>
 </ul>
-<p>要列出MYSQL所有支持的存储引擎，请执行以下操作：</p>
-<pre><code>mysql&gt; SHOW ENGINES\G
-*************************** 1. row ***************************
-      Engine: FEDERATED
-     Support: NO
-     Comment: Federated MySQL storage engine
-Transactions: NULL
-          XA: NULL
-  Savepoints: NULL
-*************************** 2. row ***************************
-      Engine: MEMORY
-     Support: YES
-     Comment: Hash based, stored in memory, useful for temporary tables
-Transactions: NO
-          XA: NO
-  Savepoints: NO
-*************************** 3. row ***************************
-      Engine: InnoDB
-     Support: DEFAULT
-     Comment: Supports transactions, row-level locking, and foreign keys
-Transactions: YES
-          XA: YES
-  Savepoints: YES
-*************************** 4. row ***************************
-      Engine: PERFORMANCE_SCHEMA
-     Support: YES
-     Comment: Performance Schema
-Transactions: NO
-          XA: NO
-  Savepoints: NO
-*************************** 5. row ***************************
-      Engine: MyISAM
-     Support: YES
-     Comment: MyISAM storage engine
-Transactions: NO
-          XA: NO
-  Savepoints: NO
-*************************** 6. row ***************************
-      Engine: MRG_MYISAM
-     Support: YES
-     Comment: Collection of identical MyISAM tables
-Transactions: NO
-          XA: NO
-  Savepoints: NO
-*************************** 7. row ***************************
-      Engine: BLACKHOLE
-     Support: YES
-     Comment: /dev/null storage engine (anything you write to it disappears)
-Transactions: NO
-          XA: NO
-  Savepoints: NO
-*************************** 8. row ***************************
-      Engine: CSV
-     Support: YES
-     Comment: CSV storage engine
-Transactions: NO
-          XA: NO
-  Savepoints: NO
-*************************** 9. row ***************************
-      Engine: ARCHIVE
-     Support: YES
-     Comment: Archive storage engine
-Transactions: NO
-          XA: NO
-  Savepoints: NO
-9 rows in set (0.00 sec)
+<p>  要列出 MySQL 所有支持的存储引擎，请执行以下操作：</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln"> 1</span>mysql&gt; SHOW ENGINES\G
+<span class="highlight-ln"> 2</span>*************************** 1. row ***************************
+<span class="highlight-ln"> 3</span>      Engine: FEDERATED
+<span class="highlight-ln"> 4</span>     Support: NO
+<span class="highlight-ln"> 5</span>     Comment: Federated MySQL storage engine
+<span class="highlight-ln"> 6</span>Transactions: NULL
+<span class="highlight-ln"> 7</span>          XA: NULL
+<span class="highlight-ln"> 8</span>  Savepoints: NULL
+<span class="highlight-ln"> 9</span>*************************** 2. row ***************************
+<span class="highlight-ln">10</span>      Engine: MEMORY
+<span class="highlight-ln">11</span>     Support: YES
+<span class="highlight-ln">12</span>     Comment: Hash based, stored in memory, useful for temporary tables
+<span class="highlight-ln">13</span>Transactions: NO
+<span class="highlight-ln">14</span>          XA: NO
+<span class="highlight-ln">15</span>  Savepoints: NO
+<span class="highlight-ln">16</span>*************************** 3. row ***************************
+<span class="highlight-ln">17</span>      Engine: InnoDB
+<span class="highlight-ln">18</span>     Support: DEFAULT
+<span class="highlight-ln">19</span>     Comment: Supports transactions, row-level locking, and foreign keys
+<span class="highlight-ln">20</span>Transactions: YES
+<span class="highlight-ln">21</span>          XA: YES
+<span class="highlight-ln">22</span>  Savepoints: YES
+<span class="highlight-ln">23</span>*************************** 4. row ***************************
+<span class="highlight-ln">24</span>      Engine: PERFORMANCE_SCHEMA
+<span class="highlight-ln">25</span>     Support: YES
+<span class="highlight-ln">26</span>     Comment: Performance Schema
+<span class="highlight-ln">27</span>Transactions: NO
+<span class="highlight-ln">28</span>          XA: NO
+<span class="highlight-ln">29</span>  Savepoints: NO
+<span class="highlight-ln">30</span>*************************** 5. row ***************************
+<span class="highlight-ln">31</span>      Engine: MyISAM
+<span class="highlight-ln">32</span>     Support: YES
+<span class="highlight-ln">33</span>     Comment: MyISAM storage engine
+<span class="highlight-ln">34</span>Transactions: NO
+<span class="highlight-ln">35</span>          XA: NO
+<span class="highlight-ln">36</span>  Savepoints: NO
+<span class="highlight-ln">37</span>*************************** 6. row ***************************
+<span class="highlight-ln">38</span>      Engine: MRG_MYISAM
+<span class="highlight-ln">39</span>     Support: YES
+<span class="highlight-ln">40</span>     Comment: Collection of identical MyISAM tables
+<span class="highlight-ln">41</span>Transactions: NO
+<span class="highlight-ln">42</span>          XA: NO
+<span class="highlight-ln">43</span>  Savepoints: NO
+<span class="highlight-ln">44</span>*************************** 7. row ***************************
+<span class="highlight-ln">45</span>      Engine: BLACKHOLE
+<span class="highlight-ln">46</span>     Support: YES
+<span class="highlight-ln">47</span>     Comment: /dev/null storage engine (anything you write to it disappears)
+<span class="highlight-ln">48</span>Transactions: NO
+<span class="highlight-ln">49</span>          XA: NO
+<span class="highlight-ln">50</span>  Savepoints: NO
+<span class="highlight-ln">51</span>*************************** 8. row ***************************
+<span class="highlight-ln">52</span>      Engine: CSV
+<span class="highlight-ln">53</span>     Support: YES
+<span class="highlight-ln">54</span>     Comment: CSV storage engine
+<span class="highlight-ln">55</span>Transactions: NO
+<span class="highlight-ln">56</span>          XA: NO
+<span class="highlight-ln">57</span>  Savepoints: NO
+<span class="highlight-ln">58</span>*************************** 9. row ***************************
+<span class="highlight-ln">59</span>      Engine: ARCHIVE
+<span class="highlight-ln">60</span>     Support: YES
+<span class="highlight-ln">61</span>     Comment: Archive storage engine
+<span class="highlight-ln">62</span>Transactions: NO
+<span class="highlight-ln">63</span>          XA: NO
+<span class="highlight-ln">64</span>  Savepoints: NO
+<span class="highlight-ln">65</span>9 rows in set (0.00 sec)
 </code></pre>
-<p>要列出数据库中所有表，执行以下语句：</p>
-<pre><code>mysql&gt; show tables;
-+-------------------+
-| Tables_in_company |
-+-------------------+
-| customers         |
-+-------------------+
-1 row in set (0.00 sec)
+<p>  要列出数据库中所有表，执行以下语句：</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>mysql&gt; show tables;
+<span class="highlight-ln">2</span>+-------------------+
+<span class="highlight-ln">3</span>| Tables_in_company |
+<span class="highlight-ln">4</span>+-------------------+
+<span class="highlight-ln">5</span>| customers         |
+<span class="highlight-ln">6</span>+-------------------+
+<span class="highlight-ln">7</span>1 row in set (0.00 sec)
 </code></pre>
-<p>要查看表结构，执行以下语句：</p>
-<pre><code>mysql&gt; show create table customers;
-+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Table     | Create Table                                                                                                                                                                                                                                                                           |
-+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| customers | CREATE TABLE `customers` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(20) DEFAULT NULL,
-  `last_name` varchar(20) DEFAULT NULL,
-  `country` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
-+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-1 row in set (0.00 sec)
+<p>  要查看表结构，执行以下语句：</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln"> 1</span>mysql&gt; show create table customers;
+<span class="highlight-ln"> 2</span>+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+<span class="highlight-ln"> 3</span>| Table     | Create Table                                                                                                                                                                                                                                                                           |
+<span class="highlight-ln"> 4</span>+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+<span class="highlight-ln"> 5</span>| customers | CREATE TABLE `customers` (
+<span class="highlight-ln"> 6</span>  `id` int unsigned NOT NULL AUTO_INCREMENT,
+<span class="highlight-ln"> 7</span>  `first_name` varchar(20) DEFAULT NULL,
+<span class="highlight-ln"> 8</span>  `last_name` varchar(20) DEFAULT NULL,
+<span class="highlight-ln"> 9</span>  `country` varchar(20) DEFAULT NULL,
+<span class="highlight-ln">10</span>  PRIMARY KEY (`id`)
+<span class="highlight-ln">11</span>) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
+<span class="highlight-ln">12</span>+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+<span class="highlight-ln">13</span>1 row in set (0.00 sec)
 </code></pre>
-<p>或者</p>
-<pre><code>mysql&gt; desc customers;
-+------------+--------------+------+-----+---------+----------------+
-| Field      | Type         | Null | Key | Default | Extra          |
-+------------+--------------+------+-----+---------+----------------+
-| id         | int unsigned | NO   | PRI | NULL    | auto_increment |
-| first_name | varchar(20)  | YES  |     | NULL    |                |
-| last_name  | varchar(20)  | YES  |     | NULL    |                |
-| country    | varchar(20)  | YES  |     | NULL    |                |
-+------------+--------------+------+-----+---------+----------------+
-4 rows in set (0.08 sec)
+<p>  或者</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln"> 1</span>mysql&gt; desc customers;
+<span class="highlight-ln"> 2</span>+------------+--------------+------+-----+---------+----------------+
+<span class="highlight-ln"> 3</span>| Field      | Type         | Null | Key | Default | Extra          |
+<span class="highlight-ln"> 4</span>+------------+--------------+------+-----+---------+----------------+
+<span class="highlight-ln"> 5</span>| id         | int unsigned | NO   | PRI | NULL    | auto_increment |
+<span class="highlight-ln"> 6</span>| first_name | varchar(20)  | YES  |     | NULL    |                |
+<span class="highlight-ln"> 7</span>| last_name  | varchar(20)  | YES  |     | NULL    |                |
+<span class="highlight-ln"> 8</span>| country    | varchar(20)  | YES  |     | NULL    |                |
+<span class="highlight-ln"> 9</span>+------------+--------------+------+-----+---------+----------------+
+<span class="highlight-ln">10</span>4 rows in set (0.08 sec)
 </code></pre>
-<p>mysql会在数据目录中创建.ibd文件</p>
-<pre><code>mysql&gt; system sudo ls -lhtr /var/lib/mysql/company
-total 80K
--rw-r----- 1 mysql mysql 112K Jul 21 16:43 customers.ibd
+<p>  MySQL 会在数据目录中创建。ibd 文件</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>mysql&gt; system sudo ls -lhtr /var/lib/mysql/company
+<span class="highlight-ln">2</span>total 80K
+<span class="highlight-ln">3</span>-rw-r----- 1 mysql mysql 112K Jul 21 16:43 customers.ibd
 </code></pre>
-<p>克隆表结构</p>
-<pre><code>mysql&gt; CREATE TABLE new_customers LIKE customers;
-Query OK, 0 rows affected (0.08 sec)
-
-mysql&gt; show tables;
-+-------------------+
-| Tables_in_company |
-+-------------------+
-| customers         |
-| new_customers     |
-+-------------------+
-2 rows in set (0.00 sec)
-
-mysql&gt; show create table new_customers;
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Table         | Create Table                                                                                                                                                                                                                                                                               |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| new_customers | CREATE TABLE `new_customers` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(20) DEFAULT NULL,
-  `last_name` varchar(20) DEFAULT NULL,
-  `country` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
-+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-1 row in set (0.00 sec)
-
-mysql&gt; show create table customers;
-+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Table     | Create Table                                                                                                                                                                                                                                                                           |
-+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| customers | CREATE TABLE `customers` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(20) DEFAULT NULL,
-  `last_name` varchar(20) DEFAULT NULL,
-  `country` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
-+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-1 row in set (0.00 sec)
+<p>  克隆表结构</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln"> 1</span>mysql&gt; CREATE TABLE new_customers LIKE customers;
+<span class="highlight-ln"> 2</span>Query OK, 0 rows affected (0.08 sec)
+<span class="highlight-ln"> 3</span>
+<span class="highlight-ln"> 4</span>mysql&gt; show tables;
+<span class="highlight-ln"> 5</span>+-------------------+
+<span class="highlight-ln"> 6</span>| Tables_in_company |
+<span class="highlight-ln"> 7</span>+-------------------+
+<span class="highlight-ln"> 8</span>| customers         |
+<span class="highlight-ln"> 9</span>| new_customers     |
+<span class="highlight-ln">10</span>+-------------------+
+<span class="highlight-ln">11</span>2 rows in set (0.00 sec)
+<span class="highlight-ln">12</span>
+<span class="highlight-ln">13</span>mysql&gt; show create table new_customers;
+<span class="highlight-ln">14</span>+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+<span class="highlight-ln">15</span>| Table         | Create Table                                                                                                                                                                                                                                                                               |
+<span class="highlight-ln">16</span>+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+<span class="highlight-ln">17</span>| new_customers | CREATE TABLE `new_customers` (
+<span class="highlight-ln">18</span>  `id` int unsigned NOT NULL AUTO_INCREMENT,
+<span class="highlight-ln">19</span>  `first_name` varchar(20) DEFAULT NULL,
+<span class="highlight-ln">20</span>  `last_name` varchar(20) DEFAULT NULL,
+<span class="highlight-ln">21</span>  `country` varchar(20) DEFAULT NULL,
+<span class="highlight-ln">22</span>  PRIMARY KEY (`id`)
+<span class="highlight-ln">23</span>) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
+<span class="highlight-ln">24</span>+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+<span class="highlight-ln">25</span>1 row in set (0.00 sec)
+<span class="highlight-ln">26</span>
+<span class="highlight-ln">27</span>mysql&gt; show create table customers;
+<span class="highlight-ln">28</span>+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+<span class="highlight-ln">29</span>| Table     | Create Table                                                                                                                                                                                                                                                                           |
+<span class="highlight-ln">30</span>+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+<span class="highlight-ln">31</span>| customers | CREATE TABLE `customers` (
+<span class="highlight-ln">32</span>  `id` int unsigned NOT NULL AUTO_INCREMENT,
+<span class="highlight-ln">33</span>  `first_name` varchar(20) DEFAULT NULL,
+<span class="highlight-ln">34</span>  `last_name` varchar(20) DEFAULT NULL,
+<span class="highlight-ln">35</span>  `country` varchar(20) DEFAULT NULL,
+<span class="highlight-ln">36</span>  PRIMARY KEY (`id`)
+<span class="highlight-ln">37</span>) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
+<span class="highlight-ln">38</span>+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+<span class="highlight-ln">39</span>1 row in set (0.00 sec)
 </code></pre>
-<h2 id="toc_h2_4">3、插入，删除，修改</h2>
+<h2 id="3-插入-删除-修改">3、插入，删除，修改</h2>
 <blockquote>
-<p><strong>INSERT</strong>、<strong>UPDATE</strong>、<strong>DELETE</strong>和<strong>SELECT</strong>操作称为 <strong>数据操作语言</strong>（DML：<strong>Data Manipulation Language</strong>）INSERT、 UPDATE和DELETE也称为写操作，或者简称为写(write)。SELECT是一个读操作，简称为读(read)。</p>
+<p><strong>INSERT</strong>、<strong>UPDATE</strong>、<strong>DELETE</strong> 和 <strong>SELECT</strong> 操作称为 <strong>数据操作语言</strong>（DML：<strong>Data Manipulation Language</strong>）INSERT、 UPDATE 和 DELETE 也称为写操作，或者简称为写(write)。SELECT 是一个读操作，简称为读(read)。</p>
 </blockquote>
-<h3 id="toc_h3_5">3.1 插入</h3>
-<p>向company数据库中的 customers表 插入 first_name, last_name,country 三个字段的数据</p>
-<pre><code>mysql&gt; INSERT IGNORE INTO `company`.`customers`(first_name, last_name,country)
-VALUES 
-('Mike', 'Christensen', 'USA'),
-('Andy', 'Hollands', 'Australia'),
-('Ravi', 'Vedantam', 'India'),
-('Rajiv', 'Perera', 'Sri Lanka');
-
-Query OK, 4 rows affected (0.00 sec)
-Records: 4  Duplicates: 0  Warnings: 0
+<h3 id="3-1-插入">3.1 插入</h3>
+<p>  向 company 数据库中的 customers 表 插入 first_name, last_name,country 三个字段的数据</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>mysql&gt; INSERT IGNORE INTO `company`.`customers`(first_name, last_name,country)
+<span class="highlight-ln">2</span>VALUES 
+<span class="highlight-ln">3</span>('Mike', 'Christensen', 'USA'),
+<span class="highlight-ln">4</span>('Andy', 'Hollands', 'Australia'),
+<span class="highlight-ln">5</span>('Ravi', 'Vedantam', 'India'),
+<span class="highlight-ln">6</span>('Rajiv', 'Perera', 'Sri Lanka');
+<span class="highlight-ln">7</span>
+<span class="highlight-ln">8</span>Query OK, 4 rows affected (0.00 sec)
+<span class="highlight-ln">9</span>Records: 4  Duplicates: 0  Warnings: 0
 </code></pre>
-<p>插入4个字段，包含主键</p>
-<pre><code>mysql&gt; INSERT IGNORE INTO `company`.`customers`(id, first_name, last_name,country)
-VALUES 
-(1, 'Mike', 'Christensen', 'USA'),
-(2, 'Andy', 'Hollands', 'Australia'),
-(3, 'Ravi', 'Vedantam', 'India'),
-(4, 'Rajiv', 'Perera', 'Sri Lanka');
-
-Query OK, 4 rows affected (0.00 sec)
-Records: 4  Duplicates: 0  Warnings: 0
+<p>  插入 4 个字段，包含主键</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>mysql&gt; INSERT IGNORE INTO `company`.`customers`(id, first_name, last_name,country)
+<span class="highlight-ln">2</span>VALUES 
+<span class="highlight-ln">3</span>(1, 'Mike', 'Christensen', 'USA'),
+<span class="highlight-ln">4</span>(2, 'Andy', 'Hollands', 'Australia'),
+<span class="highlight-ln">5</span>(3, 'Ravi', 'Vedantam', 'India'),
+<span class="highlight-ln">6</span>(4, 'Rajiv', 'Perera', 'Sri Lanka');
+<span class="highlight-ln">7</span>
+<span class="highlight-ln">8</span>Query OK, 4 rows affected (0.00 sec)
+<span class="highlight-ln">9</span>Records: 4  Duplicates: 0  Warnings: 0
 </code></pre>
-<p><strong>INSERT IGNORE</strong>:如果该行已有数据，则新插入的数据将被忽略，INSERT语句会执行成功，但是会生成警告信息，同时生成一个重复数据的数目，如果没有输入IGNORE语句的话，INSERT语句会插入失败，每一行的唯一性由主键标识。</p>
-<p><strong>有就忽略，没有就插入</strong></p>
-<pre><code>mysql&gt; INSERT IGNORE INTO `company`.`customers`(id, first_name, last_name,country) VALUES  (1, 'Mike', 'Christensen', 'USA'), (2, 'Andy', 'Hollands', 'Australia'), (3, 'Ravi', 'Vedantam', 'India'), (4, 'Rajiv', 'Perera', 'Sri Lanka');
-Query OK, 0 rows affected, 4 warnings (0.00 sec)
-Records: 4  Duplicates: 4  Warnings: 4
-
-mysql&gt; show warnings;                                                                                                    
-+---------+------+-------------------------------------------------+
-| Level   | Code | Message                                         |
-+---------+------+-------------------------------------------------+
-| Warning | 1062 | Duplicate entry '1' for key 'customers.PRIMARY' |
-| Warning | 1062 | Duplicate entry '2' for key 'customers.PRIMARY' |
-| Warning | 1062 | Duplicate entry '3' for key 'customers.PRIMARY' |
-| Warning | 1062 | Duplicate entry '4' for key 'customers.PRIMARY' |
-+---------+------+-------------------------------------------------+
-4 rows in set (0.00 sec)
+<p>  <strong>INSERT IGNORE</strong>:如果该行已有数据，则新插入的数据将被忽略，INSERT 语句会执行成功，但是会生成警告信息，同时生成一个重复数据的数目，如果没有输入 IGNORE 语句的话，INSERT 语句会插入失败，每一行的唯一性由主键标识。</p>
+<p>  <strong>有就忽略，没有就插入</strong></p>
+<pre><code class="highlight-chroma"><span class="highlight-ln"> 1</span>mysql&gt; INSERT IGNORE INTO `company`.`customers`(id, first_name, last_name,country) VALUES  (1, 'Mike', 'Christensen', 'USA'), (2, 'Andy', 'Hollands', 'Australia'), (3, 'Ravi', 'Vedantam', 'India'), (4, 'Rajiv', 'Perera', 'Sri Lanka');
+<span class="highlight-ln"> 2</span>Query OK, 0 rows affected, 4 warnings (0.00 sec)
+<span class="highlight-ln"> 3</span>Records: 4  Duplicates: 4  Warnings: 4
+<span class="highlight-ln"> 4</span>
+<span class="highlight-ln"> 5</span>mysql&gt; show warnings;                                                                                                    
+<span class="highlight-ln"> 6</span>+---------+------+-------------------------------------------------+
+<span class="highlight-ln"> 7</span>| Level   | Code | Message                                         |
+<span class="highlight-ln"> 8</span>+---------+------+-------------------------------------------------+
+<span class="highlight-ln"> 9</span>| Warning | 1062 | Duplicate entry '1' for key 'customers.PRIMARY' |
+<span class="highlight-ln">10</span>| Warning | 1062 | Duplicate entry '2' for key 'customers.PRIMARY' |
+<span class="highlight-ln">11</span>| Warning | 1062 | Duplicate entry '3' for key 'customers.PRIMARY' |
+<span class="highlight-ln">12</span>| Warning | 1062 | Duplicate entry '4' for key 'customers.PRIMARY' |
+<span class="highlight-ln">13</span>+---------+------+-------------------------------------------------+
+<span class="highlight-ln">14</span>4 rows in set (0.00 sec)
 </code></pre>
-<p><strong>INSERT INTO</strong>:插入数据，数据库会检查主键（Primary Key），如果出现重复会报错；简单来说：</p>
-<p><strong>有则插入，无则报错</strong></p>
-<pre><code>mysql&gt; INSERT INTO `company`.`customers`(id, first_name, last_name,country)
-VALUES 
-(1, 'Mike', 'Christensen', 'USA'),
-(2, 'Andy', 'Hollands', 'Australia'),
-(3, 'Ravi', 'Vedantam', 'India'),
-(4, 'Rajiv', 'Perera', 'Sri Lanka');
-ERROR 1062 (23000): Duplicate entry '1' for key 'customers.PRIMARY'
+<p>  <strong>INSERT INTO</strong>:插入数据，数据库会检查主键（Primary Key），如果出现重复会报错；简单来说：</p>
+<p>  <strong>有则插入，无则报错</strong></p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>mysql&gt; INSERT INTO `company`.`customers`(id, first_name, last_name,country)
+<span class="highlight-ln">2</span>VALUES 
+<span class="highlight-ln">3</span>(1, 'Mike', 'Christensen', 'USA'),
+<span class="highlight-ln">4</span>(2, 'Andy', 'Hollands', 'Australia'),
+<span class="highlight-ln">5</span>(3, 'Ravi', 'Vedantam', 'India'),
+<span class="highlight-ln">6</span>(4, 'Rajiv', 'Perera', 'Sri Lanka');
+<span class="highlight-ln">7</span>ERROR 1062 (23000): Duplicate entry '1' for key 'customers.PRIMARY'
 </code></pre>
-<p><strong>REPLACE</strong></p>
-<p>该关键字的作用是当插入的记录遇到主键或者唯一键重复时先删除表中重复的记录行再插入，即</p>
-<p><strong>有则删除+插入，无则插入</strong></p>
-<p>语法为：</p>
-<pre><code>mysql&gt; REPLACE INTO customers VALUES (1,'Mike','Christensen','America');
-Query OK, 2 rows affected (0.00 sec)
+<p>  <strong>REPLACE</strong></p>
+<p>  该关键字的作用是当插入的记录遇到主键或者唯一键重复时先删除表中重复的记录行再插入，即</p>
+<p>  <strong>有则删除 + 插入，无则插入</strong></p>
+<p>  语法为：</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>mysql&gt; REPLACE INTO customers VALUES (1,'Mike','Christensen','America');
+<span class="highlight-ln">2</span>Query OK, 2 rows affected (0.00 sec)
 </code></pre>
-<h3 id="toc_h3_6">3.2 更新</h3>
-<p>更新行记录</p>
-<p>不加where的话，<strong>update更新字段会更新整个表</strong>！！！切记必须要加上where进行操作</p>
-<pre><code>mysql&gt; UPDATE customers SET first_name='Rajiv', country='UK' WHERE id=4;
-Query OK, 1 row affected (0.01 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
-mysql&gt; select * from customers;
-+----+------------+-------------+-----------+
-| id | first_name | last_name   | country   |
-+----+------------+-------------+-----------+
-|  1 | Mike       | Christensen | America   |
-|  2 | Andy       | Hollands    | Australia |
-|  3 | Ravi       | Vedantam    | India     |
-|  4 | Rajiv      | Perera      | UK        |
-+----+------------+-------------+-----------+
-4 rows in set (0.00 sec)
+<h3 id="3-2-更新">3.2 更新</h3>
+<p>  更新行记录</p>
+<p>  不加 where 的话，<strong>update 更新字段会更新整个表</strong>！！！切记必须要加上 where 进行操作</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln"> 1</span>mysql&gt; UPDATE customers SET first_name='Rajiv', country='UK' WHERE id=4;
+<span class="highlight-ln"> 2</span>Query OK, 1 row affected (0.01 sec)
+<span class="highlight-ln"> 3</span>Rows matched: 1  Changed: 1  Warnings: 0
+<span class="highlight-ln"> 4</span>
+<span class="highlight-ln"> 5</span>mysql&gt; select * from customers;
+<span class="highlight-ln"> 6</span>+----+------------+-------------+-----------+
+<span class="highlight-ln"> 7</span>| id | first_name | last_name   | country   |
+<span class="highlight-ln"> 8</span>+----+------------+-------------+-----------+
+<span class="highlight-ln"> 9</span>|  1 | Mike       | Christensen | America   |
+<span class="highlight-ln">10</span>|  2 | Andy       | Hollands    | Australia |
+<span class="highlight-ln">11</span>|  3 | Ravi       | Vedantam    | India     |
+<span class="highlight-ln">12</span>|  4 | Rajiv      | Perera      | UK        |
+<span class="highlight-ln">13</span>+----+------------+-------------+-----------+
+<span class="highlight-ln">14</span>4 rows in set (0.00 sec)
 </code></pre>
-<h3 id="toc_h3_7">3.3 删除</h3>
-<p>从表中删除行</p>
-<pre><code>mysql&gt; DELETE FROM customers WHERE id=4 AND first_name='Rajiv';
-Query OK, 1 row affected (0.02 sec)
+<h3 id="3-3-删除">3.3 删除</h3>
+<p>  从表中删除行</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>mysql&gt; DELETE FROM customers WHERE id=4 AND first_name='Rajiv';
+<span class="highlight-ln">2</span>Query OK, 1 row affected (0.02 sec)
 </code></pre>
         </div>
     </div>
     <div class="post__toc">
 <ul class="article__toc">
         <li class="toc__h2">
-            <a href="#toc_h2_0">1、使用命令行连接到MYSQL数据库</a>
+            <a href="#1-使用命令行连接到MYSQL数据库">1、使用命令行连接到 MySQL 数据库</a>
         </li>
         <li class="toc__h2">
-            <a href="#toc_h2_1">2、创建数据库,表</a>
+            <a href="#2-创建数据库-表">2、创建数据库，表</a>
         </li>
         <li class="toc__h3">
-            <a href="#toc_h3_2">2.1 创建数据库</a>
+            <a href="#2-1-创建数据库">2.1 创建数据库</a>
         </li>
         <li class="toc__h3">
-            <a href="#toc_h3_3">2.2 创建表</a>
+            <a href="#2-2-创建表">2.2 创建表</a>
         </li>
         <li class="toc__h2">
-            <a href="#toc_h2_4">3、插入，删除，修改</a>
+            <a href="#3-插入-删除-修改">3、插入，删除，修改</a>
         </li>
         <li class="toc__h3">
-            <a href="#toc_h3_5">3.1 插入</a>
+            <a href="#3-1-插入">3.1 插入</a>
         </li>
         <li class="toc__h3">
-            <a href="#toc_h3_6">3.2 更新</a>
+            <a href="#3-2-更新">3.2 更新</a>
         </li>
         <li class="toc__h3">
-            <a href="#toc_h3_7">3.3 删除</a>
+            <a href="#3-3-删除">3.3 删除</a>
         </li>
 </ul>    </div>
     <div class="body--gray post__gray">
@@ -520,7 +517,7 @@ Query OK, 1 row affected (0.02 sec)
                       data-title="MYSQL连接，创建，增删改"
                       data-blogtitle="LGX 的个人博客"
                       data-url="https://23095100.github.io/articles/2020/07/21/1595293394033.html"
-                      data-avatar="https://b3logfile.com/avatar/1594718285889.png?imageView2/1/w/128/h/128/interlace/0/q/100">
+                      data-avatar="https://b3logfile.com/avatar/1594718285889_1599444034163.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100">
                     WeChat
                     <span class="qrcode"></span>
                 </span>
@@ -565,10 +562,9 @@ Query OK, 1 row affected (0.02 sec)
     <div class="footer__border mobile__none"></div>
     <div class="wrapper fn__flex">
         <div class="fn__flex-1 mobile__none">
-            <div class="ft__fade">23095100 - 记录精彩的程序人生</div>
+            <div class="ft__fade">23095100 - 苟利国家生死以，岂因祸福避趋之</div>
             <br>
-                Open Source, Open Mind, <br/>Open Sight, Open Future!
-
+                不会真有人玩博客吧，不会吧不会吧
 <!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
         </div>
 
@@ -592,7 +588,7 @@ Query OK, 1 row affected (0.02 sec)
     speech: true,
     servePath: "https://23095100.github.io",
     staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources",
-    luteAvailable: false,
+    luteAvailable: true,
     hljsStyle: 'github',
     langLabel: "zh_CN",
     version: "4.2.0",
@@ -602,7 +598,7 @@ Query OK, 1 row affected (0.02 sec)
 </script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/js/headroom.min.js"></script>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/js/common.min.js?1599441837118"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/js/common.min.js?1599471736118"
         charset="utf-8"></script>
 <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.8/index.css"/>
 <script async src="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.8/index.js"></script>
@@ -637,7 +633,7 @@ Query OK, 1 row affected (0.02 sec)
 
 
 <script type="text/javascript">
-    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/js/page.min.js?1599441837118', 'soloPageScript')
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/js/page.min.js?1599471736118', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
         "oId": "1595293394231",
@@ -657,4 +653,4 @@ Skin.initArticle()
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 32ms, 2020/09/07 09:26:02 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 26ms, 2020/09/07 17:51:19 -->

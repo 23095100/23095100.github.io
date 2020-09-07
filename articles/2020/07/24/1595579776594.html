@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>查询操作：从示例数据中执行 - LGX 的个人博客</title><meta name="description" content="[TOC] 1、示例数据导入 [root@aliyun ~]# wget &#39;https://codeload.github.com/datacharmer/test_db/zip/master&#39; -O master.zip [root@aliyun ~]# unzip master.zip [root@aliyun ~]# cd test_db-master/ [root@aliyun ~]# mysql -u root -p &lt; employees.sql Enter password: INFO CREATING DATABASE STRUCTURE INFO storage engine: InnoDB INFO LOADING departments INFO LOADING employees ... 验证数据： [root@aliyun ~]# mysql -u root -p employees -A Enter password: Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQ...."/><meta property="og:description" content="[TOC] 1、示例数据导入 [root@aliyun ~]# wget &#39;https://codeload.github.com/datacharmer/test_db/zip/master&#39; -O master.zip [root@aliyun ~]# unzip master.zip [root@aliyun ~]# cd test_db-master/ [root@aliyun ~]# mysql -u root -p &lt; employees.sql Enter password: INFO CREATING DATABASE STRUCTURE INFO storage engine: InnoDB INFO LOADING departments INFO LOADING employees ... 验证数据： [root@aliyun ~]# mysql -u root -p employees -A Enter password: Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQ...."/>    <meta name="keywords" content="随笔,Java,博客,Linux,python"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="查询操作：从示例数据中执行 - LGX 的个人博客"/><meta property="og:site_name" content="LGX 的个人博客"/><meta property="og:url"      content="https://23095100.github.io/articles/2020/07/24/1595579776594.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="查询操作：从示例数据中执行 - LGX 的个人博客" href="/opensearch.xml"><link href="https://23095100.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://23095100.github.io/manifest.json">        <link rel="canonical" href="https://23095100.github.io/articles/2020/07/24/1595579776594.html">        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/css/base.css?1599441837118"/>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>查询操作：从示例数据中执行 - LGX 的个人博客</title><meta name="description" content="  [TOC] 1、示例数据导入 [root@aliyun ~]# wget &#39;https://codeload.github.com/datacharmer/test_db/zip/master&#39; -O master.zip [root@aliyun ~]# unzip master.zip [root@aliyun ~]# cd test_db-master/ [root@aliyun ~]# MySQL -u root -p &lt; employees.sql Enter password: INFO CREATING DATABASE STRUCTURE INFO storage engine: InnoDB INFO LOADING departments INFO LOADING employees ... 验证数据： [root@aliyun ~]# MySQL -u root -p employees -A Enter password: Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQ...."/><meta property="og:description" content="  [TOC] 1、示例数据导入 [root@aliyun ~]# wget &#39;https://codeload.github.com/datacharmer/test_db/zip/master&#39; -O master.zip [root@aliyun ~]# unzip master.zip [root@aliyun ~]# cd test_db-master/ [root@aliyun ~]# MySQL -u root -p &lt; employees.sql Enter password: INFO CREATING DATABASE STRUCTURE INFO storage engine: InnoDB INFO LOADING departments INFO LOADING employees ... 验证数据： [root@aliyun ~]# MySQL -u root -p employees -A Enter password: Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQ...."/>    <meta name="keywords" content="随笔,Java,博客,Linux,python"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="查询操作：从示例数据中执行 - LGX 的个人博客"/><meta property="og:site_name" content="LGX 的个人博客"/><meta property="og:url"      content="https://23095100.github.io/articles/2020/07/24/1595579776594.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="查询操作：从示例数据中执行 - LGX 的个人博客" href="/opensearch.xml"><link href="https://23095100.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://23095100.github.io/manifest.json">        <link rel="canonical" href="https://23095100.github.io/articles/2020/07/24/1595579776594.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/css/base.css?1599471736118"/>
             <link rel="prev" title="【共享】解决 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议" href="https://23095100.github.io/articles/2020/07/23/1595493202227.html">
             <link rel="next" title="MySQL报错解决方案：2013-Lost connection to MySQL server" href="https://23095100.github.io/articles/2020/08/05/1596611224769.html">
     </head>
@@ -10,7 +10,7 @@
 <header class="header">
     <div class="wrapper">
         <a href="https://23095100.github.io" rel="start" class="header__logo">
-            <img src="https://b3logfile.com/avatar/1594718285889.png?imageView2/1/w/128/h/128/interlace/0/q/100" alt="LGX 的个人博客"/>
+            <img src="https://b3logfile.com/avatar/1594718285889_1599444034163.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="LGX 的个人博客"/>
             LGX 的个人博客
         </a>
 
@@ -79,347 +79,344 @@
                 </a>
         </div>
         <div class="vditor-reset">
-            <pre><code></code></pre>
-<p>[TOC]</p>
-<h1 id="toc_h1_0">1、示例数据导入</h1>
-<pre><code class="language-sql">[root@aliyun ~]# wget 'https://codeload.github.com/datacharmer/test_db/zip/master' -O master.zip
-[root@aliyun ~]# unzip master.zip 
-[root@aliyun ~]# cd test_db-master/
-[root@aliyun ~]# mysql -u root -p &lt; employees.sql
-Enter password: 
-INFO
-CREATING DATABASE STRUCTURE
-INFO
-storage engine: InnoDB
-INFO
-LOADING departments
-INFO
-LOADING employees
-...
+            <pre><code class="highlight-chroma"></code></pre>
+<div class="vditor-toc"><span class="toc-h1"><a class="toc-a" href="#1-示例数据导入">1、示例数据导入</a></span><br><span class="toc-h1"><a class="toc-a" href="#2-查询操作">2、查询操作</a></span><br>  <span class="toc-h2"><a class="toc-a" href="#2-1-简单查询操作">2.1 简单查询操作</a></span><br>  <span class="toc-h2"><a class="toc-a" href="#2-2-操作符查询">2.2 操作符查询</a></span><br>  <span class="toc-h2"><a class="toc-a" href="#2-3-正则表达式">2.3 正则表达式</a></span><br>  <span class="toc-h2"><a class="toc-a" href="#2-4-对查询结果进行排序">2.4 对查询结果进行排序</a></span><br>  <span class="toc-h2"><a class="toc-a" href="#2-5-聚合函数">2.5 聚合函数</a></span><br>  <span class="toc-h2"><a class="toc-a" href="#2-6-HAVING与-GROUP-BY结合过滤">2.6 HAVING与 GROUP BY结合过滤</a></span><br></div>
+<h1 id="1-示例数据导入">1、示例数据导入</h1>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-p">[</span><span class="highlight-n">root</span><span class="highlight-o">@</span><span class="highlight-n">aliyun</span> <span class="highlight-o">~</span><span class="highlight-p">]</span><span class="highlight-o">#</span> <span class="highlight-n">wget</span> <span class="highlight-s1">'https://codeload.github.com/datacharmer/test_db/zip/master'</span> <span class="highlight-o">-</span><span class="highlight-n">O</span> <span class="highlight-n">master</span><span class="highlight-p">.</span><span class="highlight-n">zip</span>
+<span class="highlight-ln"> 2</span><span class="highlight-p">[</span><span class="highlight-n">root</span><span class="highlight-o">@</span><span class="highlight-n">aliyun</span> <span class="highlight-o">~</span><span class="highlight-p">]</span><span class="highlight-o">#</span> <span class="highlight-n">unzip</span> <span class="highlight-n">master</span><span class="highlight-p">.</span><span class="highlight-n">zip</span> 
+<span class="highlight-ln"> 3</span><span class="highlight-p">[</span><span class="highlight-n">root</span><span class="highlight-o">@</span><span class="highlight-n">aliyun</span> <span class="highlight-o">~</span><span class="highlight-p">]</span><span class="highlight-o">#</span> <span class="highlight-n">cd</span> <span class="highlight-n">test_db</span><span class="highlight-o">-</span><span class="highlight-n">master</span><span class="highlight-o">/</span>
+<span class="highlight-ln"> 4</span><span class="highlight-p">[</span><span class="highlight-n">root</span><span class="highlight-o">@</span><span class="highlight-n">aliyun</span> <span class="highlight-o">~</span><span class="highlight-p">]</span><span class="highlight-o">#</span> <span class="highlight-n">mysql</span> <span class="highlight-o">-</span><span class="highlight-n">u</span> <span class="highlight-n">root</span> <span class="highlight-o">-</span><span class="highlight-n">p</span> <span class="highlight-o">&lt;</span> <span class="highlight-n">employees</span><span class="highlight-p">.</span><span class="highlight-k">sql</span>
+<span class="highlight-ln"> 5</span><span class="highlight-n">Enter</span> <span class="highlight-n">password</span><span class="highlight-p">:</span> 
+<span class="highlight-ln"> 6</span><span class="highlight-n">INFO</span>
+<span class="highlight-ln"> 7</span><span class="highlight-n">CREATING</span> <span class="highlight-k">DATABASE</span> <span class="highlight-k">STRUCTURE</span>
+<span class="highlight-ln"> 8</span><span class="highlight-n">INFO</span>
+<span class="highlight-ln"> 9</span><span class="highlight-k">storage</span> <span class="highlight-n">engine</span><span class="highlight-p">:</span> <span class="highlight-n">InnoDB</span>
+<span class="highlight-ln">10</span><span class="highlight-n">INFO</span>
+<span class="highlight-ln">11</span><span class="highlight-n">LOADING</span> <span class="highlight-n">departments</span>
+<span class="highlight-ln">12</span><span class="highlight-n">INFO</span>
+<span class="highlight-ln">13</span><span class="highlight-n">LOADING</span> <span class="highlight-n">employees</span>
+<span class="highlight-ln">14</span><span class="highlight-p">...</span>
 </code></pre>
-<p>验证数据：</p>
-<pre><code class="language-sql">[root@aliyun ~]# mysql -u root -p  employees -A
-Enter password: 
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 56636
-Server version: 8.0.20 MySQL Community Server - GPL
-
-Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-mysql&gt; show tables;
-+----------------------+
-| Tables_in_employees  |
-+----------------------+
-| current_dept_emp     |
-| departments          |
-| dept_emp             |
-| dept_emp_latest_date |
-| dept_manager         |
-| employees            |
-| salaries             |
-| titles               |
-+----------------------+
-8 rows in set (0.00 sec)
+<p>  验证数据：</p>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-p">[</span><span class="highlight-n">root</span><span class="highlight-o">@</span><span class="highlight-n">aliyun</span> <span class="highlight-o">~</span><span class="highlight-p">]</span><span class="highlight-o">#</span> <span class="highlight-n">mysql</span> <span class="highlight-o">-</span><span class="highlight-n">u</span> <span class="highlight-n">root</span> <span class="highlight-o">-</span><span class="highlight-n">p</span>  <span class="highlight-n">employees</span> <span class="highlight-o">-</span><span class="highlight-n">A</span>
+<span class="highlight-ln"> 2</span><span class="highlight-n">Enter</span> <span class="highlight-n">password</span><span class="highlight-p">:</span> 
+<span class="highlight-ln"> 3</span><span class="highlight-n">Welcome</span> <span class="highlight-k">to</span> <span class="highlight-n">the</span> <span class="highlight-n">MySQL</span> <span class="highlight-n">monitor</span><span class="highlight-p">.</span>  <span class="highlight-n">Commands</span> <span class="highlight-k">end</span> <span class="highlight-k">with</span> <span class="highlight-p">;</span> <span class="highlight-k">or</span> <span class="highlight-err">\</span><span class="highlight-k">g</span><span class="highlight-p">.</span>
+<span class="highlight-ln"> 4</span><span class="highlight-n">Your</span> <span class="highlight-n">MySQL</span> <span class="highlight-k">connection</span> <span class="highlight-n">id</span> <span class="highlight-k">is</span> <span class="highlight-mi">56636</span>
+<span class="highlight-ln"> 5</span><span class="highlight-n">Server</span> <span class="highlight-k">version</span><span class="highlight-p">:</span> <span class="highlight-mi">8</span><span class="highlight-p">.</span><span class="highlight-mi">0</span><span class="highlight-p">.</span><span class="highlight-mi">20</span> <span class="highlight-n">MySQL</span> <span class="highlight-n">Community</span> <span class="highlight-n">Server</span> <span class="highlight-o">-</span> <span class="highlight-n">GPL</span>
+<span class="highlight-ln"> 6</span>
+<span class="highlight-ln"> 7</span><span class="highlight-n">Copyright</span> <span class="highlight-p">(</span><span class="highlight-k">c</span><span class="highlight-p">)</span> <span class="highlight-mi">2000</span><span class="highlight-p">,</span> <span class="highlight-mi">2018</span><span class="highlight-p">,</span> <span class="highlight-n">Oracle</span> <span class="highlight-k">and</span><span class="highlight-o">/</span><span class="highlight-k">or</span> <span class="highlight-n">its</span> <span class="highlight-n">affiliates</span><span class="highlight-p">.</span> <span class="highlight-k">All</span> <span class="highlight-n">rights</span> <span class="highlight-n">reserved</span><span class="highlight-p">.</span>
+<span class="highlight-ln"> 8</span>
+<span class="highlight-ln"> 9</span><span class="highlight-n">Oracle</span> <span class="highlight-k">is</span> <span class="highlight-n">a</span> <span class="highlight-n">registered</span> <span class="highlight-n">trademark</span> <span class="highlight-k">of</span> <span class="highlight-n">Oracle</span> <span class="highlight-n">Corporation</span> <span class="highlight-k">and</span><span class="highlight-o">/</span><span class="highlight-k">or</span> <span class="highlight-n">its</span>
+<span class="highlight-ln">10</span><span class="highlight-n">affiliates</span><span class="highlight-p">.</span> <span class="highlight-n">Other</span> <span class="highlight-k">names</span> <span class="highlight-n">may</span> <span class="highlight-n">be</span> <span class="highlight-n">trademarks</span> <span class="highlight-k">of</span> <span class="highlight-n">their</span> <span class="highlight-n">respective</span>
+<span class="highlight-ln">11</span><span class="highlight-n">owners</span><span class="highlight-p">.</span>
+<span class="highlight-ln">12</span>
+<span class="highlight-ln">13</span><span class="highlight-k">Type</span> <span class="highlight-s1">'help;'</span> <span class="highlight-k">or</span> <span class="highlight-s1">'\h'</span> <span class="highlight-k">for</span> <span class="highlight-n">help</span><span class="highlight-p">.</span> <span class="highlight-k">Type</span> <span class="highlight-s1">'\c'</span> <span class="highlight-k">to</span> <span class="highlight-n">clear</span> <span class="highlight-n">the</span> <span class="highlight-k">current</span> <span class="highlight-k">input</span> <span class="highlight-k">statement</span><span class="highlight-p">.</span>
+<span class="highlight-ln">14</span>
+<span class="highlight-ln">15</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">show</span> <span class="highlight-n">tables</span><span class="highlight-p">;</span>
+<span class="highlight-ln">16</span><span class="highlight-o">+</span><span class="highlight-c1">----------------------+
+</span><span class="highlight-ln">17</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-n">Tables_in_employees</span>  <span class="highlight-o">|</span>
+<span class="highlight-ln">18</span><span class="highlight-o">+</span><span class="highlight-c1">----------------------+
+</span><span class="highlight-ln">19</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-n">current_dept_emp</span>     <span class="highlight-o">|</span>
+<span class="highlight-ln">20</span><span class="highlight-o">|</span> <span class="highlight-n">departments</span>          <span class="highlight-o">|</span>
+<span class="highlight-ln">21</span><span class="highlight-o">|</span> <span class="highlight-n">dept_emp</span>             <span class="highlight-o">|</span>
+<span class="highlight-ln">22</span><span class="highlight-o">|</span> <span class="highlight-n">dept_emp_latest_date</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">23</span><span class="highlight-o">|</span> <span class="highlight-n">dept_manager</span>         <span class="highlight-o">|</span>
+<span class="highlight-ln">24</span><span class="highlight-o">|</span> <span class="highlight-n">employees</span>            <span class="highlight-o">|</span>
+<span class="highlight-ln">25</span><span class="highlight-o">|</span> <span class="highlight-n">salaries</span>             <span class="highlight-o">|</span>
+<span class="highlight-ln">26</span><span class="highlight-o">|</span> <span class="highlight-n">titles</span>               <span class="highlight-o">|</span>
+<span class="highlight-ln">27</span><span class="highlight-o">+</span><span class="highlight-c1">----------------------+
+</span><span class="highlight-ln">28</span><span class="highlight-c1"></span><span class="highlight-mi">8</span> <span class="highlight-k">rows</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">0</span><span class="highlight-p">.</span><span class="highlight-mi">00</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
 </code></pre>
-<h1 id="toc_h1_1">2、查询操作</h1>
-<h2 id="toc_h2_2">2.1 简单查询操作</h2>
+<h1 id="2-查询操作">2、查询操作</h1>
+<h2 id="2-1-简单查询操作">2.1 简单查询操作</h2>
 <ul>
 <li>查询全部</li>
 </ul>
-<pre><code class="language-sql">mysql&gt; select * from departments;
-+---------+--------------------+
-| dept_no | dept_name          |
-+---------+--------------------+
-| d009    | Customer Service   |
-| d005    | Development        |
-| d002    | Finance            |
-| d003    | Human Resources    |
-| d001    | Marketing          |
-| d004    | Production         |
-| d006    | Quality Management |
-| d008    | Research           |
-| d007    | Sales              |
-+---------+--------------------+
-9 rows in set (0.02 sec)
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">select</span> <span class="highlight-o">*</span> <span class="highlight-k">from</span> <span class="highlight-n">departments</span><span class="highlight-p">;</span>
+<span class="highlight-ln"> 2</span><span class="highlight-o">+</span><span class="highlight-c1">---------+--------------------+
+</span><span class="highlight-ln"> 3</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-n">dept_no</span> <span class="highlight-o">|</span> <span class="highlight-n">dept_name</span>          <span class="highlight-o">|</span>
+<span class="highlight-ln"> 4</span><span class="highlight-o">+</span><span class="highlight-c1">---------+--------------------+
+</span><span class="highlight-ln"> 5</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-n">d009</span>    <span class="highlight-o">|</span> <span class="highlight-n">Customer</span> <span class="highlight-n">Service</span>   <span class="highlight-o">|</span>
+<span class="highlight-ln"> 6</span><span class="highlight-o">|</span> <span class="highlight-n">d005</span>    <span class="highlight-o">|</span> <span class="highlight-n">Development</span>        <span class="highlight-o">|</span>
+<span class="highlight-ln"> 7</span><span class="highlight-o">|</span> <span class="highlight-n">d002</span>    <span class="highlight-o">|</span> <span class="highlight-n">Finance</span>            <span class="highlight-o">|</span>
+<span class="highlight-ln"> 8</span><span class="highlight-o">|</span> <span class="highlight-n">d003</span>    <span class="highlight-o">|</span> <span class="highlight-n">Human</span> <span class="highlight-n">Resources</span>    <span class="highlight-o">|</span>
+<span class="highlight-ln"> 9</span><span class="highlight-o">|</span> <span class="highlight-n">d001</span>    <span class="highlight-o">|</span> <span class="highlight-n">Marketing</span>          <span class="highlight-o">|</span>
+<span class="highlight-ln">10</span><span class="highlight-o">|</span> <span class="highlight-n">d004</span>    <span class="highlight-o">|</span> <span class="highlight-n">Production</span>         <span class="highlight-o">|</span>
+<span class="highlight-ln">11</span><span class="highlight-o">|</span> <span class="highlight-n">d006</span>    <span class="highlight-o">|</span> <span class="highlight-n">Quality</span> <span class="highlight-n">Management</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">12</span><span class="highlight-o">|</span> <span class="highlight-n">d008</span>    <span class="highlight-o">|</span> <span class="highlight-n">Research</span>           <span class="highlight-o">|</span>
+<span class="highlight-ln">13</span><span class="highlight-o">|</span> <span class="highlight-n">d007</span>    <span class="highlight-o">|</span> <span class="highlight-n">Sales</span>              <span class="highlight-o">|</span>
+<span class="highlight-ln">14</span><span class="highlight-o">+</span><span class="highlight-c1">---------+--------------------+
+</span><span class="highlight-ln">15</span><span class="highlight-c1"></span><span class="highlight-mi">9</span> <span class="highlight-k">rows</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">0</span><span class="highlight-p">.</span><span class="highlight-mi">02</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
 </code></pre>
 <ul>
 <li>计数，行总数</li>
 </ul>
-<pre><code class="language-sql">mysql&gt; select count(*) from departments;
-+----------+
-| count(*) |
-+----------+
-|        9 |
-+----------+
-1 row in set (0.00 sec)
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">select</span> <span class="highlight-k">count</span><span class="highlight-p">(</span><span class="highlight-o">*</span><span class="highlight-p">)</span> <span class="highlight-k">from</span> <span class="highlight-n">departments</span><span class="highlight-p">;</span>
+<span class="highlight-ln">2</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">3</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-k">count</span><span class="highlight-p">(</span><span class="highlight-o">*</span><span class="highlight-p">)</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">4</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">5</span><span class="highlight-c1"></span><span class="highlight-o">|</span>        <span class="highlight-mi">9</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">6</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">7</span><span class="highlight-c1"></span><span class="highlight-mi">1</span> <span class="highlight-k">row</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">0</span><span class="highlight-p">.</span><span class="highlight-mi">00</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
 </code></pre>
 <ul>
 <li>按条件查询</li>
 </ul>
-<p>通过where字句进行条件过滤，找到 first_name为Georgi且last_name为Facello的员工的 emp_no字段值:</p>
-<p><em>除<strong>整型数</strong>和<strong>浮点数</strong>之外，其他所有内容都应放在引号内。</em></p>
-<pre><code class="language-sql">mysql&gt; SELECT emp_no FROM employees WHERE first_name='Georgi' AND last_name='Facello';
-+--------+
-| emp_no |
-+--------+
-|  10001 |
-|  55649 |
-+--------+
-2 rows in set (0.21 sec)
+<p>  通过 where 字句进行条件过滤，找到 first_name 为 Georgi 且 last_name 为 Facello 的员工的 emp_no 字段值：</p>
+<p>  <em>除<strong>整型数</strong>和<strong>浮点数</strong>之外，其他所有内容都应放在引号内。</em></p>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">SELECT</span> <span class="highlight-n">emp_no</span> <span class="highlight-k">FROM</span> <span class="highlight-n">employees</span> <span class="highlight-k">WHERE</span> <span class="highlight-n">first_name</span><span class="highlight-o">=</span><span class="highlight-s1">'Georgi'</span> <span class="highlight-k">AND</span> <span class="highlight-n">last_name</span><span class="highlight-o">=</span><span class="highlight-s1">'Facello'</span><span class="highlight-p">;</span>
+<span class="highlight-ln">2</span><span class="highlight-o">+</span><span class="highlight-c1">--------+
+</span><span class="highlight-ln">3</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-n">emp_no</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">4</span><span class="highlight-o">+</span><span class="highlight-c1">--------+
+</span><span class="highlight-ln">5</span><span class="highlight-c1"></span><span class="highlight-o">|</span>  <span class="highlight-mi">10001</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">6</span><span class="highlight-o">|</span>  <span class="highlight-mi">55649</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">7</span><span class="highlight-o">+</span><span class="highlight-c1">--------+
+</span><span class="highlight-ln">8</span><span class="highlight-c1"></span><span class="highlight-mi">2</span> <span class="highlight-k">rows</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">0</span><span class="highlight-p">.</span><span class="highlight-mi">21</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
 </code></pre>
-<h2 id="toc_h2_3">2.2 操作符查询</h2>
-<p>**IN(set) **：检查一个值是否在一组值中</p>
-<p>查询 last_name 为Christ，Lamba，Baba的员工总数</p>
-<pre><code class="language-sql">mysql&gt; 	SELECT COUNT(*) FROM employees WHERE last_name IN ('Christ', 'Lamba', 'Baba');
-+----------+
-| COUNT(*) |
-+----------+
-|      626 |
-+----------+
-1 row in set (0.20 sec)
+<h2 id="2-2-操作符查询">2.2 操作符查询</h2>
+<p>  **IN(set) **：检查一个值是否在一组值中</p>
+<p>  查询 last_name 为 Christ，Lamba，Baba 的员工总数</p>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> 	<span class="highlight-k">SELECT</span> <span class="highlight-k">COUNT</span><span class="highlight-p">(</span><span class="highlight-o">*</span><span class="highlight-p">)</span> <span class="highlight-k">FROM</span> <span class="highlight-n">employees</span> <span class="highlight-k">WHERE</span> <span class="highlight-n">last_name</span> <span class="highlight-k">IN</span> <span class="highlight-p">(</span><span class="highlight-s1">'Christ'</span><span class="highlight-p">,</span> <span class="highlight-s1">'Lamba'</span><span class="highlight-p">,</span> <span class="highlight-s1">'Baba'</span><span class="highlight-p">);</span>
+<span class="highlight-ln">2</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">3</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-k">COUNT</span><span class="highlight-p">(</span><span class="highlight-o">*</span><span class="highlight-p">)</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">4</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">5</span><span class="highlight-c1"></span><span class="highlight-o">|</span>      <span class="highlight-mi">626</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">6</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">7</span><span class="highlight-c1"></span><span class="highlight-mi">1</span> <span class="highlight-k">row</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">0</span><span class="highlight-p">.</span><span class="highlight-mi">20</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
 </code></pre>
-<p><strong>BETWEEN...AND</strong>： 一个值是否在范围之内</p>
-<p><code>BETWEEN...AND</code>中间输入的前后数值是<strong>包含</strong>在内的</p>
-<p>查询在1986年12月份被雇佣的总员工数</p>
-<pre><code class="language-sql">mysql&gt; SELECT COUNT(*) FROM employees WHERE hire_date BETWEEN '1986-12-01' AND '1986-12-31';
-+----------+
-| COUNT(*) |
-+----------+
-|     3081 |
-+----------+
-1 row in set (0.12 sec)
+<p>  <strong>BETWEEN...AND</strong>： 一个值是否在范围之内</p>
+<p>  <code>BETWEEN...AND</code> 中间输入的前后数值是<strong>包含</strong>在内的</p>
+<p>  查询在 1986 年 12 月份被雇佣的总员工数</p>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">SELECT</span> <span class="highlight-k">COUNT</span><span class="highlight-p">(</span><span class="highlight-o">*</span><span class="highlight-p">)</span> <span class="highlight-k">FROM</span> <span class="highlight-n">employees</span> <span class="highlight-k">WHERE</span> <span class="highlight-n">hire_date</span> <span class="highlight-k">BETWEEN</span> <span class="highlight-s1">'1986-12-01'</span> <span class="highlight-k">AND</span> <span class="highlight-s1">'1986-12-31'</span><span class="highlight-p">;</span>
+<span class="highlight-ln">2</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">3</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-k">COUNT</span><span class="highlight-p">(</span><span class="highlight-o">*</span><span class="highlight-p">)</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">4</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">5</span><span class="highlight-c1"></span><span class="highlight-o">|</span>     <span class="highlight-mi">3081</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">6</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">7</span><span class="highlight-c1"></span><span class="highlight-mi">1</span> <span class="highlight-k">row</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">0</span><span class="highlight-p">.</span><span class="highlight-mi">12</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
 </code></pre>
-<p><strong>NOT</strong>：否定条件</p>
-<p>查询不是在1986年12月份被雇佣的总员工数</p>
-<pre><code class="language-sql">mysql&gt; SELECT COUNT(*) FROM employees WHERE hire_date not BETWEEN '1986-12-01' AND '1986-12-31';
-+----------+
-| COUNT(*) |
-+----------+
-|   296943 |
-+----------+
-1 row in set (0.13 sec)
+<p>  <strong>NOT</strong>：否定条件</p>
+<p>  查询不是在 1986 年 12 月份被雇佣的总员工数</p>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">SELECT</span> <span class="highlight-k">COUNT</span><span class="highlight-p">(</span><span class="highlight-o">*</span><span class="highlight-p">)</span> <span class="highlight-k">FROM</span> <span class="highlight-n">employees</span> <span class="highlight-k">WHERE</span> <span class="highlight-n">hire_date</span> <span class="highlight-k">not</span> <span class="highlight-k">BETWEEN</span> <span class="highlight-s1">'1986-12-01'</span> <span class="highlight-k">AND</span> <span class="highlight-s1">'1986-12-31'</span><span class="highlight-p">;</span>
+<span class="highlight-ln">2</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">3</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-k">COUNT</span><span class="highlight-p">(</span><span class="highlight-o">*</span><span class="highlight-p">)</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">4</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">5</span><span class="highlight-c1"></span><span class="highlight-o">|</span>   <span class="highlight-mi">296943</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">6</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">7</span><span class="highlight-c1"></span><span class="highlight-mi">1</span> <span class="highlight-k">row</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">0</span><span class="highlight-p">.</span><span class="highlight-mi">13</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
 </code></pre>
-<p><strong>LIKE 模糊查询</strong></p>
-<p>使用下划线（＿）来匹配一个字符，使用（％）来匹配任意数量的字符。</p>
-<p>找出名字以 Christ 开头的所有员工的人数：</p>
-<pre><code class="language-sql">mysql&gt; SELECT COUNT(*) FROM employees WHERE first_name LIKE 'christ%';
-+----------+
-| COUNT(*) |
-+----------+
-|     1157 |
-+----------+
-1 row in set (0.13 sec)
+<p>  <strong>LIKE 模糊查询</strong></p>
+<p>  使用下划线（＿）来匹配一个字符，使用（％）来匹配任意数量的字符。</p>
+<p>  找出名字以 Christ 开头的所有员工的人数：</p>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">SELECT</span> <span class="highlight-k">COUNT</span><span class="highlight-p">(</span><span class="highlight-o">*</span><span class="highlight-p">)</span> <span class="highlight-k">FROM</span> <span class="highlight-n">employees</span> <span class="highlight-k">WHERE</span> <span class="highlight-n">first_name</span> <span class="highlight-k">LIKE</span> <span class="highlight-s1">'christ%'</span><span class="highlight-p">;</span>
+<span class="highlight-ln">2</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">3</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-k">COUNT</span><span class="highlight-p">(</span><span class="highlight-o">*</span><span class="highlight-p">)</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">4</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">5</span><span class="highlight-c1"></span><span class="highlight-o">|</span>     <span class="highlight-mi">1157</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">6</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">7</span><span class="highlight-c1"></span><span class="highlight-mi">1</span> <span class="highlight-k">row</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">0</span><span class="highlight-p">.</span><span class="highlight-mi">13</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
 </code></pre>
-<p><strong>AS 别名</strong></p>
+<p>  <strong>AS 别名</strong></p>
 <blockquote>
 <p>默认情况下， SELECT 子句中给出的任何列都将显示在结果中。 在前面的示例中， 我们已经得出了统计数值，但它显示为 <em>COUNT(</em>)<em>。你可以使用 <em>AS</em> 别名来更改 <em>COUNT(</em>)</em></p>
 </blockquote>
-<pre><code class="language-sql">mysql&gt; SELECT COUNT(*) AS count FROM employees WHERE hire_date BETWEEN '1986-12-01' AND '1986-12-31';
-+-------+
-| count |
-+-------+
-|  3081 |
-+-------+
-1 row in set (0.12 sec)
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">SELECT</span> <span class="highlight-k">COUNT</span><span class="highlight-p">(</span><span class="highlight-o">*</span><span class="highlight-p">)</span> <span class="highlight-k">AS</span> <span class="highlight-k">count</span> <span class="highlight-k">FROM</span> <span class="highlight-n">employees</span> <span class="highlight-k">WHERE</span> <span class="highlight-n">hire_date</span> <span class="highlight-k">BETWEEN</span> <span class="highlight-s1">'1986-12-01'</span> <span class="highlight-k">AND</span> <span class="highlight-s1">'1986-12-31'</span><span class="highlight-p">;</span>
+<span class="highlight-ln">2</span><span class="highlight-o">+</span><span class="highlight-c1">-------+
+</span><span class="highlight-ln">3</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-k">count</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">4</span><span class="highlight-o">+</span><span class="highlight-c1">-------+
+</span><span class="highlight-ln">5</span><span class="highlight-c1"></span><span class="highlight-o">|</span>  <span class="highlight-mi">3081</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">6</span><span class="highlight-o">+</span><span class="highlight-c1">-------+
+</span><span class="highlight-ln">7</span><span class="highlight-c1"></span><span class="highlight-mi">1</span> <span class="highlight-k">row</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">0</span><span class="highlight-p">.</span><span class="highlight-mi">12</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
 </code></pre>
-<h2 id="toc_h2_4">2.3 正则表达式</h2>
-<p>可以用***RLIKE***或*<strong>REGEXP*<strong>运算符在</strong>WHERE子句</strong>中使用正则表达式。</p>
-<p>|   表达式   |   描述   |</p>
-<table>
-<thead></thead>
-<tbody></tbody>
-</table>
-<p>|   *   |   零次或多次重复   |</p>
-<p>|   +   |   一个或多个重复   |</p>
-<p>|   ?   |   可选字符   |</p>
-<p>|   .   |   任何字符   |</p>
-<p>|   \.   |    区间  |</p>
-<p>|   ^   |   以...开始   |</p>
-<p>|   $   |   以...结束   |</p>
-<p>|   [abc]   |   只有a，b，c   |</p>
-<p>|   [^abc]   |   非a，b，c   |</p>
-<p>|   [a-z]   |   字符从a到z   |</p>
-<p>|   [0-9]   |   数字从0-9   |</p>
-<p>|   ^...$   |   开始和结束   |</p>
-<p>|   \d   |   任何数字   |</p>
-<p>|   \D       |   任何非数字字符   |</p>
-<p>|   \s   |   任何空格   |</p>
-<p>|\S|任何非空白字符|</p>
-<p>|\w|任何字母，数字字符|</p>
-<p>|\W|任何非字母，数字字符|</p>
-<p>|{m}|m次重复|</p>
-<p>|{m,n}|m到n次重复|</p>
-<p>找出名字以 Christ 开头的所有员工的人数：</p>
-<pre><code class="language-sql">mysql&gt; SELECT COUNT(*) FROM employees WHERE first_name RLIKE '^christ';
-+----------+
-| COUNT(*) |
-+----------+
-|     1157 |
-+----------+
-1 row in set (0.34 sec)	
+<h2 id="2-3-正则表达式">2.3 正则表达式</h2>
+<p>  可以用<em><strong>RLIKE</strong></em>或<em><strong>REGEXP</strong></em>运算符在 <strong>WHERE 子句</strong>中使用正则表达式。</p>
+<p>  |   表达式   |   描述   |</p>
+<p>  | :--: | :----: |</p>
+<p>  |   *   |   零次或多次重复   |</p>
+<p>  |   +   |   一个或多个重复   |</p>
+<p>  |   ?   |   可选字符   |</p>
+<p>  |   .   |   任何字符   |</p>
+<p>  |   \.   |    区间  |</p>
+<p>  |   ^   |   以...开始   |</p>
+<p>  |   $   |   以...结束   |</p>
+<p>  |   [abc]   |   只有 a，b，c   |</p>
+<p>  |   [^abc]   |   非 a，b，c   |</p>
+<p>  |   [a-z]   |   字符从 a 到 z   |</p>
+<p>  |   [0-9]   |   数字从 0-9   |</p>
+<p>  |   ^...$   |   开始和结束   |</p>
+<p>  |   \d   |   任何数字   |</p>
+<p>  |   \D       |   任何非数字字符   |</p>
+<p>  |   \s   |   任何空格   |</p>
+<p>  |\S| 任何非空白字符 |</p>
+<p>  |\w| 任何字母，数字字符 |</p>
+<p>  |\W| 任何非字母，数字字符 |</p>
+<p>  |{m}|m 次重复 |</p>
+<p>  |{m,n}|m 到 n 次重复 |</p>
+<p>  找出名字以 Christ 开头的所有员工的人数：</p>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">SELECT</span> <span class="highlight-k">COUNT</span><span class="highlight-p">(</span><span class="highlight-o">*</span><span class="highlight-p">)</span> <span class="highlight-k">FROM</span> <span class="highlight-n">employees</span> <span class="highlight-k">WHERE</span> <span class="highlight-n">first_name</span> <span class="highlight-n">RLIKE</span> <span class="highlight-s1">'^christ'</span><span class="highlight-p">;</span>
+<span class="highlight-ln">2</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">3</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-k">COUNT</span><span class="highlight-p">(</span><span class="highlight-o">*</span><span class="highlight-p">)</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">4</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">5</span><span class="highlight-c1"></span><span class="highlight-o">|</span>     <span class="highlight-mi">1157</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">6</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">7</span><span class="highlight-c1"></span><span class="highlight-mi">1</span> <span class="highlight-k">row</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">0</span><span class="highlight-p">.</span><span class="highlight-mi">34</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>	
 </code></pre>
-<p>找出名字以 Christ 开头并以 ed 结尾的所有员工的人数：</p>
-<pre><code class="language-sql">mysql&gt; SELECT COUNT(*) FROM employees WHERE last_name REGEXP 'ba$';
-+----------+
-| COUNT(*) |
-+----------+
-|     1008 |
-+----------+
-1 row in set (0.22 sec)
+<p>  找出名字以 Christ 开头并以 ed 结尾的所有员工的人数：</p>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">SELECT</span> <span class="highlight-k">COUNT</span><span class="highlight-p">(</span><span class="highlight-o">*</span><span class="highlight-p">)</span> <span class="highlight-k">FROM</span> <span class="highlight-n">employees</span> <span class="highlight-k">WHERE</span> <span class="highlight-n">last_name</span> <span class="highlight-n">REGEXP</span> <span class="highlight-s1">'ba$'</span><span class="highlight-p">;</span>
+<span class="highlight-ln">2</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">3</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-k">COUNT</span><span class="highlight-p">(</span><span class="highlight-o">*</span><span class="highlight-p">)</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">4</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">5</span><span class="highlight-c1"></span><span class="highlight-o">|</span>     <span class="highlight-mi">1008</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">6</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">7</span><span class="highlight-c1"></span><span class="highlight-mi">1</span> <span class="highlight-k">row</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">0</span><span class="highlight-p">.</span><span class="highlight-mi">22</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
 </code></pre>
-<h2 id="toc_h2_5">2.4 对查询结果进行排序</h2>
-<p><code>ORDER BY xxx</code> 按照xxx字段进行排序</p>
-<p><code>DESC</code> 降序 <strong>从大到小</strong></p>
-<p><code>ASC</code>  升序 <strong>从小到大</strong></p>
-<p>默认情况下，排序将按照升序进行</p>
-<p><strong>limit m,n</strong></p>
-<p>其中m是指记录开始的索引值，从0开始，表示第一条记录</p>
-<p>n是指从第m+1条开始，取n条记录</p>
-<p>select * from tablename limit 2,4</p>
-<p>即取出第3条至第6条，一共4条记录</p>
-<pre><code class="language-sql">mysql&gt; SELECT * FROM employees.dept_emp LIMIT 0,5;
-+--------+---------+------------+------------+
-| emp_no | dept_no | from_date  | to_date    |
-+--------+---------+------------+------------+
-|  10001 | d005    | 1986-06-26 | 9999-01-01 |
-|  10002 | d007    | 1996-08-03 | 9999-01-01 |
-|  10003 | d004    | 1995-12-03 | 9999-01-01 |
-|  10004 | d004    | 1986-12-01 | 9999-01-01 |
-|  10005 | d003    | 1989-09-12 | 9999-01-01 |
-+--------+---------+------------+------------+
-5 rows in set (0.00 sec)
-# 等价于
-mysql&gt; SELECT * FROM employees.dept_emp LIMIT 5;
-+--------+---------+------------+------------+
-| emp_no | dept_no | from_date  | to_date    |
-+--------+---------+------------+------------+
-|  10001 | d005    | 1986-06-26 | 9999-01-01 |
-|  10002 | d007    | 1996-08-03 | 9999-01-01 |
-|  10003 | d004    | 1995-12-03 | 9999-01-01 |
-|  10004 | d004    | 1986-12-01 | 9999-01-01 |
-|  10005 | d003    | 1989-09-12 | 9999-01-01 |
-+--------+---------+------------+------------+
-5 rows in set (0.00 sec)
+<h2 id="2-4-对查询结果进行排序">2.4 对查询结果进行排序</h2>
+<p>  <code>ORDER BY xxx</code> 按照 xxx 字段进行排序</p>
+<p>  <code>DESC</code> 降序 <strong>从大到小</strong></p>
+<p>  <code>ASC</code>  升序 <strong>从小到大</strong></p>
+<p>  默认情况下，排序将按照升序进行</p>
+<p>  <strong>limit m,n</strong></p>
+<p>  其中 m 是指记录开始的索引值，从 0 开始，表示第一条记录</p>
+<p>  n 是指从第 m+1 条开始，取 n 条记录</p>
+<p>  select * from tablename limit 2,4</p>
+<p>  即取出第 3 条至第 6 条，一共 4 条记录</p>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">SELECT</span> <span class="highlight-o">*</span> <span class="highlight-k">FROM</span> <span class="highlight-n">employees</span><span class="highlight-p">.</span><span class="highlight-n">dept_emp</span> <span class="highlight-k">LIMIT</span> <span class="highlight-mi">0</span><span class="highlight-p">,</span><span class="highlight-mi">5</span><span class="highlight-p">;</span>
+<span class="highlight-ln"> 2</span><span class="highlight-o">+</span><span class="highlight-c1">--------+---------+------------+------------+
+</span><span class="highlight-ln"> 3</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-n">emp_no</span> <span class="highlight-o">|</span> <span class="highlight-n">dept_no</span> <span class="highlight-o">|</span> <span class="highlight-n">from_date</span>  <span class="highlight-o">|</span> <span class="highlight-n">to_date</span>    <span class="highlight-o">|</span>
+<span class="highlight-ln"> 4</span><span class="highlight-o">+</span><span class="highlight-c1">--------+---------+------------+------------+
+</span><span class="highlight-ln"> 5</span><span class="highlight-c1"></span><span class="highlight-o">|</span>  <span class="highlight-mi">10001</span> <span class="highlight-o">|</span> <span class="highlight-n">d005</span>    <span class="highlight-o">|</span> <span class="highlight-mi">1986</span><span class="highlight-o">-</span><span class="highlight-mi">06</span><span class="highlight-o">-</span><span class="highlight-mi">26</span> <span class="highlight-o">|</span> <span class="highlight-mi">9999</span><span class="highlight-o">-</span><span class="highlight-mi">01</span><span class="highlight-o">-</span><span class="highlight-mi">01</span> <span class="highlight-o">|</span>
+<span class="highlight-ln"> 6</span><span class="highlight-o">|</span>  <span class="highlight-mi">10002</span> <span class="highlight-o">|</span> <span class="highlight-n">d007</span>    <span class="highlight-o">|</span> <span class="highlight-mi">1996</span><span class="highlight-o">-</span><span class="highlight-mi">08</span><span class="highlight-o">-</span><span class="highlight-mi">03</span> <span class="highlight-o">|</span> <span class="highlight-mi">9999</span><span class="highlight-o">-</span><span class="highlight-mi">01</span><span class="highlight-o">-</span><span class="highlight-mi">01</span> <span class="highlight-o">|</span>
+<span class="highlight-ln"> 7</span><span class="highlight-o">|</span>  <span class="highlight-mi">10003</span> <span class="highlight-o">|</span> <span class="highlight-n">d004</span>    <span class="highlight-o">|</span> <span class="highlight-mi">1995</span><span class="highlight-o">-</span><span class="highlight-mi">12</span><span class="highlight-o">-</span><span class="highlight-mi">03</span> <span class="highlight-o">|</span> <span class="highlight-mi">9999</span><span class="highlight-o">-</span><span class="highlight-mi">01</span><span class="highlight-o">-</span><span class="highlight-mi">01</span> <span class="highlight-o">|</span>
+<span class="highlight-ln"> 8</span><span class="highlight-o">|</span>  <span class="highlight-mi">10004</span> <span class="highlight-o">|</span> <span class="highlight-n">d004</span>    <span class="highlight-o">|</span> <span class="highlight-mi">1986</span><span class="highlight-o">-</span><span class="highlight-mi">12</span><span class="highlight-o">-</span><span class="highlight-mi">01</span> <span class="highlight-o">|</span> <span class="highlight-mi">9999</span><span class="highlight-o">-</span><span class="highlight-mi">01</span><span class="highlight-o">-</span><span class="highlight-mi">01</span> <span class="highlight-o">|</span>
+<span class="highlight-ln"> 9</span><span class="highlight-o">|</span>  <span class="highlight-mi">10005</span> <span class="highlight-o">|</span> <span class="highlight-n">d003</span>    <span class="highlight-o">|</span> <span class="highlight-mi">1989</span><span class="highlight-o">-</span><span class="highlight-mi">09</span><span class="highlight-o">-</span><span class="highlight-mi">12</span> <span class="highlight-o">|</span> <span class="highlight-mi">9999</span><span class="highlight-o">-</span><span class="highlight-mi">01</span><span class="highlight-o">-</span><span class="highlight-mi">01</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">10</span><span class="highlight-o">+</span><span class="highlight-c1">--------+---------+------------+------------+
+</span><span class="highlight-ln">11</span><span class="highlight-c1"></span><span class="highlight-mi">5</span> <span class="highlight-k">rows</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">0</span><span class="highlight-p">.</span><span class="highlight-mi">00</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
+<span class="highlight-ln">12</span><span class="highlight-o">#</span> <span class="highlight-err">等价于</span>
+<span class="highlight-ln">13</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">SELECT</span> <span class="highlight-o">*</span> <span class="highlight-k">FROM</span> <span class="highlight-n">employees</span><span class="highlight-p">.</span><span class="highlight-n">dept_emp</span> <span class="highlight-k">LIMIT</span> <span class="highlight-mi">5</span><span class="highlight-p">;</span>
+<span class="highlight-ln">14</span><span class="highlight-o">+</span><span class="highlight-c1">--------+---------+------------+------------+
+</span><span class="highlight-ln">15</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-n">emp_no</span> <span class="highlight-o">|</span> <span class="highlight-n">dept_no</span> <span class="highlight-o">|</span> <span class="highlight-n">from_date</span>  <span class="highlight-o">|</span> <span class="highlight-n">to_date</span>    <span class="highlight-o">|</span>
+<span class="highlight-ln">16</span><span class="highlight-o">+</span><span class="highlight-c1">--------+---------+------------+------------+
+</span><span class="highlight-ln">17</span><span class="highlight-c1"></span><span class="highlight-o">|</span>  <span class="highlight-mi">10001</span> <span class="highlight-o">|</span> <span class="highlight-n">d005</span>    <span class="highlight-o">|</span> <span class="highlight-mi">1986</span><span class="highlight-o">-</span><span class="highlight-mi">06</span><span class="highlight-o">-</span><span class="highlight-mi">26</span> <span class="highlight-o">|</span> <span class="highlight-mi">9999</span><span class="highlight-o">-</span><span class="highlight-mi">01</span><span class="highlight-o">-</span><span class="highlight-mi">01</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">18</span><span class="highlight-o">|</span>  <span class="highlight-mi">10002</span> <span class="highlight-o">|</span> <span class="highlight-n">d007</span>    <span class="highlight-o">|</span> <span class="highlight-mi">1996</span><span class="highlight-o">-</span><span class="highlight-mi">08</span><span class="highlight-o">-</span><span class="highlight-mi">03</span> <span class="highlight-o">|</span> <span class="highlight-mi">9999</span><span class="highlight-o">-</span><span class="highlight-mi">01</span><span class="highlight-o">-</span><span class="highlight-mi">01</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">19</span><span class="highlight-o">|</span>  <span class="highlight-mi">10003</span> <span class="highlight-o">|</span> <span class="highlight-n">d004</span>    <span class="highlight-o">|</span> <span class="highlight-mi">1995</span><span class="highlight-o">-</span><span class="highlight-mi">12</span><span class="highlight-o">-</span><span class="highlight-mi">03</span> <span class="highlight-o">|</span> <span class="highlight-mi">9999</span><span class="highlight-o">-</span><span class="highlight-mi">01</span><span class="highlight-o">-</span><span class="highlight-mi">01</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">20</span><span class="highlight-o">|</span>  <span class="highlight-mi">10004</span> <span class="highlight-o">|</span> <span class="highlight-n">d004</span>    <span class="highlight-o">|</span> <span class="highlight-mi">1986</span><span class="highlight-o">-</span><span class="highlight-mi">12</span><span class="highlight-o">-</span><span class="highlight-mi">01</span> <span class="highlight-o">|</span> <span class="highlight-mi">9999</span><span class="highlight-o">-</span><span class="highlight-mi">01</span><span class="highlight-o">-</span><span class="highlight-mi">01</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">21</span><span class="highlight-o">|</span>  <span class="highlight-mi">10005</span> <span class="highlight-o">|</span> <span class="highlight-n">d003</span>    <span class="highlight-o">|</span> <span class="highlight-mi">1989</span><span class="highlight-o">-</span><span class="highlight-mi">09</span><span class="highlight-o">-</span><span class="highlight-mi">12</span> <span class="highlight-o">|</span> <span class="highlight-mi">9999</span><span class="highlight-o">-</span><span class="highlight-mi">01</span><span class="highlight-o">-</span><span class="highlight-mi">01</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">22</span><span class="highlight-o">+</span><span class="highlight-c1">--------+---------+------------+------------+
+</span><span class="highlight-ln">23</span><span class="highlight-c1"></span><span class="highlight-mi">5</span> <span class="highlight-k">rows</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">0</span><span class="highlight-p">.</span><span class="highlight-mi">00</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
 </code></pre>
-<h2 id="toc_h2_6">2.5 聚合函数</h2>
-<p>你可以在列上使用 GROUP BY 子句对结果进行分组， 然后使用 AGGREGATE (聚合）函数， 例如 COUNT、 MAX、 MIN 和 AVERAGE。 还可以在 group by 子句中的列上使用函数。 请参阅下面的 SUM 示例， 其中用到了 YEAR() 函数。</p>
-<p><strong>SUM 累加</strong></p>
-<p>查询每年员工的薪水总额，并按照年降序排序输出。</p>
-<pre><code class="language-sql">mysql&gt; select year(from_date),sum(salary) from salaries group by year(from_date) order by year(from_date) desc;
-+-----------------+-------------+
-| year(from_date) | sum(salary) |
-+-----------------+-------------+
-|            2002 | 10243347616 |
-|            2001 | 17507737308 |
-|            2000 | 17535667603 |
-|            1999 | 17360258862 |
-|            1998 | 16220495471 |
-|            1997 | 15056011781 |
-|            1996 | 13888587737 |
-|            1995 | 12638817464 |
-|            1994 | 11429450113 |
-|            1993 | 10215059054 |
-|            1992 |  9027872610 |
-|            1991 |  7798804412 |
-|            1990 |  6626146391 |
-|            1989 |  5454260439 |
-|            1988 |  4295598688 |
-|            1987 |  3156881054 |
-|            1986 |  2052895941 |
-|            1985 |   972864875 |
-+-----------------+-------------+
-18 rows in set (1.94 sec)
+<h2 id="2-5-聚合函数">2.5 聚合函数</h2>
+<p>  你可以在列上使用 GROUP BY 子句对结果进行分组， 然后使用 AGGREGATE (聚合）函数， 例如 COUNT、 MAX、 MIN 和 AVERAGE。 还可以在 group by 子句中的列上使用函数。 请参阅下面的 SUM 示例， 其中用到了 YEAR() 函数。</p>
+<p>  <strong>SUM 累加</strong></p>
+<p>  查询每年员工的薪水总额，并按照年降序排序输出。</p>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">select</span> <span class="highlight-k">year</span><span class="highlight-p">(</span><span class="highlight-n">from_date</span><span class="highlight-p">),</span><span class="highlight-k">sum</span><span class="highlight-p">(</span><span class="highlight-n">salary</span><span class="highlight-p">)</span> <span class="highlight-k">from</span> <span class="highlight-n">salaries</span> <span class="highlight-k">group</span> <span class="highlight-k">by</span> <span class="highlight-k">year</span><span class="highlight-p">(</span><span class="highlight-n">from_date</span><span class="highlight-p">)</span> <span class="highlight-k">order</span> <span class="highlight-k">by</span> <span class="highlight-k">year</span><span class="highlight-p">(</span><span class="highlight-n">from_date</span><span class="highlight-p">)</span> <span class="highlight-k">desc</span><span class="highlight-p">;</span>
+<span class="highlight-ln"> 2</span><span class="highlight-o">+</span><span class="highlight-c1">-----------------+-------------+
+</span><span class="highlight-ln"> 3</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-k">year</span><span class="highlight-p">(</span><span class="highlight-n">from_date</span><span class="highlight-p">)</span> <span class="highlight-o">|</span> <span class="highlight-k">sum</span><span class="highlight-p">(</span><span class="highlight-n">salary</span><span class="highlight-p">)</span> <span class="highlight-o">|</span>
+<span class="highlight-ln"> 4</span><span class="highlight-o">+</span><span class="highlight-c1">-----------------+-------------+
+</span><span class="highlight-ln"> 5</span><span class="highlight-c1"></span><span class="highlight-o">|</span>            <span class="highlight-mi">2002</span> <span class="highlight-o">|</span> <span class="highlight-mi">10243347616</span> <span class="highlight-o">|</span>
+<span class="highlight-ln"> 6</span><span class="highlight-o">|</span>            <span class="highlight-mi">2001</span> <span class="highlight-o">|</span> <span class="highlight-mi">17507737308</span> <span class="highlight-o">|</span>
+<span class="highlight-ln"> 7</span><span class="highlight-o">|</span>            <span class="highlight-mi">2000</span> <span class="highlight-o">|</span> <span class="highlight-mi">17535667603</span> <span class="highlight-o">|</span>
+<span class="highlight-ln"> 8</span><span class="highlight-o">|</span>            <span class="highlight-mi">1999</span> <span class="highlight-o">|</span> <span class="highlight-mi">17360258862</span> <span class="highlight-o">|</span>
+<span class="highlight-ln"> 9</span><span class="highlight-o">|</span>            <span class="highlight-mi">1998</span> <span class="highlight-o">|</span> <span class="highlight-mi">16220495471</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">10</span><span class="highlight-o">|</span>            <span class="highlight-mi">1997</span> <span class="highlight-o">|</span> <span class="highlight-mi">15056011781</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">11</span><span class="highlight-o">|</span>            <span class="highlight-mi">1996</span> <span class="highlight-o">|</span> <span class="highlight-mi">13888587737</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">12</span><span class="highlight-o">|</span>            <span class="highlight-mi">1995</span> <span class="highlight-o">|</span> <span class="highlight-mi">12638817464</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">13</span><span class="highlight-o">|</span>            <span class="highlight-mi">1994</span> <span class="highlight-o">|</span> <span class="highlight-mi">11429450113</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">14</span><span class="highlight-o">|</span>            <span class="highlight-mi">1993</span> <span class="highlight-o">|</span> <span class="highlight-mi">10215059054</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">15</span><span class="highlight-o">|</span>            <span class="highlight-mi">1992</span> <span class="highlight-o">|</span>  <span class="highlight-mi">9027872610</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">16</span><span class="highlight-o">|</span>            <span class="highlight-mi">1991</span> <span class="highlight-o">|</span>  <span class="highlight-mi">7798804412</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">17</span><span class="highlight-o">|</span>            <span class="highlight-mi">1990</span> <span class="highlight-o">|</span>  <span class="highlight-mi">6626146391</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">18</span><span class="highlight-o">|</span>            <span class="highlight-mi">1989</span> <span class="highlight-o">|</span>  <span class="highlight-mi">5454260439</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">19</span><span class="highlight-o">|</span>            <span class="highlight-mi">1988</span> <span class="highlight-o">|</span>  <span class="highlight-mi">4295598688</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">20</span><span class="highlight-o">|</span>            <span class="highlight-mi">1987</span> <span class="highlight-o">|</span>  <span class="highlight-mi">3156881054</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">21</span><span class="highlight-o">|</span>            <span class="highlight-mi">1986</span> <span class="highlight-o">|</span>  <span class="highlight-mi">2052895941</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">22</span><span class="highlight-o">|</span>            <span class="highlight-mi">1985</span> <span class="highlight-o">|</span>   <span class="highlight-mi">972864875</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">23</span><span class="highlight-o">+</span><span class="highlight-c1">-----------------+-------------+
+</span><span class="highlight-ln">24</span><span class="highlight-c1"></span><span class="highlight-mi">18</span> <span class="highlight-k">rows</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">.</span><span class="highlight-mi">94</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
 </code></pre>
-<p><strong>COUNT 数量</strong></p>
-<p>查询工资表总总行数</p>
-<pre><code class="language-sql">mysql&gt; select count(*) from salaries;
-+----------+
-| count(*) |
-+----------+
-|  2844047 |
-+----------+
-1 row in set (0.15 sec)
+<p>  <strong>COUNT 数量</strong></p>
+<p>  查询工资表总总行数</p>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">select</span> <span class="highlight-k">count</span><span class="highlight-p">(</span><span class="highlight-o">*</span><span class="highlight-p">)</span> <span class="highlight-k">from</span> <span class="highlight-n">salaries</span><span class="highlight-p">;</span>
+<span class="highlight-ln">2</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">3</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-k">count</span><span class="highlight-p">(</span><span class="highlight-o">*</span><span class="highlight-p">)</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">4</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">5</span><span class="highlight-c1"></span><span class="highlight-o">|</span>  <span class="highlight-mi">2844047</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">6</span><span class="highlight-o">+</span><span class="highlight-c1">----------+
+</span><span class="highlight-ln">7</span><span class="highlight-c1"></span><span class="highlight-mi">1</span> <span class="highlight-k">row</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">0</span><span class="highlight-p">.</span><span class="highlight-mi">15</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
 </code></pre>
-<p><strong>AVERAGE 平均</strong></p>
-<p>查询平均工资前十的员工平均工资和员工编号</p>
-<pre><code class="language-sql">mysql&gt; SELECT emp_no, AVG(salary) AS avg FROM salaries GROUP BY emp_no ORDER BY avg DESC LIMIT 10;
-+--------+-------------+
-| emp_no | avg         |
-+--------+-------------+
-| 109334 | 141835.3333 |
-| 205000 | 141064.6364 |
-|  43624 | 138492.9444 |
-| 493158 | 138312.8750 |
-|  37558 | 138215.8571 |
-| 276633 | 136711.7333 |
-| 238117 | 136026.2000 |
-|  46439 | 135747.7333 |
-| 254466 | 135541.0625 |
-| 253939 | 135042.2500 |
-+--------+-------------+
-10 rows in set (1.09 sec)
+<p>  <strong>AVERAGE 平均</strong></p>
+<p>  查询平均工资前十的员工平均工资和员工编号</p>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">SELECT</span> <span class="highlight-n">emp_no</span><span class="highlight-p">,</span> <span class="highlight-k">AVG</span><span class="highlight-p">(</span><span class="highlight-n">salary</span><span class="highlight-p">)</span> <span class="highlight-k">AS</span> <span class="highlight-k">avg</span> <span class="highlight-k">FROM</span> <span class="highlight-n">salaries</span> <span class="highlight-k">GROUP</span> <span class="highlight-k">BY</span> <span class="highlight-n">emp_no</span> <span class="highlight-k">ORDER</span> <span class="highlight-k">BY</span> <span class="highlight-k">avg</span> <span class="highlight-k">DESC</span> <span class="highlight-k">LIMIT</span> <span class="highlight-mi">10</span><span class="highlight-p">;</span>
+<span class="highlight-ln"> 2</span><span class="highlight-o">+</span><span class="highlight-c1">--------+-------------+
+</span><span class="highlight-ln"> 3</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-n">emp_no</span> <span class="highlight-o">|</span> <span class="highlight-k">avg</span>         <span class="highlight-o">|</span>
+<span class="highlight-ln"> 4</span><span class="highlight-o">+</span><span class="highlight-c1">--------+-------------+
+</span><span class="highlight-ln"> 5</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-mi">109334</span> <span class="highlight-o">|</span> <span class="highlight-mi">141835</span><span class="highlight-p">.</span><span class="highlight-mi">3333</span> <span class="highlight-o">|</span>
+<span class="highlight-ln"> 6</span><span class="highlight-o">|</span> <span class="highlight-mi">205000</span> <span class="highlight-o">|</span> <span class="highlight-mi">141064</span><span class="highlight-p">.</span><span class="highlight-mi">6364</span> <span class="highlight-o">|</span>
+<span class="highlight-ln"> 7</span><span class="highlight-o">|</span>  <span class="highlight-mi">43624</span> <span class="highlight-o">|</span> <span class="highlight-mi">138492</span><span class="highlight-p">.</span><span class="highlight-mi">9444</span> <span class="highlight-o">|</span>
+<span class="highlight-ln"> 8</span><span class="highlight-o">|</span> <span class="highlight-mi">493158</span> <span class="highlight-o">|</span> <span class="highlight-mi">138312</span><span class="highlight-p">.</span><span class="highlight-mi">8750</span> <span class="highlight-o">|</span>
+<span class="highlight-ln"> 9</span><span class="highlight-o">|</span>  <span class="highlight-mi">37558</span> <span class="highlight-o">|</span> <span class="highlight-mi">138215</span><span class="highlight-p">.</span><span class="highlight-mi">8571</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">10</span><span class="highlight-o">|</span> <span class="highlight-mi">276633</span> <span class="highlight-o">|</span> <span class="highlight-mi">136711</span><span class="highlight-p">.</span><span class="highlight-mi">7333</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">11</span><span class="highlight-o">|</span> <span class="highlight-mi">238117</span> <span class="highlight-o">|</span> <span class="highlight-mi">136026</span><span class="highlight-p">.</span><span class="highlight-mi">2000</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">12</span><span class="highlight-o">|</span>  <span class="highlight-mi">46439</span> <span class="highlight-o">|</span> <span class="highlight-mi">135747</span><span class="highlight-p">.</span><span class="highlight-mi">7333</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">13</span><span class="highlight-o">|</span> <span class="highlight-mi">254466</span> <span class="highlight-o">|</span> <span class="highlight-mi">135541</span><span class="highlight-p">.</span><span class="highlight-mi">0625</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">14</span><span class="highlight-o">|</span> <span class="highlight-mi">253939</span> <span class="highlight-o">|</span> <span class="highlight-mi">135042</span><span class="highlight-p">.</span><span class="highlight-mi">2500</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">15</span><span class="highlight-o">+</span><span class="highlight-c1">--------+-------------+
+</span><span class="highlight-ln">16</span><span class="highlight-c1"></span><span class="highlight-mi">10</span> <span class="highlight-k">rows</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">.</span><span class="highlight-mi">09</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
 </code></pre>
-<p><strong>DISTINCT 去重</strong></p>
-<p>查询titles表中去重的title</p>
-<pre><code class="language-sql">mysql&gt; select distinct title from titles;
-+--------------------+
-| title              |
-+--------------------+
-| Senior Engineer    |
-| Staff              |
-| Engineer           |
-| Senior Staff       |
-| Assistant Engineer |
-| Technique Leader   |
-| Manager            |
-+--------------------+
-7 rows in set (3.07 sec)
+<p>  <strong>DISTINCT 去重</strong></p>
+<p>  查询 titles 表中去重的 title</p>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">select</span> <span class="highlight-k">distinct</span> <span class="highlight-n">title</span> <span class="highlight-k">from</span> <span class="highlight-n">titles</span><span class="highlight-p">;</span>
+<span class="highlight-ln"> 2</span><span class="highlight-o">+</span><span class="highlight-c1">--------------------+
+</span><span class="highlight-ln"> 3</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-n">title</span>              <span class="highlight-o">|</span>
+<span class="highlight-ln"> 4</span><span class="highlight-o">+</span><span class="highlight-c1">--------------------+
+</span><span class="highlight-ln"> 5</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-n">Senior</span> <span class="highlight-n">Engineer</span>    <span class="highlight-o">|</span>
+<span class="highlight-ln"> 6</span><span class="highlight-o">|</span> <span class="highlight-n">Staff</span>              <span class="highlight-o">|</span>
+<span class="highlight-ln"> 7</span><span class="highlight-o">|</span> <span class="highlight-n">Engineer</span>           <span class="highlight-o">|</span>
+<span class="highlight-ln"> 8</span><span class="highlight-o">|</span> <span class="highlight-n">Senior</span> <span class="highlight-n">Staff</span>       <span class="highlight-o">|</span>
+<span class="highlight-ln"> 9</span><span class="highlight-o">|</span> <span class="highlight-n">Assistant</span> <span class="highlight-n">Engineer</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">10</span><span class="highlight-o">|</span> <span class="highlight-n">Technique</span> <span class="highlight-n">Leader</span>   <span class="highlight-o">|</span>
+<span class="highlight-ln">11</span><span class="highlight-o">|</span> <span class="highlight-n">Manager</span>            <span class="highlight-o">|</span>
+<span class="highlight-ln">12</span><span class="highlight-o">+</span><span class="highlight-c1">--------------------+
+</span><span class="highlight-ln">13</span><span class="highlight-c1"></span><span class="highlight-mi">7</span> <span class="highlight-k">rows</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">3</span><span class="highlight-p">.</span><span class="highlight-mi">07</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
 </code></pre>
-<h2 id="toc_h2_7">2.6 HAVING与 GROUP BY结合过滤</h2>
-<p>使用 GROUP BY 进行查询时可以通过HAVING进行条件过滤</p>
-<p>查询平均工资超过 140,000 美元的员工</p>
-<pre><code class="language-sql">mysql&gt; SELECT emp_no, AVG(salary) AS avg FROM salaries GROUP BY emp_no HAVING avg &gt; 140000 ORDER BY avg DESC;
-+--------+-------------+
-| emp_no | avg         |
-+--------+-------------+
-| 109334 | 141835.3333 |
-| 205000 | 141064.6364 |
-+--------+-------------+
-2 rows in set (1.02 sec)
+<h2 id="2-6-HAVING与-GROUP-BY结合过滤">2.6 HAVING 与 GROUP BY 结合过滤</h2>
+<p>  使用 GROUP BY 进行查询时可以通过 HAVING 进行条件过滤</p>
+<p>  查询平均工资超过 140,000 美元的员工</p>
+<pre><code class="language-sql highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-n">mysql</span><span class="highlight-o">&gt;</span> <span class="highlight-k">SELECT</span> <span class="highlight-n">emp_no</span><span class="highlight-p">,</span> <span class="highlight-k">AVG</span><span class="highlight-p">(</span><span class="highlight-n">salary</span><span class="highlight-p">)</span> <span class="highlight-k">AS</span> <span class="highlight-k">avg</span> <span class="highlight-k">FROM</span> <span class="highlight-n">salaries</span> <span class="highlight-k">GROUP</span> <span class="highlight-k">BY</span> <span class="highlight-n">emp_no</span> <span class="highlight-k">HAVING</span> <span class="highlight-k">avg</span> <span class="highlight-o">&gt;</span> <span class="highlight-mi">140000</span> <span class="highlight-k">ORDER</span> <span class="highlight-k">BY</span> <span class="highlight-k">avg</span> <span class="highlight-k">DESC</span><span class="highlight-p">;</span>
+<span class="highlight-ln">2</span><span class="highlight-o">+</span><span class="highlight-c1">--------+-------------+
+</span><span class="highlight-ln">3</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-n">emp_no</span> <span class="highlight-o">|</span> <span class="highlight-k">avg</span>         <span class="highlight-o">|</span>
+<span class="highlight-ln">4</span><span class="highlight-o">+</span><span class="highlight-c1">--------+-------------+
+</span><span class="highlight-ln">5</span><span class="highlight-c1"></span><span class="highlight-o">|</span> <span class="highlight-mi">109334</span> <span class="highlight-o">|</span> <span class="highlight-mi">141835</span><span class="highlight-p">.</span><span class="highlight-mi">3333</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">6</span><span class="highlight-o">|</span> <span class="highlight-mi">205000</span> <span class="highlight-o">|</span> <span class="highlight-mi">141064</span><span class="highlight-p">.</span><span class="highlight-mi">6364</span> <span class="highlight-o">|</span>
+<span class="highlight-ln">7</span><span class="highlight-o">+</span><span class="highlight-c1">--------+-------------+
+</span><span class="highlight-ln">8</span><span class="highlight-c1"></span><span class="highlight-mi">2</span> <span class="highlight-k">rows</span> <span class="highlight-k">in</span> <span class="highlight-k">set</span> <span class="highlight-p">(</span><span class="highlight-mi">1</span><span class="highlight-p">.</span><span class="highlight-mi">02</span> <span class="highlight-n">sec</span><span class="highlight-p">)</span>
 </code></pre>
         </div>
     </div>
     <div class="post__toc">
 <ul class="article__toc">
         <li class="toc__h1">
-            <a href="#toc_h1_0">1、示例数据导入</a>
+            <a href="#1-示例数据导入">1、示例数据导入</a>
         </li>
         <li class="toc__h1">
-            <a href="#toc_h1_1">2、查询操作</a>
+            <a href="#2-查询操作">2、查询操作</a>
         </li>
         <li class="toc__h2">
-            <a href="#toc_h2_2">2.1 简单查询操作</a>
+            <a href="#2-1-简单查询操作">2.1 简单查询操作</a>
         </li>
         <li class="toc__h2">
-            <a href="#toc_h2_3">2.2 操作符查询</a>
+            <a href="#2-2-操作符查询">2.2 操作符查询</a>
         </li>
         <li class="toc__h2">
-            <a href="#toc_h2_4">2.3 正则表达式</a>
+            <a href="#2-3-正则表达式">2.3 正则表达式</a>
         </li>
         <li class="toc__h2">
-            <a href="#toc_h2_5">2.4 对查询结果进行排序</a>
+            <a href="#2-4-对查询结果进行排序">2.4 对查询结果进行排序</a>
         </li>
         <li class="toc__h2">
-            <a href="#toc_h2_6">2.5 聚合函数</a>
+            <a href="#2-5-聚合函数">2.5 聚合函数</a>
         </li>
         <li class="toc__h2">
-            <a href="#toc_h2_7">2.6 HAVING与 GROUP BY结合过滤</a>
+            <a href="#2-6-HAVING与-GROUP-BY结合过滤">2.6 HAVING 与 GROUP BY 结合过滤</a>
         </li>
 </ul>    </div>
     <div class="body--gray post__gray">
@@ -453,7 +450,7 @@ mysql&gt; SELECT * FROM employees.dept_emp LIMIT 5;
                       data-title="查询操作：从示例数据中执行"
                       data-blogtitle="LGX 的个人博客"
                       data-url="https://23095100.github.io/articles/2020/07/24/1595579776594.html"
-                      data-avatar="https://b3logfile.com/avatar/1594718285889.png?imageView2/1/w/128/h/128/interlace/0/q/100">
+                      data-avatar="https://b3logfile.com/avatar/1594718285889_1599444034163.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100">
                     WeChat
                     <span class="qrcode"></span>
                 </span>
@@ -498,10 +495,9 @@ mysql&gt; SELECT * FROM employees.dept_emp LIMIT 5;
     <div class="footer__border mobile__none"></div>
     <div class="wrapper fn__flex">
         <div class="fn__flex-1 mobile__none">
-            <div class="ft__fade">23095100 - 记录精彩的程序人生</div>
+            <div class="ft__fade">23095100 - 苟利国家生死以，岂因祸福避趋之</div>
             <br>
-                Open Source, Open Mind, <br/>Open Sight, Open Future!
-
+                不会真有人玩博客吧，不会吧不会吧
 <!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
         </div>
 
@@ -525,7 +521,7 @@ mysql&gt; SELECT * FROM employees.dept_emp LIMIT 5;
     speech: true,
     servePath: "https://23095100.github.io",
     staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources",
-    luteAvailable: false,
+    luteAvailable: true,
     hljsStyle: 'github',
     langLabel: "zh_CN",
     version: "4.2.0",
@@ -535,7 +531,7 @@ mysql&gt; SELECT * FROM employees.dept_emp LIMIT 5;
 </script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/js/headroom.min.js"></script>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/js/common.min.js?1599441837118"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/js/common.min.js?1599471736118"
         charset="utf-8"></script>
 <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.8/index.css"/>
 <script async src="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.8/index.js"></script>
@@ -570,7 +566,7 @@ mysql&gt; SELECT * FROM employees.dept_emp LIMIT 5;
 
 
 <script type="text/javascript">
-    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/js/page.min.js?1599441837118', 'soloPageScript')
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/js/page.min.js?1599471736118', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
         "oId": "1595579776247",
@@ -590,4 +586,4 @@ Skin.initArticle()
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 25ms, 2020/09/07 09:26:02 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 29ms, 2020/09/07 17:51:18 -->

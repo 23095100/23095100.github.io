@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>MySQL报错解决方案：2013-Lost connection to MySQL server - LGX 的个人博客</title><meta name="description" content="今天上课的时候，在搭建完MySQL测试环境中出现的问题，整理如下： 问题描述：搭建完MySQL，用远程连接工具（Navicat）连接时报错： 2013-Lost connection to MySQL server at &#39;waiting for intial communication packet&#39;,system error:0 原因分析： MySQL开启了DNS的反向解析功能，这样MySQL对连接的客户端会进行DNS主机名查找； 解决方式： 找到mysql安装配置文件：my.cnf；路径因环境而异。如果你的是Liunx的环境，可以去目录：/etc/my.cnf中查找 编辑文件：my.cnf，找到【mysqld】模块 在其下增加一行：skip-name-resolve 如下图所示： 保存退出，并重启mysql服务：service mysql restart 即可，再重新连接看看！ ----淡定从容，宁静致远---- 转载自 https://www.cnblogs.com/matd/p/11754033.html"/><meta property="og:description" content="今天上课的时候，在搭建完MySQL测试环境中出现的问题，整理如下： 问题描述：搭建完MySQL，用远程连接工具（Navicat）连接时报错： 2013-Lost connection to MySQL server at &#39;waiting for intial communication packet&#39;,system error:0 原因分析： MySQL开启了DNS的反向解析功能，这样MySQL对连接的客户端会进行DNS主机名查找； 解决方式： 找到mysql安装配置文件：my.cnf；路径因环境而异。如果你的是Liunx的环境，可以去目录：/etc/my.cnf中查找 编辑文件：my.cnf，找到【mysqld】模块 在其下增加一行：skip-name-resolve 如下图所示： 保存退出，并重启mysql服务：service mysql restart 即可，再重新连接看看！ ----淡定从容，宁静致远---- 转载自 https://www.cnblogs.com/matd/p/11754033.html"/>    <meta name="keywords" content="随笔,Java,博客,Linux,python"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="MySQL报错解决方案：2013-Lost connection to MySQL server - LGX 的个人博客"/><meta property="og:site_name" content="LGX 的个人博客"/><meta property="og:url"      content="https://23095100.github.io/articles/2020/08/05/1596611224769.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="MySQL报错解决方案：2013-Lost connection to MySQL server - LGX 的个人博客" href="/opensearch.xml"><link href="https://23095100.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://23095100.github.io/manifest.json">        <link rel="canonical" href="https://23095100.github.io/articles/2020/08/05/1596611224769.html">        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/css/base.css?1599441837118"/>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>MySQL报错解决方案：2013-Lost connection to MySQL server - LGX 的个人博客</title><meta name="description" content="  今天上课的时候，在搭建完 MySQL 测试环境中出现的问题，整理如下： 问题描述：搭建完 MySQL，用远程连接工具（Navicat）连接时报错： 2013-Lost connection to MySQL server at &#39;waiting for intial communication packet&#39;,system error:0 原因分析： MySQL 开启了 DNS 的反向解析功能，这样 MySQL 对连接的客户端会进行 DNS 主机名查找； 解决方式： 找到 MySQL 安装配置文件：my.cnf；路径因环境而异。如果你的是 Liunx 的环境，可以去目录：/etc/my.cnf 中查找 编辑文件：my.cnf，找到【mysqld】模块 在其下增加一行：skip-name-resolve 如下图所示： 保存退出，并重启 MySQL 服务：service MySQL restart 即可，再重新连接看看！ ----淡定从容，宁静致远---- 转载自 https://www.cnblogs.com/matd/p/11754033.html"/><meta property="og:description" content="  今天上课的时候，在搭建完 MySQL 测试环境中出现的问题，整理如下： 问题描述：搭建完 MySQL，用远程连接工具（Navicat）连接时报错： 2013-Lost connection to MySQL server at &#39;waiting for intial communication packet&#39;,system error:0 原因分析： MySQL 开启了 DNS 的反向解析功能，这样 MySQL 对连接的客户端会进行 DNS 主机名查找； 解决方式： 找到 MySQL 安装配置文件：my.cnf；路径因环境而异。如果你的是 Liunx 的环境，可以去目录：/etc/my.cnf 中查找 编辑文件：my.cnf，找到【mysqld】模块 在其下增加一行：skip-name-resolve 如下图所示： 保存退出，并重启 MySQL 服务：service MySQL restart 即可，再重新连接看看！ ----淡定从容，宁静致远---- 转载自 https://www.cnblogs.com/matd/p/11754033.html"/>    <meta name="keywords" content="随笔,Java,博客,Linux,python"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="MySQL报错解决方案：2013-Lost connection to MySQL server - LGX 的个人博客"/><meta property="og:site_name" content="LGX 的个人博客"/><meta property="og:url"      content="https://23095100.github.io/articles/2020/08/05/1596611224769.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="MySQL报错解决方案：2013-Lost connection to MySQL server - LGX 的个人博客" href="/opensearch.xml"><link href="https://23095100.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://23095100.github.io/manifest.json">        <link rel="canonical" href="https://23095100.github.io/articles/2020/08/05/1596611224769.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/css/base.css?1599471736118"/>
             <link rel="prev" title="查询操作：从示例数据中执行" href="https://23095100.github.io/articles/2020/07/24/1595579776594.html">
             <link rel="next" title="重生之我是大司马 第十五章 失败的苦涩" href="https://23095100.github.io/articles/2020/08/10/1597046855872.html">
     </head>
@@ -10,7 +10,7 @@
 <header class="header">
     <div class="wrapper">
         <a href="https://23095100.github.io" rel="start" class="header__logo">
-            <img src="https://b3logfile.com/avatar/1594718285889.png?imageView2/1/w/128/h/128/interlace/0/q/100" alt="LGX 的个人博客"/>
+            <img src="https://b3logfile.com/avatar/1594718285889_1599444034163.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="LGX 的个人博客"/>
             LGX 的个人博客
         </a>
 
@@ -82,20 +82,20 @@
                 </a>
         </div>
         <div class="vditor-reset">
-            <p>今天上课的时候，在搭建完MySQL测试环境中出现的问题，整理如下：</p>
-<p>问题描述：搭建完MySQL，用远程连接工具（Navicat）连接时报错：</p>
-<p>2013-Lost connection to MySQL server at 'waiting for intial communication packet',system error:0</p>
-<p><img src="https://b3logfile.com/file/2020/08/solofetchupload8766424660192406815-98182025.jpeg?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt=""></p>
-<p>原因分析：<br>
-MySQL开启了DNS的反向解析功能，这样MySQL对连接的客户端会进行DNS主机名查找；</p>
-<p>解决方式：</p>
-<p>找到mysql安装配置文件：my.cnf；路径因环境而异。如果你的是Liunx的环境，可以去目录：/etc/my.cnf中查找</p>
-<p>编辑文件：my.cnf，找到【mysqld】模块</p>
-<p>在其下增加一行：skip-name-resolve   如下图所示：</p>
-<p>保存退出，并重启mysql服务：service mysql restart 即可，再重新连接看看！</p>
-<p><img src="https://b3logfile.com/file/2020/08/solofetchupload3566838330120074102-6bc88f62.jpeg?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt=""></p>
-<p>----淡定从容，宁静致远----</p>
-<p>转载自 <a href="https://www.cnblogs.com/matd/p/11754033.html" target="_blank">https://www.cnblogs.com/matd/p/11754033.html</a></p>
+            <p>  今天上课的时候，在搭建完 MySQL 测试环境中出现的问题，整理如下：</p>
+<p>  问题描述：搭建完 MySQL，用远程连接工具（Navicat）连接时报错：</p>
+<p>  2013-Lost connection to MySQL server at 'waiting for intial communication packet',system error:0</p>
+<p>  <img src="https://b3logfile.com/file/2020/08/solofetchupload8766424660192406815-98182025.jpeg?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt=""></p>
+<p>  原因分析：<br>
+MySQL 开启了 DNS 的反向解析功能，这样 MySQL 对连接的客户端会进行 DNS 主机名查找；</p>
+<p>  解决方式：</p>
+<p>  找到 MySQL 安装配置文件：my.cnf；路径因环境而异。如果你的是 Liunx 的环境，可以去目录：/etc/my.cnf 中查找</p>
+<p>  编辑文件：my.cnf，找到【mysqld】模块</p>
+<p>  在其下增加一行：skip-name-resolve   如下图所示：</p>
+<p>  保存退出，并重启 MySQL 服务：service MySQL restart 即可，再重新连接看看！</p>
+<p>  <img src="https://b3logfile.com/file/2020/08/solofetchupload3566838330120074102-6bc88f62.jpeg?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt=""></p>
+<p>  ----淡定从容，宁静致远----</p>
+<p>  转载自 <a href="https://www.cnblogs.com/matd/p/11754033.html" target="_blank">https://www.cnblogs.com/matd/p/11754033.html</a></p>
         </div>
     </div>
     <div class="post__toc">
@@ -131,7 +131,7 @@ MySQL开启了DNS的反向解析功能，这样MySQL对连接的客户端会进�
                       data-title="MySQL报错解决方案：2013-Lost connection to MySQL server"
                       data-blogtitle="LGX 的个人博客"
                       data-url="https://23095100.github.io/articles/2020/08/05/1596611224769.html"
-                      data-avatar="https://b3logfile.com/avatar/1594718285889.png?imageView2/1/w/128/h/128/interlace/0/q/100">
+                      data-avatar="https://b3logfile.com/avatar/1594718285889_1599444034163.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100">
                     WeChat
                     <span class="qrcode"></span>
                 </span>
@@ -176,10 +176,9 @@ MySQL开启了DNS的反向解析功能，这样MySQL对连接的客户端会进�
     <div class="footer__border mobile__none"></div>
     <div class="wrapper fn__flex">
         <div class="fn__flex-1 mobile__none">
-            <div class="ft__fade">23095100 - 记录精彩的程序人生</div>
+            <div class="ft__fade">23095100 - 苟利国家生死以，岂因祸福避趋之</div>
             <br>
-                Open Source, Open Mind, <br/>Open Sight, Open Future!
-
+                不会真有人玩博客吧，不会吧不会吧
 <!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
         </div>
 
@@ -203,7 +202,7 @@ MySQL开启了DNS的反向解析功能，这样MySQL对连接的客户端会进�
     speech: true,
     servePath: "https://23095100.github.io",
     staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources",
-    luteAvailable: false,
+    luteAvailable: true,
     hljsStyle: 'github',
     langLabel: "zh_CN",
     version: "4.2.0",
@@ -213,7 +212,7 @@ MySQL开启了DNS的反向解析功能，这样MySQL对连接的客户端会进�
 </script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/js/headroom.min.js"></script>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/js/common.min.js?1599441837118"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/js/common.min.js?1599471736118"
         charset="utf-8"></script>
 <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.8/index.css"/>
 <script async src="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.8/index.js"></script>
@@ -248,7 +247,7 @@ MySQL开启了DNS的反向解析功能，这样MySQL对连接的客户端会进�
 
 
 <script type="text/javascript">
-    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/js/page.min.js?1599441837118', 'soloPageScript')
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/js/page.min.js?1599471736118', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
         "oId": "1596611224004",
@@ -268,4 +267,4 @@ Skin.initArticle()
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 24ms, 2020/09/07 09:26:02 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 34ms, 2020/09/07 17:51:18 -->

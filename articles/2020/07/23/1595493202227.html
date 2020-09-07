@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>【共享】解决 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议 - LGX 的个人博客</title><meta name="description" content="在使用window10访问共享目录时出现如下错误： 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议，而此协议是不安全的，可能会使你的系统遭受攻击。 你的系统需要SMB2或更高版本。关于如何解决此问题的信息，请参见 https://go.microsoft.com/fwlink/?linkeid=851747 解决方法： 方法1 使用命令行操作 点击window左下角开始 在安装程序中找到windows PowerShell 文件夹 下面的 windows PowerShell鼠标右击选择以管理员身份运行 在命令行执行 Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol 命令执行完后会提示是否要重新启动电脑 输入Y 重启电脑 ，重启后共享目录可以使用了 命令说明： SMB v1 检测: Get-WindowsOptionalFeature –Online –FeatureName SMB1Protocol 禁用: Disable-Wi...."/><meta property="og:description" content="在使用window10访问共享目录时出现如下错误： 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议，而此协议是不安全的，可能会使你的系统遭受攻击。 你的系统需要SMB2或更高版本。关于如何解决此问题的信息，请参见 https://go.microsoft.com/fwlink/?linkeid=851747 解决方法： 方法1 使用命令行操作 点击window左下角开始 在安装程序中找到windows PowerShell 文件夹 下面的 windows PowerShell鼠标右击选择以管理员身份运行 在命令行执行 Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol 命令执行完后会提示是否要重新启动电脑 输入Y 重启电脑 ，重启后共享目录可以使用了 命令说明： SMB v1 检测: Get-WindowsOptionalFeature –Online –FeatureName SMB1Protocol 禁用: Disable-Wi...."/>    <meta name="keywords" content="随笔,Java,博客,Linux,python"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="【共享】解决 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议 - LGX 的个人博客"/><meta property="og:site_name" content="LGX 的个人博客"/><meta property="og:url"      content="https://23095100.github.io/articles/2020/07/23/1595493202227.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="【共享】解决 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议 - LGX 的个人博客" href="/opensearch.xml"><link href="https://23095100.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://23095100.github.io/manifest.json">        <link rel="canonical" href="https://23095100.github.io/articles/2020/07/23/1595493202227.html">        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/css/base.css?1599441837118"/>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>【共享】解决 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议 - LGX 的个人博客</title><meta name="description" content="  在使用 window10 访问共享目录时出现如下错误： 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的 SMB1 协议，而此协议是不安全的，可能会使你的系统遭受攻击。 你的系统需要 SMB2 或更高版本。关于如何解决此问题的信息，请参见 https://go.microsoft.com/fwlink/?linkeid=851747 解决方法： 方法 1 使用命令行操作 点击 window 左下角开始 在安装程序中找到 windows PowerShell 文件夹 下面的 windows PowerShell 鼠标右击选择以管理员身份运行 在命令行执行 Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol 命令执行完后会提示是否要重新启动电脑 输入 Y 重启电脑 ，重启后共享目录可以使用了 命令说明： SMB v1 检测： Get-WindowsOptionalFeature –Online –FeatureName SMB1Protocol 禁用： Disable-Wi...."/><meta property="og:description" content="  在使用 window10 访问共享目录时出现如下错误： 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的 SMB1 协议，而此协议是不安全的，可能会使你的系统遭受攻击。 你的系统需要 SMB2 或更高版本。关于如何解决此问题的信息，请参见 https://go.microsoft.com/fwlink/?linkeid=851747 解决方法： 方法 1 使用命令行操作 点击 window 左下角开始 在安装程序中找到 windows PowerShell 文件夹 下面的 windows PowerShell 鼠标右击选择以管理员身份运行 在命令行执行 Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol 命令执行完后会提示是否要重新启动电脑 输入 Y 重启电脑 ，重启后共享目录可以使用了 命令说明： SMB v1 检测： Get-WindowsOptionalFeature –Online –FeatureName SMB1Protocol 禁用： Disable-Wi...."/>    <meta name="keywords" content="随笔,Java,博客,Linux,python"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="【共享】解决 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议 - LGX 的个人博客"/><meta property="og:site_name" content="LGX 的个人博客"/><meta property="og:url"      content="https://23095100.github.io/articles/2020/07/23/1595493202227.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="【共享】解决 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议 - LGX 的个人博客" href="/opensearch.xml"><link href="https://23095100.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://23095100.github.io/manifest.json">        <link rel="canonical" href="https://23095100.github.io/articles/2020/07/23/1595493202227.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/css/base.css?1599471736118"/>
             <link rel="prev" title="重生之我是大司马 第十四章 绝地反击" href="https://23095100.github.io/articles/2020/07/21/1595328681931.html">
             <link rel="next" title="查询操作：从示例数据中执行" href="https://23095100.github.io/articles/2020/07/24/1595579776594.html">
     </head>
@@ -10,7 +10,7 @@
 <header class="header">
     <div class="wrapper">
         <a href="https://23095100.github.io" rel="start" class="header__logo">
-            <img src="https://b3logfile.com/avatar/1594718285889.png?imageView2/1/w/128/h/128/interlace/0/q/100" alt="LGX 的个人博客"/>
+            <img src="https://b3logfile.com/avatar/1594718285889_1599444034163.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="LGX 的个人博客"/>
             LGX 的个人博客
         </a>
 
@@ -82,49 +82,49 @@
                 </a>
         </div>
         <div class="vditor-reset">
-            <p><img src="https://b3logfile.com/file/2020/07/af189b8f84bb18ea445fd9b251bb23ab51a1e707-153c0a29.gif" alt="af189b8f84bb18ea445fd9b251bb23ab51a1e707.gif"></p>
-<p>在使用window10访问共享目录时出现如下错误：</p>
+            <p>  <img src="https://b3logfile.com/file/2020/07/af189b8f84bb18ea445fd9b251bb23ab51a1e707-153c0a29.gif" alt="af189b8f84bb18ea445fd9b251bb23ab51a1e707.gif"></p>
+<p>  在使用 window10 访问共享目录时出现如下错误：</p>
 <blockquote>
-<p>因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议，而此协议是不安全的，可能会使你的系统遭受攻击。 你的系统需要SMB2或更高版本。关于如何解决此问题的信息，请参见<br>
+<p>因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的 SMB1 协议，而此协议是不安全的，可能会使你的系统遭受攻击。 你的系统需要 SMB2 或更高版本。关于如何解决此问题的信息，请参见<br>
 <strong><a href="https://go.microsoft.com/fwlink/?linkeid=851747" target="_blank">https://go.microsoft.com/fwlink/?linkeid=851747</a></strong></p>
 </blockquote>
-<p>解决方法：</p>
-<h1 id="toc_h1_0">方法1 使用命令行操作</h1>
-<p>点击window左下角开始 在安装程序中找到windows&nbsp; PowerShell 文件夹 下面的 windows&nbsp; PowerShell鼠标右击选择以管理员身份运行</p>
-<p>在命令行执行&nbsp;</p>
-<pre><code class="language-shell">Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
+<p>  解决方法：</p>
+<h1 id="方法1-使用命令行操作">方法 1 使用命令行操作</h1>
+<p>  点击 window 左下角开始 在安装程序中找到 windows&nbsp; PowerShell 文件夹 下面的 windows&nbsp; PowerShell 鼠标右击选择以管理员身份运行</p>
+<p>  在命令行执行&nbsp;</p>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-ln">1</span>Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 </code></pre>
-<p>命令执行完后会提示是否要重新启动电脑 输入Y&nbsp;重启电脑 ，重启后共享目录可以使用了</p>
-<p>命令说明：</p>
-<pre><code class="language-shell">SMB v1
-检测: Get-WindowsOptionalFeature –Online –FeatureName SMB1Protocol
-禁用: Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
-启用: Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
-SMB v2/v3
-检测:Get-SmbServerConfiguration | Select EnableSMB2Protocol
-禁用:Set-SmbServerConfiguration –EnableSMB2Protocol $false
-启用:Set-SmbServerConfiguration –EnableSMB2Protocol $true
+<p>  命令执行完后会提示是否要重新启动电脑 输入 Y&nbsp;重启电脑 ，重启后共享目录可以使用了</p>
+<p>  命令说明：</p>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-ln">1</span>SMB v1
+<span class="highlight-ln">2</span>检测: Get-WindowsOptionalFeature –Online –FeatureName SMB1Protocol
+<span class="highlight-ln">3</span>禁用: Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
+<span class="highlight-ln">4</span>启用: Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
+<span class="highlight-ln">5</span>SMB v2/v3
+<span class="highlight-ln">6</span>检测:Get-SmbServerConfiguration <span class="highlight-p">|</span> Select EnableSMB2Protocol
+<span class="highlight-ln">7</span>禁用:Set-SmbServerConfiguration –EnableSMB2Protocol <span class="highlight-nv">$false</span>
+<span class="highlight-ln">8</span>启用:Set-SmbServerConfiguration –EnableSMB2Protocol <span class="highlight-nv">$true</span>
 </code></pre>
-<h1 id="toc_h1_1">方法2 找到 控制面板\所有控制面板项\程序和功能</h1>
-<p>点击左侧的启动或关闭window功能，然后勾选 SMB 1.0/CIFS 文件共享支持&nbsp; 点击确定安装 安装完成重启即可。</p>
-<h1 id="toc_h1_2">方法3 下载SMB补丁包安装</h1>
-<p>下载 <a href="https://b3logfile.com/file/2020/07/SMB1.0-7a14c429.rar" target="_blank">SMB1.0.rar</a> 解压运行</p>
-<p><img src="https://b3logfile.com/file/2020/07/image-42258441.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="image.png"></p>
-<p>安装完成重启执行方法1或者方法2即可</p>
-<p>版权声明：本文为CSDN博主「林家阿酒」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>
+<h1 id="方法2-找到-控制面板-所有控制面板项-程序和功能">方法 2 找到 控制面板\所有控制面板项\程序和功能</h1>
+<p>  点击左侧的启动或关闭 window 功能，然后勾选 SMB 1.0/CIFS 文件共享支持&nbsp; 点击确定安装 安装完成重启即可。</p>
+<h1 id="方法3-下载SMB补丁包安装">方法 3 下载 SMB 补丁包安装</h1>
+<p>  下载 <a href="https://b3logfile.com/file/2020/07/SMB1.0-7a14c429.rar" target="_blank">SMB1.0.rar</a> 解压运行</p>
+<p>  <img src="https://b3logfile.com/file/2020/07/image-42258441.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="image.png"></p>
+<p>  安装完成重启执行方法 1 或者方法 2 即可</p>
+<p>  版权声明：本文为 CSDN 博主「林家阿酒」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。<br>
 原文链接：<a href="https://blog.csdn.net/wzl505/article/details/84526785" target="_blank">https://blog.csdn.net/wzl505/article/details/84526785</a></p>
         </div>
     </div>
     <div class="post__toc">
 <ul class="article__toc">
         <li class="toc__h1">
-            <a href="#toc_h1_0">方法1 使用命令行操作</a>
+            <a href="#方法1-使用命令行操作">方法 1 使用命令行操作</a>
         </li>
         <li class="toc__h1">
-            <a href="#toc_h1_1">方法2 找到 控制面板\所有控制面板项\程序和功能</a>
+            <a href="#方法2-找到-控制面板-所有控制面板项-程序和功能">方法 2 找到 控制面板\所有控制面板项\程序和功能</a>
         </li>
         <li class="toc__h1">
-            <a href="#toc_h1_2">方法3 下载SMB补丁包安装</a>
+            <a href="#方法3-下载SMB补丁包安装">方法 3 下载 SMB 补丁包安装</a>
         </li>
 </ul>    </div>
     <div class="body--gray post__gray">
@@ -158,7 +158,7 @@ SMB v2/v3
                       data-title="【共享】解决 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议"
                       data-blogtitle="LGX 的个人博客"
                       data-url="https://23095100.github.io/articles/2020/07/23/1595493202227.html"
-                      data-avatar="https://b3logfile.com/avatar/1594718285889.png?imageView2/1/w/128/h/128/interlace/0/q/100">
+                      data-avatar="https://b3logfile.com/avatar/1594718285889_1599444034163.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100">
                     WeChat
                     <span class="qrcode"></span>
                 </span>
@@ -203,10 +203,9 @@ SMB v2/v3
     <div class="footer__border mobile__none"></div>
     <div class="wrapper fn__flex">
         <div class="fn__flex-1 mobile__none">
-            <div class="ft__fade">23095100 - 记录精彩的程序人生</div>
+            <div class="ft__fade">23095100 - 苟利国家生死以，岂因祸福避趋之</div>
             <br>
-                Open Source, Open Mind, <br/>Open Sight, Open Future!
-
+                不会真有人玩博客吧，不会吧不会吧
 <!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
         </div>
 
@@ -230,7 +229,7 @@ SMB v2/v3
     speech: true,
     servePath: "https://23095100.github.io",
     staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources",
-    luteAvailable: false,
+    luteAvailable: true,
     hljsStyle: 'github',
     langLabel: "zh_CN",
     version: "4.2.0",
@@ -240,7 +239,7 @@ SMB v2/v3
 </script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/js/headroom.min.js"></script>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/js/common.min.js?1599441837118"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/js/common.min.js?1599471736118"
         charset="utf-8"></script>
 <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.8/index.css"/>
 <script async src="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.8/index.js"></script>
@@ -275,7 +274,7 @@ SMB v2/v3
 
 
 <script type="text/javascript">
-    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/js/page.min.js?1599441837118', 'soloPageScript')
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/js/page.min.js?1599471736118', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
         "oId": "1595493202051",
@@ -295,4 +294,4 @@ Skin.initArticle()
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 33ms, 2020/09/07 09:26:02 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 24ms, 2020/09/07 17:51:18 -->

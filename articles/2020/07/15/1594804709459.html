@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>还不会安装MYSQL？一篇文章带你装个够！ - LGX 的个人博客</title><meta name="description" content="[TOC] 1、使用YUM/APT进行安装 安装前，请查看您的操作系统版本和内核版本 root@DESKTOP-KK8078I:/tmp# uname -a Linux DESKTOP-KK8078I 4.19.104-microsoft-standard #1 SMP Wed Feb 19 06:37:35 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux 选择相应的分发版进行安装，注意mysql版本 1.1 添加YUM/APT仓库文件 https://dev.mysql.com/downloads/ 这里以 CENTOS 8 为例子进行测试，系统具体版本请参照上文图片进行。 使用wget进行下载 root@DESKTOP-KK8078I:~# wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm --2020-07-17 14:03:12-- https://dev.mysql.com/get/mysql80-community-release-el...."/><meta property="og:description" content="[TOC] 1、使用YUM/APT进行安装 安装前，请查看您的操作系统版本和内核版本 root@DESKTOP-KK8078I:/tmp# uname -a Linux DESKTOP-KK8078I 4.19.104-microsoft-standard #1 SMP Wed Feb 19 06:37:35 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux 选择相应的分发版进行安装，注意mysql版本 1.1 添加YUM/APT仓库文件 https://dev.mysql.com/downloads/ 这里以 CENTOS 8 为例子进行测试，系统具体版本请参照上文图片进行。 使用wget进行下载 root@DESKTOP-KK8078I:~# wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm --2020-07-17 14:03:12-- https://dev.mysql.com/get/mysql80-community-release-el...."/>    <meta name="keywords" content="随笔,Java,博客,Linux,python"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="还不会安装MYSQL？一篇文章带你装个够！ - LGX 的个人博客"/><meta property="og:site_name" content="LGX 的个人博客"/><meta property="og:url"      content="https://23095100.github.io/articles/2020/07/15/1594804709459.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="还不会安装MYSQL？一篇文章带你装个够！ - LGX 的个人博客" href="/opensearch.xml"><link href="https://23095100.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://23095100.github.io/manifest.json">        <link rel="canonical" href="https://23095100.github.io/articles/2020/07/15/1594804709459.html">        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/css/base.css?1599441837118"/>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>还不会安装MYSQL？一篇文章带你装个够！ - LGX 的个人博客</title><meta name="description" content="  [TOC] 1、使用 YUM/APT 进行安装 安装前，请查看您的操作系统版本和内核版本 root@DESKTOP-KK8078I:/tmp# uname -a Linux DESKTOP-KK8078I 4.19.104-microsoft-standard #1 SMP Wed Feb 19 06:37:35 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux 选择相应的分发版进行安装，注意 MySQL 版本 1.1 添加 YUM/APT 仓库文件 https://dev.mysql.com/downloads/ 这里以 CentOS 8 为例子进行测试，系统具体版本请参照上文图片进行。 使用 wget 进行下载 root@DESKTOP-KK8078I:~# wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm --2020-07-17 14:03:12-- https://dev.mysql.com/get/mysql80-community-release-el...."/><meta property="og:description" content="  [TOC] 1、使用 YUM/APT 进行安装 安装前，请查看您的操作系统版本和内核版本 root@DESKTOP-KK8078I:/tmp# uname -a Linux DESKTOP-KK8078I 4.19.104-microsoft-standard #1 SMP Wed Feb 19 06:37:35 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux 选择相应的分发版进行安装，注意 MySQL 版本 1.1 添加 YUM/APT 仓库文件 https://dev.mysql.com/downloads/ 这里以 CentOS 8 为例子进行测试，系统具体版本请参照上文图片进行。 使用 wget 进行下载 root@DESKTOP-KK8078I:~# wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm --2020-07-17 14:03:12-- https://dev.mysql.com/get/mysql80-community-release-el...."/>    <meta name="keywords" content="随笔,Java,博客,Linux,python"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="还不会安装MYSQL？一篇文章带你装个够！ - LGX 的个人博客"/><meta property="og:site_name" content="LGX 的个人博客"/><meta property="og:url"      content="https://23095100.github.io/articles/2020/07/15/1594804709459.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="还不会安装MYSQL？一篇文章带你装个够！ - LGX 的个人博客" href="/opensearch.xml"><link href="https://23095100.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://23095100.github.io/manifest.json">        <link rel="canonical" href="https://23095100.github.io/articles/2020/07/15/1594804709459.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/css/base.css?1599471736118"/>
             <link rel="prev" title="MarkdownPad2 使用小技巧" href="https://23095100.github.io/articles/2020/07/14/1594718848803.html">
             <link rel="next" title="MYSQL连接，创建，增删改" href="https://23095100.github.io/articles/2020/07/21/1595293394033.html">
     </head>
@@ -10,7 +10,7 @@
 <header class="header">
     <div class="wrapper">
         <a href="https://23095100.github.io" rel="start" class="header__logo">
-            <img src="https://b3logfile.com/avatar/1594718285889.png?imageView2/1/w/128/h/128/interlace/0/q/100" alt="LGX 的个人博客"/>
+            <img src="https://b3logfile.com/avatar/1594718285889_1599444034163.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100" alt="LGX 的个人博客"/>
             LGX 的个人博客
         </a>
 
@@ -82,356 +82,356 @@
                 </a>
         </div>
         <div class="vditor-reset">
-            <p><img src="https://img.hacpai.com/file/2019/08/TIM图片20190819154739-f95356b0.gif" alt="NMSL.gif"></p>
-<p>[TOC]</p>
-<h2 id="toc_h2_0">1、使用YUM/APT进行安装</h2>
-<p>安装前，请查看您的操作系统版本和内核版本</p>
-<pre><code class="language-shell">root@DESKTOP-KK8078I:/tmp# uname -a
-Linux DESKTOP-KK8078I 4.19.104-microsoft-standard #1 SMP Wed Feb 19 06:37:35 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+            <p>  <img src="https://img.hacpai.com/file/2019/08/TIM%E5%9B%BE%E7%89%8720190819154739-f95356b0.gif" alt="NMSL.gif"></p>
+<div class="vditor-toc">  <span class="toc-h2"><a class="toc-a" href="#1-使用YUM-APT进行安装">1、使用YUM/APT进行安装</a></span><br>    <span class="toc-h3"><a class="toc-a" href="#1-1-添加YUM-APT仓库文件">1.1 添加YUM/APT仓库文件</a></span><br>    <span class="toc-h3"><a class="toc-a" href="#1-2-YUM安装MYSQL">1.2 YUM安装MYSQL</a></span><br>    <span class="toc-h3"><a class="toc-a" href="#1-3-APT安装MYSQL">1.3 APT安装MYSQL</a></span><br>  <span class="toc-h2"><a class="toc-a" href="#2-使用二进制进行安装">2、使用二进制进行安装</a></span><br>    <span class="toc-h3"><a class="toc-a" href="#2-1-基于YUM的系统-二进制安装MYSQL">2.1 基于YUM的系统 二进制安装MYSQL</a></span><br>    <span class="toc-h3"><a class="toc-a" href="#2-2-基于APT的系统-二进制安装MYSQL">2.2 基于APT的系统 二进制安装MYSQL</a></span><br>  <span class="toc-h2"><a class="toc-a" href="#3-systemd集成mysql">3、systemd集成mysql</a></span><br>  <span class="toc-h2"><a class="toc-a" href="#4-MYSQL-启动-关闭-重启等操作">4、MYSQL 启动，关闭，重启等操作</a></span><br>    <span class="toc-h3"><a class="toc-a" href="#4-1-基于YUM的系统">4.1 基于YUM的系统</a></span><br>    <span class="toc-h3"><a class="toc-a" href="#4-2-基于APT的系统">4.2 基于APT的系统</a></span><br></div>
+<h2 id="1-使用YUM-APT进行安装">1、使用 YUM/APT 进行安装</h2>
+<p>  安装前，请查看您的操作系统版本和内核版本</p>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-ln">1</span>root@DESKTOP-KK8078I:/tmp# uname -a
+<span class="highlight-ln">2</span>Linux DESKTOP-KK8078I 4.19.104-microsoft-standard <span class="highlight-c1">#1 SMP Wed Feb 19 06:37:35 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux</span>
 </code></pre>
-<p><img src="https://b3logfile.com/file/2020/07/1-d064f389.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="1.png"></p>
-<p>选择相应的分发版进行安装，注意mysql版本</p>
-<h3 id="toc_h3_1">1.1 添加YUM/APT仓库文件</h3>
-<p><a href="https://dev.mysql.com/downloads/" title="https://dev.mysql.com/downloads/" target="_blank">https://dev.mysql.com/downloads/</a></p>
-<p>这里以 <strong>CENTOS 8</strong> 为例子进行测试，系统具体版本请参照上文图片进行。</p>
-<p><img src="https://b3logfile.com/file/2020/07/2-c155ea21.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="2.png"></p>
-<p><img src="https://b3logfile.com/file/2020/07/3-4361c55f.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="3.png"></p>
-<p><img src="https://b3logfile.com/file/2020/07/4-e12fde32.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="4.png"></p>
-<p>使用wget进行下载</p>
-<pre><code>root@DESKTOP-KK8078I:~# wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
---2020-07-17 14:03:12--  https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
-Resolving dev.mysql.com (dev.mysql.com)... 137.254.60.11
-Connecting to dev.mysql.com (dev.mysql.com)|137.254.60.11|:443... connected.
-HTTP request sent, awaiting response... 302 Found
-Location: https://repo.mysql.com//mysql80-community-release-el7-3.noarch.rpm [following]
---2020-07-17 14:03:13--  https://repo.mysql.com//mysql80-community-release-el7-3.noarch.rpm
-Resolving repo.mysql.com (repo.mysql.com)... 23.40.193.17
-Connecting to repo.mysql.com (repo.mysql.com)|23.40.193.17|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 26024 (25K) [application/x-redhat-package-manager]
-Saving to: ‘mysql80-community-release-el7-3.noarch.rpm’
-
-mysql80-community-release-el7-3.noarch.rpm     100%[==================================================================================================&gt;]  25.41K  89.1KB/s    in 0.3s  
-
-2020-07-17 14:03:15 (89.1 KB/s) - ‘mysql80-community-release-el7-3.noarch.rpm’ saved [26024/26024]
-
+<p>  <img src="https://b3logfile.com/file/2020/07/1-d064f389.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="1.png"></p>
+<p>  选择相应的分发版进行安装，注意 MySQL 版本</p>
+<h3 id="1-1-添加YUM-APT仓库文件">1.1 添加 YUM/APT 仓库文件</h3>
+<p>  <a href="https://dev.mysql.com/downloads/" title="https://dev.mysql.com/downloads/" target="_blank">https://dev.mysql.com/downloads/</a></p>
+<p>  这里以 <strong>CentOS 8</strong> 为例子进行测试，系统具体版本请参照上文图片进行。</p>
+<p>  <img src="https://b3logfile.com/file/2020/07/2-c155ea21.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="2.png"></p>
+<p>  <img src="https://b3logfile.com/file/2020/07/3-4361c55f.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="3.png"></p>
+<p>  <img src="https://b3logfile.com/file/2020/07/4-e12fde32.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="4.png"></p>
+<p>  使用 wget 进行下载</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln"> 1</span>root@DESKTOP-KK8078I:~# wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+<span class="highlight-ln"> 2</span>--2020-07-17 14:03:12--  https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+<span class="highlight-ln"> 3</span>Resolving dev.mysql.com (dev.mysql.com)... 137.254.60.11
+<span class="highlight-ln"> 4</span>Connecting to dev.mysql.com (dev.mysql.com)|137.254.60.11|:443... connected.
+<span class="highlight-ln"> 5</span>HTTP request sent, awaiting response... 302 Found
+<span class="highlight-ln"> 6</span>Location: https://repo.mysql.com//mysql80-community-release-el7-3.noarch.rpm [following]
+<span class="highlight-ln"> 7</span>--2020-07-17 14:03:13--  https://repo.mysql.com//mysql80-community-release-el7-3.noarch.rpm
+<span class="highlight-ln"> 8</span>Resolving repo.mysql.com (repo.mysql.com)... 23.40.193.17
+<span class="highlight-ln"> 9</span>Connecting to repo.mysql.com (repo.mysql.com)|23.40.193.17|:443... connected.
+<span class="highlight-ln">10</span>HTTP request sent, awaiting response... 200 OK
+<span class="highlight-ln">11</span>Length: 26024 (25K) [application/x-redhat-package-manager]
+<span class="highlight-ln">12</span>Saving to: ‘mysql80-community-release-el7-3.noarch.rpm’
+<span class="highlight-ln">13</span>
+<span class="highlight-ln">14</span>mysql80-community-release-el7-3.noarch.rpm     100%[==================================================================================================&gt;]  25.41K  89.1KB/s    in 0.3s  
+<span class="highlight-ln">15</span>
+<span class="highlight-ln">16</span>2020-07-17 14:03:15 (89.1 KB/s) - ‘mysql80-community-release-el7-3.noarch.rpm’ saved [26024/26024]
+<span class="highlight-ln">17</span>
 </code></pre>
-<h3 id="toc_h3_2">1.2 YUM安装MYSQL</h3>
-<p>根据上面的选择对应的分发版版本进行安装</p>
-<p>1.2.1 查看安装仓库文件是否成功</p>
-<pre><code>[root@localhost tmp]# sudo yum repolist enabled | grep 'mysql.*-community.*'
-mysql-connectors-community MySQL Connectors Community
-mysql-tools-community      MySQL Tools Community
-mysql80-community          MySQL 8.0 Community Server
+<h3 id="1-2-YUM安装MYSQL">1.2 YUM 安装 MySQL</h3>
+<p>  根据上面的选择对应的分发版版本进行安装</p>
+<p>  1.2.1 查看安装仓库文件是否成功</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>[root@localhost tmp]# sudo yum repolist enabled | grep 'mysql.*-community.*'
+<span class="highlight-ln">2</span>mysql-connectors-community MySQL Connectors Community
+<span class="highlight-ln">3</span>mysql-tools-community      MySQL Tools Community
+<span class="highlight-ln">4</span>mysql80-community          MySQL 8.0 Community Server
 </code></pre>
-<p>1.2.2看系统自带mysql/mariadb</p>
-<pre><code>[root@localhost tmp]# rpm -qa | grep -i maria
-[root@localhost tmp]# rpm -qa | grep -i mysql
-mysql80-community-release-el8-1.noarch
+<p>  1.2.2 看系统自带 mysql/mariadb</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>[root@localhost tmp]# rpm -qa | grep -i maria
+<span class="highlight-ln">2</span>[root@localhost tmp]# rpm -qa | grep -i mysql
+<span class="highlight-ln">3</span>mysql80-community-release-el8-1.noarch
 </code></pre>
-<p>1.2.3 卸载可能冲突的软件包</p>
-<pre><code>[root@localhost tmp]# sudo yum -y remove mysql*
-[root@localhost tmp]# sudo yum -y remove maria*
+<p>  1.2.3 卸载可能冲突的软件包</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>[root@localhost tmp]# sudo yum -y remove mysql*
+<span class="highlight-ln">2</span>[root@localhost tmp]# sudo yum -y remove maria*
 </code></pre>
-<p>1.2.4 安装mysql-server</p>
-<pre><code>[root@localhost tmp]# sudo yum -y install mysql-server
-Last metadata expiration check: 0:07:54 ago on Fri 17 Jul 2020 11:52:25 PM CST.
-Dependencies resolved.
-===========================================================================================================================================================================================
- Package                                            Architecture                   Version                                                         Repository                         Size
-===========================================================================================================================================================================================
-Installing:
- mysql-server                                       x86_64                         8.0.17-3.module_el8.0.0+181+899d6349                            AppStream                          22 M
-Installing dependencies:
- mariadb-connector-c-config                         noarch                         3.0.7-1.el8                                                     AppStream                          13 k
- mecab                                              x86_64                         0.996-1.module_el8.0.0+41+ca30bab6.9                            AppStream                         397 k
- mysql                                              x86_64                         8.0.17-3.module_el8.0.0+181+899d6349                            AppStream                          11 M
- mysql-common                                       x86_64                         8.0.17-3.module_el8.0.0+181+899d6349                            AppStream                         143 k
- mysql-errmsg                                       x86_64                         8.0.17-3.module_el8.0.0+181+899d6349                            AppStream                         557 k
- protobuf-lite                                      x86_64                         3.5.0-7.el8                                                     AppStream                         150 k
-Enabling module streams:
- mysql                                                                             8.0                                              
-
-Transaction Summary
-===========================================================================================================================================================================================
-Install  7 Packages
-
-Total download size: 33 M
-Installed size: 216 M
+<p>  1.2.4 安装 mysql-server</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln"> 1</span>[root@localhost tmp]# sudo yum -y install mysql-server
+<span class="highlight-ln"> 2</span>Last metadata expiration check: 0:07:54 ago on Fri 17 Jul 2020 11:52:25 PM CST.
+<span class="highlight-ln"> 3</span>Dependencies resolved.
+<span class="highlight-ln"> 4</span>===========================================================================================================================================================================================
+<span class="highlight-ln"> 5</span> Package                                            Architecture                   Version                                                         Repository                         Size
+<span class="highlight-ln"> 6</span>===========================================================================================================================================================================================
+<span class="highlight-ln"> 7</span>Installing:
+<span class="highlight-ln"> 8</span> mysql-server                                       x86_64                         8.0.17-3.module_el8.0.0+181+899d6349                            AppStream                          22 M
+<span class="highlight-ln"> 9</span>Installing dependencies:
+<span class="highlight-ln">10</span> mariadb-connector-c-config                         noarch                         3.0.7-1.el8                                                     AppStream                          13 k
+<span class="highlight-ln">11</span> mecab                                              x86_64                         0.996-1.module_el8.0.0+41+ca30bab6.9                            AppStream                         397 k
+<span class="highlight-ln">12</span> mysql                                              x86_64                         8.0.17-3.module_el8.0.0+181+899d6349                            AppStream                          11 M
+<span class="highlight-ln">13</span> mysql-common                                       x86_64                         8.0.17-3.module_el8.0.0+181+899d6349                            AppStream                         143 k
+<span class="highlight-ln">14</span> mysql-errmsg                                       x86_64                         8.0.17-3.module_el8.0.0+181+899d6349                            AppStream                         557 k
+<span class="highlight-ln">15</span> protobuf-lite                                      x86_64                         3.5.0-7.el8                                                     AppStream                         150 k
+<span class="highlight-ln">16</span>Enabling module streams:
+<span class="highlight-ln">17</span> mysql                                                                             8.0                                              
+<span class="highlight-ln">18</span>
+<span class="highlight-ln">19</span>Transaction Summary
+<span class="highlight-ln">20</span>===========================================================================================================================================================================================
+<span class="highlight-ln">21</span>Install  7 Packages
+<span class="highlight-ln">22</span>
+<span class="highlight-ln">23</span>Total download size: 33 M
+<span class="highlight-ln">24</span>Installed size: 216 M
 </code></pre>
-<p>1.2.5 启动数据库</p>
-<pre><code>[root@localhost tmp]# sudo systemctl start mysqld
-[root@localhost tmp]# sudo systemctl status mysqld
-● mysqld.service - MySQL 8.0 database server
-   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; disabled; vendor preset: disabled)
-   Active: active (running) since Sat 2020-07-18 00:04:06 CST; 5s ago
-  Process: 32449 ExecStartPost=/usr/libexec/mysql-check-upgrade (code=exited, status=0/SUCCESS)
-  Process: 32323 ExecStartPre=/usr/libexec/mysql-prepare-db-dir mysqld.service (code=exited, status=0/SUCCESS)
-  Process: 32298 ExecStartPre=/usr/libexec/mysql-check-socket (code=exited, status=0/SUCCESS)
- Main PID: 32407 (mysqld)
-   Status: "Server is operational"
-    Tasks: 39 (limit: 10272)
-   Memory: 495.8M
-   CGroup: /system.slice/mysqld.service
-           └─32407 /usr/libexec/mysqld --basedir=/usr
-
-Jul 18 00:04:02 localhost.localdomain systemd[1]: Starting MySQL 8.0 database server...
-Jul 18 00:04:02 localhost.localdomain mysql-prepare-db-dir[32323]: Initializing MySQL database
-Jul 18 00:04:06 localhost.localdomain systemd[1]: Started MySQL 8.0 database server.
+<p>  1.2.5 启动数据库</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln"> 1</span>[root@localhost tmp]# sudo systemctl start mysqld
+<span class="highlight-ln"> 2</span>[root@localhost tmp]# sudo systemctl status mysqld
+<span class="highlight-ln"> 3</span>● mysqld.service - MySQL 8.0 database server
+<span class="highlight-ln"> 4</span>   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; disabled; vendor preset: disabled)
+<span class="highlight-ln"> 5</span>   Active: active (running) since Sat 2020-07-18 00:04:06 CST; 5s ago
+<span class="highlight-ln"> 6</span>  Process: 32449 ExecStartPost=/usr/libexec/mysql-check-upgrade (code=exited, status=0/SUCCESS)
+<span class="highlight-ln"> 7</span>  Process: 32323 ExecStartPre=/usr/libexec/mysql-prepare-db-dir mysqld.service (code=exited, status=0/SUCCESS)
+<span class="highlight-ln"> 8</span>  Process: 32298 ExecStartPre=/usr/libexec/mysql-check-socket (code=exited, status=0/SUCCESS)
+<span class="highlight-ln"> 9</span> Main PID: 32407 (mysqld)
+<span class="highlight-ln">10</span>   Status: "Server is operational"
+<span class="highlight-ln">11</span>    Tasks: 39 (limit: 10272)
+<span class="highlight-ln">12</span>   Memory: 495.8M
+<span class="highlight-ln">13</span>   CGroup: /system.slice/mysqld.service
+<span class="highlight-ln">14</span>           └─32407 /usr/libexec/mysqld --basedir=/usr
+<span class="highlight-ln">15</span>
+<span class="highlight-ln">16</span>Jul 18 00:04:02 localhost.localdomain systemd[1]: Starting MySQL 8.0 database server...
+<span class="highlight-ln">17</span>Jul 18 00:04:02 localhost.localdomain mysql-prepare-db-dir[32323]: Initializing MySQL database
+<span class="highlight-ln">18</span>Jul 18 00:04:06 localhost.localdomain systemd[1]: Started MySQL 8.0 database server.
 </code></pre>
-<h3 id="toc_h3_3">1.3 APT安装MYSQL</h3>
-<p>1.3.1 下载并安装deb安装包</p>
-<pre><code class="language-bash">root@DESKTOP-KK8078I:~# wget https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb
---2020-07-17 14:06:37--  https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb
-Resolving dev.mysql.com (dev.mysql.com)... 137.254.60.11
-Connecting to dev.mysql.com (dev.mysql.com)|137.254.60.11|:443... connected.
-HTTP request sent, awaiting response... 302 Found
-Location: https://repo.mysql.com//mysql-apt-config_0.8.15-1_all.deb [following]
---2020-07-17 14:06:38--  https://repo.mysql.com//mysql-apt-config_0.8.15-1_all.deb
-Resolving repo.mysql.com (repo.mysql.com)... 23.40.193.17
-Connecting to repo.mysql.com (repo.mysql.com)|23.40.193.17|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 35532 (35K) [application/x-debian-package]
-Saving to: ‘mysql-apt-config_0.8.15-1_all.deb’
-
-mysql-apt-config_0.8.15-1_all.deb              100%[==================================================================================================&gt;]  34.70K  --.-KB/s    in 0.08s   
-
-2020-07-17 14:06:39 (408 KB/s) - ‘mysql-apt-config_0.8.15-1_all.deb’ saved [35532/35532]
+<h3 id="1-3-APT安装MYSQL">1.3 APT 安装 MySQL</h3>
+<p>  1.3.1 下载并安装 deb 安装包</p>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-ln"> 1</span>root@DESKTOP-KK8078I:~# wget https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb
+<span class="highlight-ln"> 2</span>--2020-07-17 14:06:37--  https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb
+<span class="highlight-ln"> 3</span>Resolving dev.mysql.com <span class="highlight-o">(</span>dev.mysql.com<span class="highlight-o">)</span>... 137.254.60.11
+<span class="highlight-ln"> 4</span>Connecting to dev.mysql.com <span class="highlight-o">(</span>dev.mysql.com<span class="highlight-o">)</span><span class="highlight-p">|</span>137.254.60.11<span class="highlight-p">|</span>:443... connected.
+<span class="highlight-ln"> 5</span>HTTP request sent, awaiting response... <span class="highlight-m">302</span> Found
+<span class="highlight-ln"> 6</span>Location: https://repo.mysql.com//mysql-apt-config_0.8.15-1_all.deb <span class="highlight-o">[</span>following<span class="highlight-o">]</span>
+<span class="highlight-ln"> 7</span>--2020-07-17 14:06:38--  https://repo.mysql.com//mysql-apt-config_0.8.15-1_all.deb
+<span class="highlight-ln"> 8</span>Resolving repo.mysql.com <span class="highlight-o">(</span>repo.mysql.com<span class="highlight-o">)</span>... 23.40.193.17
+<span class="highlight-ln"> 9</span>Connecting to repo.mysql.com <span class="highlight-o">(</span>repo.mysql.com<span class="highlight-o">)</span><span class="highlight-p">|</span>23.40.193.17<span class="highlight-p">|</span>:443... connected.
+<span class="highlight-ln">10</span>HTTP request sent, awaiting response... <span class="highlight-m">200</span> OK
+<span class="highlight-ln">11</span>Length: <span class="highlight-m">35532</span> <span class="highlight-o">(</span>35K<span class="highlight-o">)</span> <span class="highlight-o">[</span>application/x-debian-package<span class="highlight-o">]</span>
+<span class="highlight-ln">12</span>Saving to: ‘mysql-apt-config_0.8.15-1_all.deb’
+<span class="highlight-ln">13</span>
+<span class="highlight-ln">14</span>mysql-apt-config_0.8.15-1_all.deb              100%<span class="highlight-o">[==================================================================================================</span>&gt;<span class="highlight-o">]</span>  34.70K  --.-KB/s    in 0.08s   
+<span class="highlight-ln">15</span>
+<span class="highlight-ln">16</span>2020-07-17 14:06:39 <span class="highlight-o">(</span><span class="highlight-m">408</span> KB/s<span class="highlight-o">)</span> - ‘mysql-apt-config_0.8.15-1_all.deb’ saved <span class="highlight-o">[</span>35532/35532<span class="highlight-o">]</span>
 </code></pre>
-<p>选择MySQL-8.0 点击OK继续安装</p>
-<pre><code>root@DESKTOP-KK8078I:/tmp# sudo apt-get install ./mysql-apt-config_0.8.15-1_all.deb 
-Reading package lists... Done
-Building dependency tree   
-Reading state information... Done
-Note, selecting 'mysql-apt-config' instead of './mysql-apt-config_0.8.15-1_all.deb'
-The following NEW packages will be installed:
-  mysql-apt-config
-0 upgraded, 1 newly installed, 0 to remove and 69 not upgraded.
-Need to get 0 B/35.5 kB of archives.
-After this operation, 35.8 kB of additional disk space will be used.
-Get:1 /tmp/mysql-apt-config_0.8.15-1_all.deb mysql-apt-config all 0.8.15-1 [35.5 kB]
-Preconfiguring packages ...
-Selecting previously unselected package mysql-apt-config.
-(Reading database ... 64037 files and directories currently installed.)
-Preparing to unpack .../mysql-apt-config_0.8.15-1_all.deb ...
-Unpacking mysql-apt-config (0.8.15-1) ...
-Setting up mysql-apt-config (0.8.15-1) ...
-Warning: apt-key should not be used in scripts (called from postinst maintainerscript of the package mysql-apt-config)
-OK
+<p>  选择 MySQL-8.0 点击 OK 继续安装</p>
+<pre><code class="language-go highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-nx">root</span><span class="highlight-err">@</span><span class="highlight-nx">DESKTOP</span><span class="highlight-o">-</span><span class="highlight-nx">KK8078I</span><span class="highlight-p">:</span><span class="highlight-o">/</span><span class="highlight-nx">tmp</span><span class="highlight-err">#</span> <span class="highlight-nx">sudo</span> <span class="highlight-nx">apt</span><span class="highlight-o">-</span><span class="highlight-nx">get</span> <span class="highlight-nx">install</span> <span class="highlight-p">.</span><span class="highlight-o">/</span><span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">apt</span><span class="highlight-o">-</span><span class="highlight-nx">config_0</span><span class="highlight-mf">.8.15</span><span class="highlight-o">-</span><span class="highlight-mi">1</span><span class="highlight-nx">_all</span><span class="highlight-p">.</span><span class="highlight-nx">deb</span> 
+<span class="highlight-ln"> 2</span><span class="highlight-nx">Reading</span> <span class="highlight-kn">package</span> <span class="highlight-nx">lists</span><span class="highlight-o">...</span> <span class="highlight-nx">Done</span>
+<span class="highlight-ln"> 3</span><span class="highlight-nx">Building</span> <span class="highlight-nx">dependency</span> <span class="highlight-nx">tree</span>   
+<span class="highlight-ln"> 4</span><span class="highlight-nx">Reading</span> <span class="highlight-nx">state</span> <span class="highlight-nx">information</span><span class="highlight-o">...</span> <span class="highlight-nx">Done</span>
+<span class="highlight-ln"> 5</span><span class="highlight-nx">Note</span><span class="highlight-p">,</span> <span class="highlight-nx">selecting</span> <span class="highlight-err">'</span><span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">apt</span><span class="highlight-o">-</span><span class="highlight-nx">config</span><span class="highlight-err">'</span> <span class="highlight-nx">instead</span> <span class="highlight-nx">of</span> <span class="highlight-err">'</span><span class="highlight-p">.</span><span class="highlight-o">/</span><span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">apt</span><span class="highlight-o">-</span><span class="highlight-nx">config_0</span><span class="highlight-mf">.8.15</span><span class="highlight-o">-</span><span class="highlight-mi">1</span><span class="highlight-nx">_all</span><span class="highlight-p">.</span><span class="highlight-nx">deb</span><span class="highlight-err">'</span>
+<span class="highlight-ln"> 6</span><span class="highlight-nx">The</span> <span class="highlight-nx">following</span> <span class="highlight-nx">NEW</span> <span class="highlight-nx">packages</span> <span class="highlight-nx">will</span> <span class="highlight-nx">be</span> <span class="highlight-nx">installed</span><span class="highlight-p">:</span>
+<span class="highlight-ln"> 7</span>  <span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">apt</span><span class="highlight-o">-</span><span class="highlight-nx">config</span>
+<span class="highlight-ln"> 8</span><span class="highlight-mi">0</span> <span class="highlight-nx">upgraded</span><span class="highlight-p">,</span> <span class="highlight-mi">1</span> <span class="highlight-nx">newly</span> <span class="highlight-nx">installed</span><span class="highlight-p">,</span> <span class="highlight-mi">0</span> <span class="highlight-nx">to</span> <span class="highlight-nx">remove</span> <span class="highlight-nx">and</span> <span class="highlight-mi">69</span> <span class="highlight-nx">not</span> <span class="highlight-nx">upgraded</span><span class="highlight-p">.</span>
+<span class="highlight-ln"> 9</span><span class="highlight-nx">Need</span> <span class="highlight-nx">to</span> <span class="highlight-nx">get</span> <span class="highlight-mi">0</span> <span class="highlight-nx">B</span><span class="highlight-o">/</span><span class="highlight-mf">35.5</span> <span class="highlight-nx">kB</span> <span class="highlight-nx">of</span> <span class="highlight-nx">archives</span><span class="highlight-p">.</span>
+<span class="highlight-ln">10</span><span class="highlight-nx">After</span> <span class="highlight-nx">this</span> <span class="highlight-nx">operation</span><span class="highlight-p">,</span> <span class="highlight-mf">35.8</span> <span class="highlight-nx">kB</span> <span class="highlight-nx">of</span> <span class="highlight-nx">additional</span> <span class="highlight-nx">disk</span> <span class="highlight-nx">space</span> <span class="highlight-nx">will</span> <span class="highlight-nx">be</span> <span class="highlight-nx">used</span><span class="highlight-p">.</span>
+<span class="highlight-ln">11</span><span class="highlight-nx">Get</span><span class="highlight-p">:</span><span class="highlight-mi">1</span> <span class="highlight-o">/</span><span class="highlight-nx">tmp</span><span class="highlight-o">/</span><span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">apt</span><span class="highlight-o">-</span><span class="highlight-nx">config_0</span><span class="highlight-mf">.8.15</span><span class="highlight-o">-</span><span class="highlight-mi">1</span><span class="highlight-nx">_all</span><span class="highlight-p">.</span><span class="highlight-nx">deb</span> <span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">apt</span><span class="highlight-o">-</span><span class="highlight-nx">config</span> <span class="highlight-nx">all</span> <span class="highlight-mf">0.8.15</span><span class="highlight-o">-</span><span class="highlight-mi">1</span> <span class="highlight-p">[</span><span class="highlight-mf">35.5</span> <span class="highlight-nx">kB</span><span class="highlight-p">]</span>
+<span class="highlight-ln">12</span><span class="highlight-nx">Preconfiguring</span> <span class="highlight-nx">packages</span> <span class="highlight-o">...</span>
+<span class="highlight-ln">13</span><span class="highlight-nx">Selecting</span> <span class="highlight-nx">previously</span> <span class="highlight-nx">unselected</span> <span class="highlight-kn">package</span> <span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">apt</span><span class="highlight-o">-</span><span class="highlight-nx">config</span><span class="highlight-p">.</span>
+<span class="highlight-ln">14</span><span class="highlight-p">(</span><span class="highlight-nx">Reading</span> <span class="highlight-nx">database</span> <span class="highlight-o">...</span> <span class="highlight-mi">64037</span> <span class="highlight-nx">files</span> <span class="highlight-nx">and</span> <span class="highlight-nx">directories</span> <span class="highlight-nx">currently</span> <span class="highlight-nx">installed</span><span class="highlight-p">.)</span>
+<span class="highlight-ln">15</span><span class="highlight-nx">Preparing</span> <span class="highlight-nx">to</span> <span class="highlight-nx">unpack</span> <span class="highlight-o">.../</span><span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">apt</span><span class="highlight-o">-</span><span class="highlight-nx">config_0</span><span class="highlight-mf">.8.15</span><span class="highlight-o">-</span><span class="highlight-mi">1</span><span class="highlight-nx">_all</span><span class="highlight-p">.</span><span class="highlight-nx">deb</span> <span class="highlight-o">...</span>
+<span class="highlight-ln">16</span><span class="highlight-nx">Unpacking</span> <span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">apt</span><span class="highlight-o">-</span><span class="highlight-nf">config</span> <span class="highlight-p">(</span><span class="highlight-mf">0.8.15</span><span class="highlight-o">-</span><span class="highlight-mi">1</span><span class="highlight-p">)</span> <span class="highlight-o">...</span>
+<span class="highlight-ln">17</span><span class="highlight-nx">Setting</span> <span class="highlight-nx">up</span> <span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">apt</span><span class="highlight-o">-</span><span class="highlight-nf">config</span> <span class="highlight-p">(</span><span class="highlight-mf">0.8.15</span><span class="highlight-o">-</span><span class="highlight-mi">1</span><span class="highlight-p">)</span> <span class="highlight-o">...</span>
+<span class="highlight-ln">18</span><span class="highlight-nx">Warning</span><span class="highlight-p">:</span> <span class="highlight-nx">apt</span><span class="highlight-o">-</span><span class="highlight-nx">key</span> <span class="highlight-nx">should</span> <span class="highlight-nx">not</span> <span class="highlight-nx">be</span> <span class="highlight-nx">used</span> <span class="highlight-nx">in</span> <span class="highlight-nf">scripts</span> <span class="highlight-p">(</span><span class="highlight-nx">called</span> <span class="highlight-nx">from</span> <span class="highlight-nx">postinst</span> <span class="highlight-nx">maintainerscript</span> <span class="highlight-nx">of</span> <span class="highlight-nx">the</span> <span class="highlight-kn">package</span> <span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">apt</span><span class="highlight-o">-</span><span class="highlight-nx">config</span><span class="highlight-p">)</span>
+<span class="highlight-ln">19</span><span class="highlight-nx">OK</span>
 </code></pre>
-<p>1.3.2 安装mysql</p>
-<pre><code>root@DESKTOP-KK8078I:~# sudo apt-get -y install mysql-server
-Reading package lists... Done
-Building dependency tree   
-Reading state information... Done
-The following additional packages will be installed:
-  libcgi-fast-perl libcgi-pm-perl libencode-locale-perl libevent-core-2.1-7 libfcgi-perl libhtml-parser-perl libhtml-tagset-perl libhtml-template-perl libhttp-date-perl
-  libhttp-message-perl libio-html-perl liblwp-mediatypes-perl libmecab2 libtimedate-perl liburi-perl mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-client-8.0 mysql-client-core-8.0
-  mysql-common mysql-server-8.0 mysql-server-core-8.0
-Suggested packages:
-  libdata-dump-perl libipc-sharedcache-perl libwww-perl mailx tinyca
-The following NEW packages will be installed:
-  libcgi-fast-perl libcgi-pm-perl libencode-locale-perl libevent-core-2.1-7 libfcgi-perl libhtml-parser-perl libhtml-tagset-perl libhtml-template-perl libhttp-date-perl
-  libhttp-message-perl libio-html-perl liblwp-mediatypes-perl libmecab2 libtimedate-perl liburi-perl mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-client-8.0 mysql-client-core-8.0
-  mysql-common mysql-server mysql-server-8.0 mysql-server-core-8.0
-0 upgraded, 24 newly installed, 0 to remove and 69 not upgraded.
-Need to get 0 B/30.3 MB of archives.
-After this operation, 246 MB of additional disk space will be used.
-Preconfiguring packages ...
+<p>  1.3.2 安装 MySQL</p>
+<pre><code class="language-go highlight-chroma"><span class="highlight-ln"> 1</span><span class="highlight-nx">root</span><span class="highlight-err">@</span><span class="highlight-nx">DESKTOP</span><span class="highlight-o">-</span><span class="highlight-nx">KK8078I</span><span class="highlight-p">:</span><span class="highlight-err">~#</span> <span class="highlight-nx">sudo</span> <span class="highlight-nx">apt</span><span class="highlight-o">-</span><span class="highlight-nx">get</span> <span class="highlight-o">-</span><span class="highlight-nx">y</span> <span class="highlight-nx">install</span> <span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">server</span>
+<span class="highlight-ln"> 2</span><span class="highlight-nx">Reading</span> <span class="highlight-kn">package</span> <span class="highlight-nx">lists</span><span class="highlight-o">...</span> <span class="highlight-nx">Done</span>
+<span class="highlight-ln"> 3</span><span class="highlight-nx">Building</span> <span class="highlight-nx">dependency</span> <span class="highlight-nx">tree</span>   
+<span class="highlight-ln"> 4</span><span class="highlight-nx">Reading</span> <span class="highlight-nx">state</span> <span class="highlight-nx">information</span><span class="highlight-o">...</span> <span class="highlight-nx">Done</span>
+<span class="highlight-ln"> 5</span><span class="highlight-nx">The</span> <span class="highlight-nx">following</span> <span class="highlight-nx">additional</span> <span class="highlight-nx">packages</span> <span class="highlight-nx">will</span> <span class="highlight-nx">be</span> <span class="highlight-nx">installed</span><span class="highlight-p">:</span>
+<span class="highlight-ln"> 6</span>  <span class="highlight-nx">libcgi</span><span class="highlight-o">-</span><span class="highlight-nx">fast</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libcgi</span><span class="highlight-o">-</span><span class="highlight-nx">pm</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libencode</span><span class="highlight-o">-</span><span class="highlight-nx">locale</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libevent</span><span class="highlight-o">-</span><span class="highlight-nx">core</span><span class="highlight-o">-</span><span class="highlight-mf">2.1</span><span class="highlight-o">-</span><span class="highlight-mi">7</span> <span class="highlight-nx">libfcgi</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libhtml</span><span class="highlight-o">-</span><span class="highlight-nx">parser</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libhtml</span><span class="highlight-o">-</span><span class="highlight-nx">tagset</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libhtml</span><span class="highlight-o">-</span><span class="highlight-nx">template</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libhttp</span><span class="highlight-o">-</span><span class="highlight-nx">date</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span>
+<span class="highlight-ln"> 7</span>  <span class="highlight-nx">libhttp</span><span class="highlight-o">-</span><span class="highlight-nx">message</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libio</span><span class="highlight-o">-</span><span class="highlight-nx">html</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">liblwp</span><span class="highlight-o">-</span><span class="highlight-nx">mediatypes</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libmecab2</span> <span class="highlight-nx">libtimedate</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">liburi</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">mecab</span><span class="highlight-o">-</span><span class="highlight-nx">ipadic</span> <span class="highlight-nx">mecab</span><span class="highlight-o">-</span><span class="highlight-nx">ipadic</span><span class="highlight-o">-</span><span class="highlight-nx">utf8</span> <span class="highlight-nx">mecab</span><span class="highlight-o">-</span><span class="highlight-nx">utils</span> <span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">client</span><span class="highlight-o">-</span><span class="highlight-mf">8.0</span> <span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">client</span><span class="highlight-o">-</span><span class="highlight-nx">core</span><span class="highlight-o">-</span><span class="highlight-mf">8.0</span>
+<span class="highlight-ln"> 8</span>  <span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">common</span> <span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">server</span><span class="highlight-o">-</span><span class="highlight-mf">8.0</span> <span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">server</span><span class="highlight-o">-</span><span class="highlight-nx">core</span><span class="highlight-o">-</span><span class="highlight-mf">8.0</span>
+<span class="highlight-ln"> 9</span><span class="highlight-nx">Suggested</span> <span class="highlight-nx">packages</span><span class="highlight-p">:</span>
+<span class="highlight-ln">10</span>  <span class="highlight-nx">libdata</span><span class="highlight-o">-</span><span class="highlight-nx">dump</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libipc</span><span class="highlight-o">-</span><span class="highlight-nx">sharedcache</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libwww</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">mailx</span> <span class="highlight-nx">tinyca</span>
+<span class="highlight-ln">11</span><span class="highlight-nx">The</span> <span class="highlight-nx">following</span> <span class="highlight-nx">NEW</span> <span class="highlight-nx">packages</span> <span class="highlight-nx">will</span> <span class="highlight-nx">be</span> <span class="highlight-nx">installed</span><span class="highlight-p">:</span>
+<span class="highlight-ln">12</span>  <span class="highlight-nx">libcgi</span><span class="highlight-o">-</span><span class="highlight-nx">fast</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libcgi</span><span class="highlight-o">-</span><span class="highlight-nx">pm</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libencode</span><span class="highlight-o">-</span><span class="highlight-nx">locale</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libevent</span><span class="highlight-o">-</span><span class="highlight-nx">core</span><span class="highlight-o">-</span><span class="highlight-mf">2.1</span><span class="highlight-o">-</span><span class="highlight-mi">7</span> <span class="highlight-nx">libfcgi</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libhtml</span><span class="highlight-o">-</span><span class="highlight-nx">parser</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libhtml</span><span class="highlight-o">-</span><span class="highlight-nx">tagset</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libhtml</span><span class="highlight-o">-</span><span class="highlight-nx">template</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libhttp</span><span class="highlight-o">-</span><span class="highlight-nx">date</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span>
+<span class="highlight-ln">13</span>  <span class="highlight-nx">libhttp</span><span class="highlight-o">-</span><span class="highlight-nx">message</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libio</span><span class="highlight-o">-</span><span class="highlight-nx">html</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">liblwp</span><span class="highlight-o">-</span><span class="highlight-nx">mediatypes</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">libmecab2</span> <span class="highlight-nx">libtimedate</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">liburi</span><span class="highlight-o">-</span><span class="highlight-nx">perl</span> <span class="highlight-nx">mecab</span><span class="highlight-o">-</span><span class="highlight-nx">ipadic</span> <span class="highlight-nx">mecab</span><span class="highlight-o">-</span><span class="highlight-nx">ipadic</span><span class="highlight-o">-</span><span class="highlight-nx">utf8</span> <span class="highlight-nx">mecab</span><span class="highlight-o">-</span><span class="highlight-nx">utils</span> <span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">client</span><span class="highlight-o">-</span><span class="highlight-mf">8.0</span> <span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">client</span><span class="highlight-o">-</span><span class="highlight-nx">core</span><span class="highlight-o">-</span><span class="highlight-mf">8.0</span>
+<span class="highlight-ln">14</span>  <span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">common</span> <span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">server</span> <span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">server</span><span class="highlight-o">-</span><span class="highlight-mf">8.0</span> <span class="highlight-nx">mysql</span><span class="highlight-o">-</span><span class="highlight-nx">server</span><span class="highlight-o">-</span><span class="highlight-nx">core</span><span class="highlight-o">-</span><span class="highlight-mf">8.0</span>
+<span class="highlight-ln">15</span><span class="highlight-mi">0</span> <span class="highlight-nx">upgraded</span><span class="highlight-p">,</span> <span class="highlight-mi">24</span> <span class="highlight-nx">newly</span> <span class="highlight-nx">installed</span><span class="highlight-p">,</span> <span class="highlight-mi">0</span> <span class="highlight-nx">to</span> <span class="highlight-nx">remove</span> <span class="highlight-nx">and</span> <span class="highlight-mi">69</span> <span class="highlight-nx">not</span> <span class="highlight-nx">upgraded</span><span class="highlight-p">.</span>
+<span class="highlight-ln">16</span><span class="highlight-nx">Need</span> <span class="highlight-nx">to</span> <span class="highlight-nx">get</span> <span class="highlight-mi">0</span> <span class="highlight-nx">B</span><span class="highlight-o">/</span><span class="highlight-mf">30.3</span> <span class="highlight-nx">MB</span> <span class="highlight-nx">of</span> <span class="highlight-nx">archives</span><span class="highlight-p">.</span>
+<span class="highlight-ln">17</span><span class="highlight-nx">After</span> <span class="highlight-nx">this</span> <span class="highlight-nx">operation</span><span class="highlight-p">,</span> <span class="highlight-mi">246</span> <span class="highlight-nx">MB</span> <span class="highlight-nx">of</span> <span class="highlight-nx">additional</span> <span class="highlight-nx">disk</span> <span class="highlight-nx">space</span> <span class="highlight-nx">will</span> <span class="highlight-nx">be</span> <span class="highlight-nx">used</span><span class="highlight-p">.</span>
+<span class="highlight-ln">18</span><span class="highlight-nx">Preconfiguring</span> <span class="highlight-nx">packages</span> <span class="highlight-o">...</span>
 </code></pre>
-<h2 id="toc_h2_4">2、使用二进制进行安装</h2>
-<p>YUM/APT进行安装可能会出现与其他已安装软件冲突的情况，并且会要求安装其他一些依赖项，这个时候我们可以选择通过官方给出的二进制文件进行安装</p>
-<p>这里我们以 社区版 （MySQL Community Server）<strong>mysql-5.7.22-linux-glibc2.12-x86_64</strong>进行示例安装</p>
-<p>其他版本可以去官方网站下载<a href="https://dev.mysql.com/downloads/mysql/" target="_blank">https://dev.mysql.com/downloads/mysql/</a></p>
-<h3 id="toc_h3_5">2.1 基于YUM的系统 二进制安装MYSQL</h3>
-<p>2.1.1 安装libaio依赖库</p>
-<pre><code>root@DESKTOP-KK8078I:/tmp# sudo yum -y install libaio1
+<h2 id="2-使用二进制进行安装">2、使用二进制进行安装</h2>
+<p>  YUM/APT 进行安装可能会出现与其他已安装软件冲突的情况，并且会要求安装其他一些依赖项，这个时候我们可以选择通过官方给出的二进制文件进行安装</p>
+<p>  这里我们以 社区版 （MySQL Community Server）<strong>mysql-5.7.22-linux-glibc2.12-x86_64</strong> 进行示例安装</p>
+<p>  其他版本可以去官方网站下载 <a href="https://dev.mysql.com/downloads/mysql/" target="_blank">https://dev.mysql.com/downloads/mysql/</a></p>
+<h3 id="2-1-基于YUM的系统-二进制安装MYSQL">2.1 基于 YUM 的系统 二进制安装 MySQL</h3>
+<p>  2.1.1 安装 libaio 依赖库</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>root@DESKTOP-KK8078I:/tmp# sudo yum -y install libaio1
 </code></pre>
-<p>以下步骤接</p>
+<p>  以下步骤接</p>
 <blockquote>
-<p>2.2.2 从mysql官方网站下载mysql二进制文件</p>
+<p>2.2.2 从 MySQL 官方网站下载 MySQL 二进制文件</p>
 </blockquote>
-<h3 id="toc_h3_6">2.2 基于APT的系统 二进制安装MYSQL</h3>
-<p>2.2.1 安装libaio依赖库</p>
-<pre><code>root@Ubuntu20:/tmp# sudo apt-get install libaio1
+<h3 id="2-2-基于APT的系统-二进制安装MYSQL">2.2 基于 APT 的系统 二进制安装 MySQL</h3>
+<p>  2.2.1 安装 libaio 依赖库</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>root@Ubuntu20:/tmp# sudo apt-get install libaio1
 </code></pre>
-<p>2.2.2 从mysql官方网站下载mysql二进制文件</p>
-<p><a href="https://dev.mysql.com/downloads/mysql/" target="_blank">https://dev.mysql.com/downloads/mysql/</a></p>
-<p>2.2.3 添加mysql用户和组</p>
-<pre><code>root@DESKTOP-KK8078I:/tmp/mysql-5.7.22# sudo groupadd mysql
-root@DESKTOP-KK8078I:/tmp/mysql-5.7.22# sudo useradd -r -g mysql -s /bin/false mysql
+<p>  2.2.2 从 MySQL 官方网站下载 MySQL 二进制文件</p>
+<p>  <a href="https://dev.mysql.com/downloads/mysql/" target="_blank">https://dev.mysql.com/downloads/mysql/</a></p>
+<p>  2.2.3 添加 MySQL 用户和组</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>root@DESKTOP-KK8078I:/tmp/mysql-5.7.22# sudo groupadd mysql
+<span class="highlight-ln">2</span>root@DESKTOP-KK8078I:/tmp/mysql-5.7.22# sudo useradd -r -g mysql -s /bin/false mysql
 </code></pre>
-<p>2.2.4 解压tar压缩包</p>
-<p>这里我们选择将二进制文件放在 <code>/tmp/</code>文件夹，采用 <code>-C</code>命令解压到其他文件夹，默认安装目录建议安装在 <code>/opt/</code>下，<code>/opt/</code>下，是一些大型软件的安装目录，或者是一些服务程序的安装目录。</p>
-<pre><code>root@DESKTOP-KK8078I:/tmp# tar zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz -C /opt/
-mysql-5.7.22-linux-glibc2.12-x86_64/bin/myisam_ftdump
-mysql-5.7.22-linux-glibc2.12-x86_64/bin/myisamchk
-mysql-5.7.22-linux-glibc2.12-x86_64/bin/myisamlog
-mysql-5.7.22-linux-glibc2.12-x86_64/bin/myisampack
-mysql-5.7.22-linux-glibc2.12-x86_64/bin/mysql
-mysql-5.7.22-linux-glibc2.12-x86_64/bin/mysql_client_test_embedded
-mysql-5.7.22-linux-glibc2.12-x86_64/bin/mysql_config_editor
-root@DESKTOP-KK8078I:/tmp# cd /opt/mysql-5.7.22-linux-glibc2.12-x86_64/
-root@DESKTOP-KK8078I:/opt/mysql-5.7.22-linux-glibc2.12-x86_64# ls
-COPYING  README  bin  docs  include  lib  man  share  support-files
+<p>  2.2.4 解压 tar 压缩包</p>
+<p>  这里我们选择将二进制文件放在 <code>/tmp/</code> 文件夹，采用 <code>-C</code> 命令解压到其他文件夹，默认安装目录建议安装在 <code>/opt/</code> 下，<code>/opt/</code> 下，是一些大型软件的安装目录，或者是一些服务程序的安装目录。</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln"> 1</span>root@DESKTOP-KK8078I:/tmp# tar zxvf mysql-5.7.22-linux-glibc2.12-x86_64.tar.gz -C /opt/
+<span class="highlight-ln"> 2</span>mysql-5.7.22-linux-glibc2.12-x86_64/bin/myisam_ftdump
+<span class="highlight-ln"> 3</span>mysql-5.7.22-linux-glibc2.12-x86_64/bin/myisamchk
+<span class="highlight-ln"> 4</span>mysql-5.7.22-linux-glibc2.12-x86_64/bin/myisamlog
+<span class="highlight-ln"> 5</span>mysql-5.7.22-linux-glibc2.12-x86_64/bin/myisampack
+<span class="highlight-ln"> 6</span>mysql-5.7.22-linux-glibc2.12-x86_64/bin/mysql
+<span class="highlight-ln"> 7</span>mysql-5.7.22-linux-glibc2.12-x86_64/bin/mysql_client_test_embedded
+<span class="highlight-ln"> 8</span>mysql-5.7.22-linux-glibc2.12-x86_64/bin/mysql_config_editor
+<span class="highlight-ln"> 9</span>root@DESKTOP-KK8078I:/tmp# cd /opt/mysql-5.7.22-linux-glibc2.12-x86_64/
+<span class="highlight-ln">10</span>root@DESKTOP-KK8078I:/opt/mysql-5.7.22-linux-glibc2.12-x86_64# ls
+<span class="highlight-ln">11</span>COPYING  README  bin  docs  include  lib  man  share  support-files
 </code></pre>
-<p>2.2.5 制作符号链接</p>
-<p>如果要进行版本更新的话，只需要更改符号链接就好</p>
-<pre><code>root@DESKTOP-KK8078I:/usr/local# sudo ln -s /opt/mysql-5.7.22-linux-glibc2.12-x86_64/ mysql
+<p>  2.2.5 制作符号链接</p>
+<p>  如果要进行版本更新的话，只需要更改符号链接就好</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>root@DESKTOP-KK8078I:/usr/local# sudo ln -s /opt/mysql-5.7.22-linux-glibc2.12-x86_64/ mysql
 </code></pre>
-<p>2.2.6 创建必要目录，并更改所有权为mysql</p>
-<pre><code>root@DESKTOP-KK8078I:/usr/local# cd mysql
-root@DESKTOP-KK8078I:/usr/local/mysql# sudo mkdir mysql-files
-root@DESKTOP-KK8078I:/usr/local/mysql# sudo chmod 750 mysql-files/
-root@DESKTOP-KK8078I:/usr/local/mysql# sudo chown -R mysql .
-root@DESKTOP-KK8078I:/usr/local/mysql# sudo chgrp -R mysql .
+<p>  2.2.6 创建必要目录，并更改所有权为 MySQL</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>root@DESKTOP-KK8078I:/usr/local# cd mysql
+<span class="highlight-ln">2</span>root@DESKTOP-KK8078I:/usr/local/mysql# sudo mkdir mysql-files
+<span class="highlight-ln">3</span>root@DESKTOP-KK8078I:/usr/local/mysql# sudo chmod 750 mysql-files/
+<span class="highlight-ln">4</span>root@DESKTOP-KK8078I:/usr/local/mysql# sudo chown -R mysql .
+<span class="highlight-ln">5</span>root@DESKTOP-KK8078I:/usr/local/mysql# sudo chgrp -R mysql .
 </code></pre>
-<p>2.2.7 初始化mysql，并生成临时密码</p>
-<pre><code>root@DESKTOP-KK8078I:/usr/local/mysql# pwd
-/usr/local/mysql
-root@DESKTOP-KK8078I:/usr/local/mysql# bin/mysqld --initialize --user=mysql
-2020-07-15T02:07:50.569193Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
-2020-07-15T02:07:50.804494Z 0 [Warning] InnoDB: New log files created, LSN=45790
-2020-07-15T02:07:50.866887Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.
-2020-07-15T02:07:50.891659Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: fc73ed03-c63f-11ea-98ac-00155dc12faa.
-2020-07-15T02:07:50.895757Z 0 [Warning] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
-2020-07-15T02:07:50.899030Z 1 [Note] A temporary password is generated for root@localhost: esJzgRa7r&gt;zL
+<p>  2.2.7 初始化 MySQL，并生成临时密码</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>root@DESKTOP-KK8078I:/usr/local/mysql# pwd
+<span class="highlight-ln">2</span>/usr/local/mysql
+<span class="highlight-ln">3</span>root@DESKTOP-KK8078I:/usr/local/mysql# bin/mysqld --initialize --user=mysql
+<span class="highlight-ln">4</span>2020-07-15T02:07:50.569193Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+<span class="highlight-ln">5</span>2020-07-15T02:07:50.804494Z 0 [Warning] InnoDB: New log files created, LSN=45790
+<span class="highlight-ln">6</span>2020-07-15T02:07:50.866887Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.
+<span class="highlight-ln">7</span>2020-07-15T02:07:50.891659Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: fc73ed03-c63f-11ea-98ac-00155dc12faa.
+<span class="highlight-ln">8</span>2020-07-15T02:07:50.895757Z 0 [Warning] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+<span class="highlight-ln">9</span>2020-07-15T02:07:50.899030Z 1 [Note] A temporary password is generated for root@localhost: esJzgRa7r&gt;zL
 </code></pre>
-<p>mysql会生成临时密码，最好记下此密码</p>
-<p>2.2.8 更改二进制文件所有权为root，数据文件改为mysql</p>
-<pre><code>root@DESKTOP-KK8078I:/usr/local/mysql# sudo chown -R root .
-root@DESKTOP-KK8078I:/usr/local/mysql# sudo chown -R mysql data/ mysql-files/
+<p>  MySQL 会生成临时密码，最好记下此密码</p>
+<p>  2.2.8 更改二进制文件所有权为 root，数据文件改为 MySQL</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>root@DESKTOP-KK8078I:/usr/local/mysql# sudo chown -R root .
+<span class="highlight-ln">2</span>root@DESKTOP-KK8078I:/usr/local/mysql# sudo chown -R mysql data/ mysql-files/
 </code></pre>
-<p>2.2.9 复制启动脚本到init.d中</p>
-<pre><code>root@DESKTOP-KK8078I:/usr/local/mysql# sudo cp support-files/mysql.server /etc/init.d/mysql
+<p>  2.2.9 复制启动脚本到 init.d 中</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>root@DESKTOP-KK8078I:/usr/local/mysql# sudo cp support-files/mysql.server /etc/init.d/mysql
 </code></pre>
-<p>2.2.10 将目录导入到环境变量</p>
+<p>  2.2.10 将目录导入到环境变量</p>
 <blockquote>
-<p><strong>$PATH</strong>：决定了shell将到哪些目录中寻找命令或程序，PATH的值是一系列目录，当您运行一个程序时，Linux在这些目录下进行搜寻编译链接。</p>
+<p><strong>$PATH</strong>：决定了 shell 将到哪些目录中寻找命令或程序，PATH 的值是一系列目录，当您运行一个程序时，Linux 在这些目录下进行搜寻编译链接。</p>
 </blockquote>
-<p>修改$PATH的方法有很多，比如：</p>
-<pre><code>root@DESKTOP-KK8078I:/usr/local/mysql# export PATH=$PATH:/usr/local/mysql/bin
-root@DESKTOP-KK8078I:/usr/local/mysql# echo $PATH
-/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/mysql/bin
+<p>  修改 $PATH 的方法有很多，比如：</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>root@DESKTOP-KK8078I:/usr/local/mysql# export PATH=$PATH:/usr/local/mysql/bin
+<span class="highlight-ln">2</span>root@DESKTOP-KK8078I:/usr/local/mysql# echo $PATH
+<span class="highlight-ln">3</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/mysql/bin
 </code></pre>
-<p>但是这种方式修改的环境变量，在终端关闭后就会失效，所以不推荐此方式进行修改。</p>
-<p>第二种：编辑 <code>/etc/profile</code>文件，进行修改环境变量</p>
-<pre><code>root@DESKTOP-KK8078I:/usr/local/mysql/bin# vim /etc/profile
+<p>  但是这种方式修改的环境变量，在终端关闭后就会失效，所以不推荐此方式进行修改。</p>
+<p>  第二种：编辑 <code>/etc/profile</code> 文件，进行修改环境变量</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>root@DESKTOP-KK8078I:/usr/local/mysql/bin# vim /etc/profile
 </code></pre>
-<p>添加以下内容,并更新文件</p>
-<pre><code>MYSQL_HOME=/usr/local/mysql
-PATH=$PATH:$MYSQL_HOME/bin
-export PATH MYSQL_HOME
-root@DESKTOP-KK8078I:/usr/local/mysql/bin# source /etc/profile
+<p>  添加以下内容，并更新文件</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>MYSQL_HOME=/usr/local/mysql
+<span class="highlight-ln">2</span>PATH=$PATH:$MYSQL_HOME/bin
+<span class="highlight-ln">3</span>export PATH MYSQL_HOME
+<span class="highlight-ln">4</span>root@DESKTOP-KK8078I:/usr/local/mysql/bin# source /etc/profile
 </code></pre>
-<p>就算是更新完成了</p>
-<h2 id="toc_h2_7">3、systemd集成mysql</h2>
+<p>  就算是更新完成了</p>
+<h2 id="3-systemd集成mysql">3、systemd 集成 MySQL</h2>
 <blockquote>
-<p><strong>Systemd</strong>是一个系统管理守护进程、工具和库的集合，用于取代System V初始进程。Systemd的功能是用于集中管理和配置类UNIX系统。</p>
+<p><strong>Systemd</strong> 是一个系统管理守护进程、工具和库的集合，用于取代 System V 初始进程。Systemd 的功能是用于集中管理和配置类 UNIX 系统。</p>
 </blockquote>
 <blockquote>
-<p><strong>Systemctl</strong>是一个systemd工具，主要负责控制systemd系统和服务管理器。</p>
+<p><strong>Systemctl</strong> 是一个 systemd 工具，主要负责控制 systemd 系统和服务管理器。</p>
 </blockquote>
-<p>如果使用YUM/APT安装mysql的话，会自动生成systemd目录，而二进制文件安装的话，系统中并没有集成，建议手动添加systemd选项。</p>
-<p>3.1 新建文件夹，并编辑文档</p>
-<pre><code>root@DESKTOP-KK8078I:/usr/local/mysql/bin# sudo mkdir -pv /etc/systemd/system/mysqld.service.d
-mkdir: created directory '/etc/systemd/system/mysqld.service.d'
-root@DESKTOP-KK8078I:/usr/local/mysql/bin# sudo vim /etc/systemd/system/mysqld.service.d/override.conf
+<p>  如果使用 YUM/APT 安装 MySQL 的话，会自动生成 systemd 目录，而二进制文件安装的话，系统中并没有集成，建议手动添加 systemd 选项。</p>
+<p>  3.1 新建文件夹，并编辑文档</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>root@DESKTOP-KK8078I:/usr/local/mysql/bin# sudo mkdir -pv /etc/systemd/system/mysqld.service.d
+<span class="highlight-ln">2</span>mkdir: created directory '/etc/systemd/system/mysqld.service.d'
+<span class="highlight-ln">3</span>root@DESKTOP-KK8078I:/usr/local/mysql/bin# sudo vim /etc/systemd/system/mysqld.service.d/override.conf
 </code></pre>
-<p>3.2 添加以下内容</p>
-<pre><code>[Service]
-LimitNOFILE=max_open_files
-Nice=nice_level
-LimitCore=core_file_limit
-Environment="LD_PRELOAD=/path/to/malloc/library"
-Environment="TZ=time_zone_setting"
+<p>  3.2 添加以下内容</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>[Service]
+<span class="highlight-ln">2</span>LimitNOFILE=max_open_files
+<span class="highlight-ln">3</span>Nice=nice_level
+<span class="highlight-ln">4</span>LimitCore=core_file_limit
+<span class="highlight-ln">5</span>Environment="LD_PRELOAD=/path/to/malloc/library"
+<span class="highlight-ln">6</span>Environment="TZ=time_zone_setting"
 </code></pre>
-<p>3.3 重新加载systemd配置，并启动mysql</p>
-<pre><code>root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl daemon-reload
-root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl start mysql
-root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl status mysql
-● mysql.service - LSB: start and stop MySQL
-     Loaded: loaded (/etc/init.d/mysql; generated)
-     Active: active (running) since Wed 2020-07-15 10:26:16 CST; 4h 20min ago
-       Docs: man:systemd-sysv-generator(8)
-      Tasks: 28 (limit: 7493)
-     Memory: 183.4M
-     CGroup: /system.slice/mysql.service
-             ├─13626 /bin/sh /usr/local/mysql/bin/mysqld_safe --datadir=/usr/local/mysql/data --pid-file=/usr/local/mysql/data/DESKTOP-KK8078I.pid
-             └─13710 /usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --plugin-dir=/usr/local/mysql/lib/plugin --user=mysql --log-error=DESKTOP-KK80&gt;
+<p>  3.3 重新加载 systemd 配置，并启动 MySQL</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln"> 1</span>root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl daemon-reload
+<span class="highlight-ln"> 2</span>root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl start mysql
+<span class="highlight-ln"> 3</span>root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl status mysql
+<span class="highlight-ln"> 4</span>● mysql.service - LSB: start and stop MySQL
+<span class="highlight-ln"> 5</span>     Loaded: loaded (/etc/init.d/mysql; generated)
+<span class="highlight-ln"> 6</span>     Active: active (running) since Wed 2020-07-15 10:26:16 CST; 4h 20min ago
+<span class="highlight-ln"> 7</span>       Docs: man:systemd-sysv-generator(8)
+<span class="highlight-ln"> 8</span>      Tasks: 28 (limit: 7493)
+<span class="highlight-ln"> 9</span>     Memory: 183.4M
+<span class="highlight-ln">10</span>     CGroup: /system.slice/mysql.service
+<span class="highlight-ln">11</span>             ├─13626 /bin/sh /usr/local/mysql/bin/mysqld_safe --datadir=/usr/local/mysql/data --pid-file=/usr/local/mysql/data/DESKTOP-KK8078I.pid
+<span class="highlight-ln">12</span>             └─13710 /usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --plugin-dir=/usr/local/mysql/lib/plugin --user=mysql --log-error=DESKTOP-KK80&gt;
 </code></pre>
-<h2 id="toc_h2_8">4、MYSQL 启动，关闭，重启等操作</h2>
-<p>如果您进行上一步的话，那就可以通过 <code>systemctl</code> 进行管理mysql服务的启动，关闭，重启等操作。</p>
-<h3 id="toc_h3_9">4.1 基于YUM的系统</h3>
-<pre><code>启动mysql
-root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl start mysqld
-停止mysql
-root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl stop mysqld
-重启mysql
-root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl restart mysqld
-开机启动mysql
-root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl enable mysqld
-关闭开机启动
-root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl disable mysqld
+<h2 id="4-MYSQL-启动-关闭-重启等操作">4、MySQL 启动，关闭，重启等操作</h2>
+<p>  如果您进行上一步的话，那就可以通过 <code>systemctl</code> 进行管理 MySQL 服务的启动，关闭，重启等操作。</p>
+<h3 id="4-1-基于YUM的系统">4.1 基于 YUM 的系统</h3>
+<pre><code class="highlight-chroma"><span class="highlight-ln"> 1</span>启动mysql
+<span class="highlight-ln"> 2</span>root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl start mysqld
+<span class="highlight-ln"> 3</span>停止mysql
+<span class="highlight-ln"> 4</span>root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl stop mysqld
+<span class="highlight-ln"> 5</span>重启mysql
+<span class="highlight-ln"> 6</span>root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl restart mysqld
+<span class="highlight-ln"> 7</span>开机启动mysql
+<span class="highlight-ln"> 8</span>root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl enable mysqld
+<span class="highlight-ln"> 9</span>关闭开机启动
+<span class="highlight-ln">10</span>root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl disable mysqld
 </code></pre>
-<h3 id="toc_h3_10">4.2 基于APT的系统</h3>
-<pre><code>启动mysql
-root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl start mysql
-停止mysql
-root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl stop mysql
-重启mysql
-root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl restart mysql
-开机启动mysql
-root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl enable mysql
-关闭开机启动
-root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl disable mysql
+<h3 id="4-2-基于APT的系统">4.2 基于 APT 的系统</h3>
+<pre><code class="highlight-chroma"><span class="highlight-ln"> 1</span>启动mysql
+<span class="highlight-ln"> 2</span>root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl start mysql
+<span class="highlight-ln"> 3</span>停止mysql
+<span class="highlight-ln"> 4</span>root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl stop mysql
+<span class="highlight-ln"> 5</span>重启mysql
+<span class="highlight-ln"> 6</span>root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl restart mysql
+<span class="highlight-ln"> 7</span>开机启动mysql
+<span class="highlight-ln"> 8</span>root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl enable mysql
+<span class="highlight-ln"> 9</span>关闭开机启动
+<span class="highlight-ln">10</span>root@DESKTOP-KK8078I:/usr/local/mysql/bin# systemctl disable mysql
 </code></pre>
-<p>查看mysql服务是否已经开机启动</p>
-<pre><code>root@DESKTOP-KK8078I:~# systemctl is-enabled mysql
-mysql.service is not a native service, redirecting to systemd-sysv-install.
-Executing: /lib/systemd/systemd-sysv-install is-enabled mysql
-enabled
+<p>  查看 MySQL 服务是否已经开机启动</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>root@DESKTOP-KK8078I:~# systemctl is-enabled mysql
+<span class="highlight-ln">2</span>mysql.service is not a native service, redirecting to systemd-sysv-install.
+<span class="highlight-ln">3</span>Executing: /lib/systemd/systemd-sysv-install is-enabled mysql
+<span class="highlight-ln">4</span>enabled
 </code></pre>
-<p>修改root密码</p>
-<pre><code>mysql&gt; alter user root@localhost identified by '123456';
-Query OK, 0 rows affected (0.01 sec)
+<p>  修改 root 密码</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>mysql&gt; alter user root@localhost identified by '123456';
+<span class="highlight-ln">2</span>Query OK, 0 rows affected (0.01 sec)
 </code></pre>
         </div>
     </div>
     <div class="post__toc">
 <ul class="article__toc">
         <li class="toc__h2">
-            <a href="#toc_h2_0">1、使用YUM/APT进行安装</a>
+            <a href="#1-使用YUM-APT进行安装">1、使用 YUM/APT 进行安装</a>
         </li>
         <li class="toc__h3">
-            <a href="#toc_h3_1">1.1 添加YUM/APT仓库文件</a>
+            <a href="#1-1-添加YUM-APT仓库文件">1.1 添加 YUM/APT 仓库文件</a>
         </li>
         <li class="toc__h3">
-            <a href="#toc_h3_2">1.2 YUM安装MYSQL</a>
+            <a href="#1-2-YUM安装MYSQL">1.2 YUM 安装 MySQL</a>
         </li>
         <li class="toc__h3">
-            <a href="#toc_h3_3">1.3 APT安装MYSQL</a>
+            <a href="#1-3-APT安装MYSQL">1.3 APT 安装 MySQL</a>
         </li>
         <li class="toc__h2">
-            <a href="#toc_h2_4">2、使用二进制进行安装</a>
+            <a href="#2-使用二进制进行安装">2、使用二进制进行安装</a>
         </li>
         <li class="toc__h3">
-            <a href="#toc_h3_5">2.1 基于YUM的系统 二进制安装MYSQL</a>
+            <a href="#2-1-基于YUM的系统-二进制安装MYSQL">2.1 基于 YUM 的系统 二进制安装 MySQL</a>
         </li>
         <li class="toc__h3">
-            <a href="#toc_h3_6">2.2 基于APT的系统 二进制安装MYSQL</a>
+            <a href="#2-2-基于APT的系统-二进制安装MYSQL">2.2 基于 APT 的系统 二进制安装 MySQL</a>
         </li>
         <li class="toc__h2">
-            <a href="#toc_h2_7">3、systemd集成mysql</a>
+            <a href="#3-systemd集成mysql">3、systemd 集成 MySQL</a>
         </li>
         <li class="toc__h2">
-            <a href="#toc_h2_8">4、MYSQL 启动，关闭，重启等操作</a>
+            <a href="#4-MYSQL-启动-关闭-重启等操作">4、MySQL 启动，关闭，重启等操作</a>
         </li>
         <li class="toc__h3">
-            <a href="#toc_h3_9">4.1 基于YUM的系统</a>
+            <a href="#4-1-基于YUM的系统">4.1 基于 YUM 的系统</a>
         </li>
         <li class="toc__h3">
-            <a href="#toc_h3_10">4.2 基于APT的系统</a>
+            <a href="#4-2-基于APT的系统">4.2 基于 APT 的系统</a>
         </li>
 </ul>    </div>
     <div class="body--gray post__gray">
@@ -465,7 +465,7 @@ Query OK, 0 rows affected (0.01 sec)
                       data-title="还不会安装MYSQL？一篇文章带你装个够！"
                       data-blogtitle="LGX 的个人博客"
                       data-url="https://23095100.github.io/articles/2020/07/15/1594804709459.html"
-                      data-avatar="https://b3logfile.com/avatar/1594718285889.png?imageView2/1/w/128/h/128/interlace/0/q/100">
+                      data-avatar="https://b3logfile.com/avatar/1594718285889_1599444034163.jpeg?imageView2/1/w/128/h/128/interlace/0/q/100">
                     WeChat
                     <span class="qrcode"></span>
                 </span>
@@ -510,10 +510,9 @@ Query OK, 0 rows affected (0.01 sec)
     <div class="footer__border mobile__none"></div>
     <div class="wrapper fn__flex">
         <div class="fn__flex-1 mobile__none">
-            <div class="ft__fade">23095100 - 记录精彩的程序人生</div>
+            <div class="ft__fade">23095100 - 苟利国家生死以，岂因祸福避趋之</div>
             <br>
-                Open Source, Open Mind, <br/>Open Sight, Open Future!
-
+                不会真有人玩博客吧，不会吧不会吧
 <!-- 公告栏可使用 HTML、JavaScript，比如可以在此加入第三方统计 js -->
         </div>
 
@@ -537,7 +536,7 @@ Query OK, 0 rows affected (0.01 sec)
     speech: true,
     servePath: "https://23095100.github.io",
     staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources",
-    luteAvailable: false,
+    luteAvailable: true,
     hljsStyle: 'github',
     langLabel: "zh_CN",
     version: "4.2.0",
@@ -547,7 +546,7 @@ Query OK, 0 rows affected (0.01 sec)
 </script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/js/headroom.min.js"></script>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/js/common.min.js?1599441837118"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/js/common.min.js?1599471736118"
         charset="utf-8"></script>
 <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.8/index.css"/>
 <script async src="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.8/index.js"></script>
@@ -582,7 +581,7 @@ Query OK, 0 rows affected (0.01 sec)
 
 
 <script type="text/javascript">
-    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/js/page.min.js?1599441837118', 'soloPageScript')
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/js/page.min.js?1599471736118', 'soloPageScript')
     var page = new Page({
         "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
         "oId": "1594804709018",
@@ -602,4 +601,4 @@ Skin.initArticle()
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 24ms, 2020/09/07 09:26:02 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 24ms, 2020/09/07 17:51:18 -->
