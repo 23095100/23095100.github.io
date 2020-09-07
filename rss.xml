@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>LGX 的个人博客</title>
+    <link>https://23095100.github.io</link>
+    <atom:link href="https://23095100.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+    <description>记录精彩的程序人生</description>
+    <generator>Solo, v4.2.0, https://solo.b3log.org</generator>
+    <lastBuildDate>Mon, 07 Sep 2020 09:26:02 +0800</lastBuildDate>
+    <language>zh-cn</language>
+    <item>
+      <title>重生之我是大司马 第十五章 失败的苦涩</title>
+      <link>https://23095100.github.io/articles/2020/08/10/1597046855872.html</link>
+      <description><![CDATA[<p>“好样的！！！”维鲁斯的这个大招太关键了，看来AD真的是拼命了，以至于我们所有人都忍不住为这个大招惊叫了起来。但就在这关键时刻，中单飞机杀出，Knight对进场时机把握的十分准确，W技能配合‘格林机枪’与‘磷光炸弹’劈头盖脸的瞬间爆发伤害，直接将维鲁斯打残，辅助塔姆不得不上前挡住飞机的伤害将之逼走，但就在这纠缠的时间，卡莉斯塔的禁锢效果已经消失！“皎月！！”姿态忍不住嘶吼了起来，这是他们最后的机会了。“我来了！”打野皎月一咬牙，开启了W技能‘苍白之瀑”，准备进场！就在这瞬间，一道紫色的光芒冲天而起，TP亮起了，青钢影要来了！来不及思考了！没有时间再犹豫了！皎月直接E技能‘月神冲刺’冲到了卡莉斯塔的身边，与此同时，身上绽发出灿烂的白色月光，准备开启大招‘月神降临’。可就在这千钧一发之际，青钢影还是势不可挡的入场了。E技能钩锁迅速接近战场，大招‘海克斯科技通牒’直接犹如天神降临一样盖在了皎月的身上，牛骨瑞提前逼出了皎月的大招，救下了卡莉斯塔。虽说皎月的爆发伤害很高，但是持续性输出不足，而青钢影无论是装备，等级都大大的领先皎月，在双方一套大招对拼，战场上爆发出了各种灿烂的光芒后，皎月直接败退....</p>]]></description>
+      <author>23095100</author>
+      <guid>https://23095100.github.io/articles/2020/08/10/1597046855872.html</guid>
+      <category>连载小说</category>
+      <category>转载</category>
+      <category>重生之我是大司马</category>
+      <pubDate>Mon, 10 Aug 2020 16:07:35 +0800</pubDate>
+    </item>
+    <item>
+      <title>MySQL报错解决方案：2013-Lost connection to MySQL server</title>
+      <link>https://23095100.github.io/articles/2020/08/05/1596611224769.html</link>
+      <description><![CDATA[<p>今天上课的时候，在搭建完MySQL测试环境中出现的问题，整理如下： 问题描述：搭建完MySQL，用远程连接工具（Navicat）连接时报错： 2013-Lost connection to MySQL server at 'waiting for intial communication packet',system error:0  原因分析： MySQL开启了DNS的反向解析功能，这样MySQL对连接的客户端会进行DNS主机名查找； 解决方式： 找到mysql安装配置文件：my.cnf；路径因环境而异。如果你的是Liunx的环境，可以去目录：/etc/my.cnf中查找 编辑文件：my.cnf，找到【mysqld】模块 在其下增加一行：skip-name-resolve 如下图所示： 保存退出，并重启mysql服务：service mysql restart 即可，再重新连接看看！  ----淡定从容，宁静致远---- 转载自 <a href="https://www.cnblogs.com/matd/p/11754033.html" target="_blank">https://www.cnblogs.com/matd/p/11754033.html</a></p>]]></description>
+      <author>23095100</author>
+      <guid>https://23095100.github.io/articles/2020/08/05/1596611224769.html</guid>
+      <category>MYSQL</category>
+      <category>转载</category>
+      <pubDate>Wed, 05 Aug 2020 15:07:04 +0800</pubDate>
+    </item>
+    <item>
+      <title>查询操作：从示例数据中执行</title>
+      <link>https://23095100.github.io/articles/2020/07/24/1595579776594.html</link>
+      <description><![CDATA[<p>[TOC] 1、示例数据导入 [root@aliyun ~]# wget '<a href="https://codeload.github.com/datacharmer/test_db/zip/master" target="_blank">https://codeload.github.com/datacharmer/test_db/zip/master</a>' -O master.zip [root@aliyun ~]# unzip master.zip [root@aliyun ~]# cd test_db-master/ [root@aliyun ~]# mysql -u root -p &lt; employees.sql Enter password: INFO CREATING DATABASE STRUCTURE INFO storage engine: InnoDB INFO LOADING departments INFO LOADING employees ...  验证数据： [root@aliyun ~]# mysql -u root -p employees -A Enter password: Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQ....</p>]]></description>
+      <author>23095100</author>
+      <guid>https://23095100.github.io/articles/2020/07/24/1595579776594.html</guid>
+      <category>MYSQL</category>
+      <pubDate>Fri, 24 Jul 2020 16:36:16 +0800</pubDate>
+    </item>
+    <item>
+      <title>【共享】解决 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议</title>
+      <link>https://23095100.github.io/articles/2020/07/23/1595493202227.html</link>
+      <description><![CDATA[<p>在使用window10访问共享目录时出现如下错误：  因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议，而此协议是不安全的，可能会使你的系统遭受攻击。 你的系统需要SMB2或更高版本。关于如何解决此问题的信息，请参见 <a href="https://go.microsoft.com/fwlink/?linkeid=851747" target="_blank">https://go.microsoft.com/fwlink/?linkeid=851747</a>  解决方法： 方法1 使用命令行操作 点击window左下角开始 在安装程序中找到windows&nbsp; PowerShell 文件夹 下面的 windows&nbsp; PowerShell鼠标右击选择以管理员身份运行 在命令行执行&nbsp; Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol  命令执行完后会提示是否要重新启动电脑 输入Y&nbsp;重启电脑 ，重启后共享目录可以使用了 命令说明： SMB v1 检测: Get-WindowsOptionalFeature –Online –FeatureName SMB1Protocol 禁用: Disable-Wi....</p>]]></description>
+      <author>23095100</author>
+      <guid>https://23095100.github.io/articles/2020/07/23/1595493202227.html</guid>
+      <category>转载</category>
+      <category>CSDN</category>
+      <pubDate>Thu, 23 Jul 2020 16:33:22 +0800</pubDate>
+    </item>
+    <item>
+      <title>重生之我是大司马 第十四章 绝地反击</title>
+      <link>https://23095100.github.io/articles/2020/07/21/1595328681931.html</link>
+      <description><![CDATA[<p>比赛台上，听着场内巨大的喧嚣声，打野，AD，辅助的脸色都是有些变化。“下路稳住，我们的阵容很扎实，双前排，可以拖到中期打团！”姿态沉稳的说，他明白，越是在这种劣势的情况下，他就必须要撑起局势，成为队伍的顶梁柱。严君泽沉声道：“我省下了一个TP，打野，下波火龙团接不接？如果接的话我就提前回家补一下状态。”AD维鲁斯咬牙说：“如果要打，那我现在和塔姆一起推线，把线权掌握下来。”七中打野有点沉不住气，他看了看地图，又看了看自己的装备，经过刚才的一波乱战，他的等级已经落下了皇子一级，这是十分致命的，这意味着皎月将会晚皇子到6级。“这……我也不知道……”一股巨大的压力笼罩在他的身上，他迟疑了半天，犹犹豫豫的说。“打……还是不打？”听着打野犹犹豫豫的语气，姿态明白，他的心态已经乱了。“你清醒一点，这里是赛场，你要承担起指挥的责任啊！”姿态忍不住喝道。“我不知道，我先刷野吧。”打野心乱如麻的说。就这样，火龙被七中无奈的放掉，随着皇子拿下了火龙，二中观众席上的学生再度欢呼起来。比赛继续进行，皇子在拿下火龙后第一时间直奔上半区，他要对上路动手了。严君泽敏锐的察觉到了一丝异样，他立刻停止了和青钢影换血，老....</p>]]></description>
+      <author>23095100</author>
+      <guid>https://23095100.github.io/articles/2020/07/21/1595328681931.html</guid>
+      <category>转载</category>
+      <category>重生之我是大司马</category>
+      <category>连载小说</category>
+      <pubDate>Tue, 21 Jul 2020 18:51:21 +0800</pubDate>
+    </item>
+    <item>
+      <title>重生之我是大司马 第十三章 节奏崩盘</title>
+      <link>https://23095100.github.io/articles/2020/07/21/1595328345236.html</link>
+      <description><![CDATA[<p>距离比赛开始前10分钟，姿态一脸严肃的集合了所有的社员。“BO3的第一局，我，君泽带着1队先上，你们新人就在台下观战，一定要注意观察对方的上中，上单牛骨瑞，中单Knight，因为他们两个，是二中的灵魂人物。”电棍闻言，有些不爽：“社长，你也太不信任我们了吧，第一局让我们新生上吧，我向你保证，一定打出我们的气魄！”“电棍，别乱说，社长并不是不信任你们，而是你们以前没有对战过二中，不了解他们的打法，实力，我们上第一局，也是在帮你们了解对手。”严君泽一脸肃然的说。电棍讪讪一笑：“原来是这样，是我想多了。”……随后，姿态就BP与一队的其他社员交流了一番，而后一行五人便上台了。坐在电脑前，姿态的嘴角微微扬起：“君泽，准备好了吗？”“早就准备好了，我做梦都等着这一天呢！”严君泽充满力量的说道。“姿态，在新人面前，可不能丢脸啊！”“是啊！”BP环节自不必说，经过一番博弈后，七中拿到了一套稳健，扎实的阵容，这套阵容是他们熟练度较高的一套英雄强度曲线均衡的阵容，也是七中主力一队目前最自信的阵容。上单 奥恩。中单 剑魔。下路 维鲁斯+塔姆打野 皎月女神而二中，则是拿到了一套操作上限更高，团战冲阵能力更强力....</p>]]></description>
+      <author>23095100</author>
+      <guid>https://23095100.github.io/articles/2020/07/21/1595328345236.html</guid>
+      <category>连载小说</category>
+      <category>转载</category>
+      <category>重生之我是大司马</category>
+      <pubDate>Tue, 21 Jul 2020 18:45:45 +0800</pubDate>
+    </item>
+    <item>
+      <title>重生之我是大司马 第十二章 挑衅</title>
+      <link>https://23095100.github.io/articles/2020/07/21/1595328274034.html</link>
+      <description><![CDATA[<p>在牛骨瑞的安排下，我们一行十几人，坐到了角落的休息区，大家活动筋骨的活动筋骨，休息的休息，都铆足了劲，调整着自己的状态。就在这时，这有着不和谐的声音响起。“看，那边的那些，就是七中过来找虐的彩笔们，嘿嘿。”只见二中的几个学生正在不远处指着我们指指点点，脸上满是嘲讽。“看来他们在去年的春季联赛上还没被虐够，今年又来找虐，老受虐狂了。”一个看上去毛都没长齐的学生嗓门尖锐的说道，一张嘴，满嘴的大黄牙。“喂，你们，找打是吧？”369当时就坐不住了，直接蹿了起来，瞪着那几个七中的学生。我们这边所有人也都停下了手上的事情，冷冷的盯着那几个‘挑事’的学生。“哎哟，有脾气啊？有脾气有种打赢比赛啊？”见369发火了，那些人不但不害怕，反而更加猖狂，一副有恃无恐的模样。就在这时，先前接待我们的短发七中学生带着几个人走了过来。“啊，顺飞哥。”大黄牙顿时换了张脸，一脸的谄媚。“您忙完了啊？”“没啥忙的，我张顺飞是什么身份？怎么可能和那些普通社员一起搬凳子。你呢？这是在干嘛？”短发学生眯着眼睛睥睨了我们一眼，问道。看来这个张顺飞在二中颇有地位，应该是个社团里的小头目。“没啥，就是告诉一下这帮不知天高地厚的芜南佬....</p>]]></description>
+      <author>23095100</author>
+      <guid>https://23095100.github.io/articles/2020/07/21/1595328274034.html</guid>
+      <category>转载</category>
+      <category>连载小说</category>
+      <category>重生之我是大司马</category>
+      <pubDate>Tue, 21 Jul 2020 18:44:34 +0800</pubDate>
+    </item>
+    <item>
+      <title>重生之我是大司马 第十一章 剑指二中</title>
+      <link>https://23095100.github.io/articles/2020/07/21/1595328194883.html</link>
+      <description><![CDATA[<p>这就是我韩金龙的第二个特殊天赋吗？不愧是禁技，果然，够强！只是，这禁技的代价，的确太过恐怖，决不可轻易动用啊！不过想一想也是，收益与付出都是成正比的，既然想获得王者的实力，就必须付出足够的代价！开启王者模式和假设性原则不同，假设性原则是我目前已经可以游刃有余掌握的天赋，而开启王者模式，则属于底牌大杀器！但这张底牌，或许会再某一天，派的上大用场！不过我的内心还在思考，若是我同时开启王者模式，和假设性原则，那我会有多恐怖？恐怖到我自己都头皮发麻啊！就算是真正的王者级的高手来了，也能与之一战吧？！系统似乎看出我的内心所想，立刻用冰冷的声音警告。“同时开启多种特殊天赋，只有自身实力极强的职业选手才有可能，如果贸然尝试，很容易精神肉体遭受重创，请宿主珍惜自己的生命。”“行，够狠，拿命威胁我是吧，我服。”听到系统如此凝重的警告，我只能悻悻作罢，不过也对击败芜湖二中的神秘特殊天赋充满了期待，TS就有三个特殊天赋，而我韩金龙现在只有2个，还有1个是禁技，不能随意使用，如果我能得到第三个特殊天赋，相信我的实力肯定会有突飞猛进的提升！……芜湖二中位于芜湖市的芜北地区，而我们七中则是位于芜南地区，南北对峙，....</p>]]></description>
+      <author>23095100</author>
+      <guid>https://23095100.github.io/articles/2020/07/21/1595328194883.html</guid>
+      <category>转载</category>
+      <category>连载小说</category>
+      <category>重生之我是大司马</category>
+      <pubDate>Tue, 21 Jul 2020 18:43:14 +0800</pubDate>
+    </item>
+    <item>
+      <title>重生之我是大司马 第十章 开启王者模式</title>
+      <link>https://23095100.github.io/articles/2020/07/21/1595327921415.html</link>
+      <description><![CDATA[<p>就在这时，一只温暖的手掌搭在了我的肩膀上：“金龙，今天的皇子很CARRY哦！”我收起酸涩的心情，抬头望去，只见肉鸡正笑眯眯的看着我，如沐春风的笑容，一下子让我的心情好了不少。是啊，看看人家肉鸡，在比赛里一样只是个绿叶，虽然选了线上强势的卢锡安，但却一直被压着打，一直到比赛结束，才拿了一个头，但谁能否认肉鸡的功劳呢？哪怕数据不好看，这场比赛也离不开我们五个的任何一个人。“大家打的很棒，能和大家一起组队，我很开心。”这时，TS也一脸平静的走了过来，似乎会场的喧嚣和他没有任何关系一样，他看着我们四个，很认真的说。“哼，MVP竟然被你拿了，说实话，也就是我选人被康特了，不然这把MVP可和你无关。”电棍很不服输的说道。我们几人顿时哑然。我们比完之后，接着就是其他新生和老生的比赛，我们也终于可以休息了，说实话，这场比赛几乎耗尽了我所有的精力与体力，假设性原则的每一次开启都会让我异常疲惫，终于可以休息了呢。坐在观众席上恢复着体力，看着ts一下场就被一大群被他操作折服的一脸迷妹状的女学生包围，我和肉鸡都无语了。不过姿态社长却不知何时走到了我的身边。“羡慕了？金龙？”姿态的声音悠悠传来。“哪有？”我疲惫....</p>]]></description>
+      <author>23095100</author>
+      <guid>https://23095100.github.io/articles/2020/07/21/1595327921415.html</guid>
+      <category>转载</category>
+      <category>连载小说</category>
+      <category>重生之我是大司马</category>
+      <pubDate>Tue, 21 Jul 2020 18:38:41 +0800</pubDate>
+    </item>
+    <item>
+      <title>重生之我是大司马 第九章 战胜老生队</title>
+      <link>https://23095100.github.io/articles/2020/07/21/1595327594875.html</link>
+      <description><![CDATA[<p>很快，游戏的节奏点又来了，土龙刷新。老生们经验丰富，早在土龙刷新前的一分钟就排空了所有的视野，因此我们并不好打，在看船长已经到6，有着大招，TS虽然有着TP可以支援，但现阶段奥拉夫还是属于强势期，配合泰坦，对方的中野要输出有输出要控有控，着实不好打啊。“先放了吧。”我无奈的说道：“第一条龙而已，等吸血鬼装备成型后，才是我们阵容的发力期。”众人深以为然，因此没什么好说的，土龙直接放掉。老生队布置了半天，本以为年轻气盛的新生队会忍不住来接这波团，可没想到对方不但没有来接团，连往小龙坑靠的意思都没有，顿时让老生们十分无语。“这帮家伙，也太沉得住气了吧。”打野奥拉夫郁闷的说道。姿态一边操控着泰坦用E迅速清线，一边说：“别小看他们，我劝你们把他们当成和自己相同水平的对手来对待，否则要吃大亏！”“好吧。”奥拉夫应道，随后单人无压力的SOLO掉第一条土龙。与此同时，泰坦推完线直奔下路。“四包二。”姿态指挥道，这一波是他规划已久的四包二，并非心血来潮，因为刚才上路的视野已经发现了皇子的身影。下路的肉鸡和369敏锐的发现了气氛有些不对，二人本打算立刻撤退，可眼前的这波对方塔前的线让他们十分难受，如果不推....</p>]]></description>
+      <author>23095100</author>
+      <guid>https://23095100.github.io/articles/2020/07/21/1595327594875.html</guid>
+      <category>连载小说</category>
+      <category>转载</category>
+      <category>重生之我是大司马</category>
+      <pubDate>Tue, 21 Jul 2020 18:33:14 +0800</pubDate>
+    </item>
+  </channel>
+</rss>
