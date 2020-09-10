@@ -12,7 +12,6 @@
 
 -->
 <#include "../../common-template/macro-common_head.ftl">
-<#include "macro-comments.ftl">
 <#include "../../common-template/macro-comment_script.ftl">
 <!DOCTYPE html>
 <html>
@@ -54,15 +53,13 @@
                                     ${article.articleUpdateDate?string("yyyy-MM-dd")}
                                 </time>
                             </span>
-                        <#if commentable>
                         <span class="post-comments-count">
                                 &nbsp; | &nbsp;
                                 <a href="${servePath}${article.articlePermalink}#b3logsolocomments">
-                                    <span data-uvstatcmt="${article.oId}">${article.articleCommentCount}</span> ${cmtLabel}</a>
+                                    <span data-uvstatcmt="${article.oId}">0</span> ${cmtLabel}</a>
                         </span>
-                        </#if>
                         &nbsp; | &nbsp; ${viewsLabel}
-                        <span data-uvstaturl="${servePath}${article.articlePermalink}">${article.articleViewCount}</span>°C
+                        <span data-uvstaturl="${servePath}${article.articlePermalink}">0</span>°C
                     </div>
                 </header>
 
@@ -101,15 +98,9 @@
                 </footer>
             </article>
         </div>
-        <#if commentable>
+            <div id="gitalk-container"></div>
             <div id="b3logsolocomments"></div>
             <div id="vcomment" data-name="${article.authorName}" data-postId="${article.oId}"></div>
-            <#if !staticSite>
-            <div id="soloComments" style="display: none;">
-                <@comments commentList=articleComments article=article></@comments>
-            </div>
-            </#if>
-        </#if>
         <#if 0 != relevantArticlesDisplayCount>
             <div id="relevantArticles"></div>
         </#if>
@@ -123,7 +114,7 @@
     </div>
 </main>
 <#include "footer.ftl">
-<@comment_script oId=article.oId commentable=article.commentable>
+<@comment_script oId=article.oId>
     page.tips.externalRelevantArticlesDisplayCount = "${externalRelevantArticlesDisplayCount}";
     <#if 0 != externalRelevantArticlesDisplayCount>
         page.loadExternalRelevantArticles("<#list article.articleTags?split(",") as articleTag>${articleTag}<#if articleTag_has_next>,</#if></#list>");

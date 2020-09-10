@@ -40,13 +40,12 @@
         </#if> ${article.articleUpdateDate?string("yyyy-MM-dd HH:mm")} |
         ${viewCount1Label}
         <a rel="nofollow" href="${servePath}${article.articlePermalink}">
-            <span data-uvstaturl="${servePath}${article.articlePermalink}">${article.articleViewCount}</span>
-        </a><#if commentable> | ${commentCount1Label}
+            <span data-uvstaturl="${servePath}${article.articlePermalink}">0</span>
+        </a> | ${commentCount1Label}
         <a rel="nofollow" href="${servePath}${article.articlePermalink}#b3logsolocomments">
             <span class="left articles-commentIcon" title="${commentLabel}"></span>
-            <span data-uvstatcmt="${article.oId}">${article.articleCommentCount}</span>
+            <span data-uvstatcmt="${article.oId}">0</span>
         </a>
-        </#if>
     </p>
     <p>
         ${tags1Label}

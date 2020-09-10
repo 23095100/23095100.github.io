@@ -12,7 +12,6 @@
 
 -->
 <#include "../../common-template/macro-common_head.ftl">
-<#include "macro-comments.ftl">
 <#include "../../common-template/macro-comment_script.ftl">
 <!DOCTYPE html>
 <html>
@@ -72,7 +71,7 @@
                             <div class="margin25">
                                 <a rel="nofollow" href="${servePath}${article.articlePermalink}" class="left">
                                     <span class="left article-browserIcon" title="${viewLabel}"></span>
-                                    <span class="count"><span data-uvstaturl="${servePath}${article.articlePermalink}">${article.articleViewCount}</span></span>
+                                    <span class="count"><span data-uvstaturl="${servePath}${article.articlePermalink}">0</span></span>
                                 </a>
                                 <div class="left">
                                     <span class="tagsIcon" title="${tagLabel}"></span>
@@ -85,7 +84,7 @@
                                 </div>
                                 <a rel="nofollow" href="${servePath}${article.articlePermalink}#b3logsolocomments" class="left">
                                     <span class="left articles-commentIcon" title="${commentLabel}"></span>
-                                    <span class="count" data-uvstatcmt="${article.oId}">${article.articleCommentCount}</span>
+                                    <span class="count" data-uvstatcmt="${article.oId}">0</span>
                                 </a>
                                 <div class="right">
                                     <a rel="nofollow" href="#b3logsolocomments" class="right">
@@ -113,18 +112,13 @@
                             <div id="randomArticles" class="article-relative"></div>
                             <div id="externalRelevantArticles" class="article-relative"></div>
                         </div>
-                        <#if commentable>
+                            <div id="gitalk-container" class="comments"
+                                 style="padding-top: 15px"></div>
                             <div id="b3logsolocomments"></div>
                             <div id="vcomment"
                                  class="comments"
                                  style="padding-top: 15px"
                                  data-name="${article.authorName}" data-postId="${article.oId}"></div>
-                            <#if !staticSite>
-                                <div id="soloComments" style="display: none;">
-                                    <@comments commentList=articleComments article=article></@comments>
-                                </div>
-                            </#if>
-                        </#if>
                     </div>
                     <div class="right">
                         <#include "side.ftl">
@@ -138,7 +132,7 @@
             <div class="footer-icon"><#include "statistic.ftl"></div>
             <#include "footer.ftl">
         </div>
-        <@comment_script oId=article.oId commentable=article.commentable>
+        <@comment_script oId=article.oId>
         page.tips.externalRelevantArticlesDisplayCount = "${externalRelevantArticlesDisplayCount}";
         <#if 0 != randomArticlesDisplayCount>
         page.loadRandomArticles();

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>【共享】解决 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议 - LGX 的个人博客</title><meta name="description" content="  在使用 window10 访问共享目录时出现如下错误： 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的 SMB1 协议，而此协议是不安全的，可能会使你的系统遭受攻击。 你的系统需要 SMB2 或更高版本。关于如何解决此问题的信息，请参见 https://go.microsoft.com/fwlink/?linkeid=851747 解决方法： 方法 1 使用命令行操作 点击 window 左下角开始 在安装程序中找到 windows PowerShell 文件夹 下面的 windows PowerShell 鼠标右击选择以管理员身份运行 在命令行执行 Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol 命令执行完后会提示是否要重新启动电脑 输入 Y 重启电脑 ，重启后共享目录可以使用了 命令说明： SMB v1 检测： Get-WindowsOptionalFeature –Online –FeatureName SMB1Protocol 禁用： Disable-Wi...."/><meta property="og:description" content="  在使用 window10 访问共享目录时出现如下错误： 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的 SMB1 协议，而此协议是不安全的，可能会使你的系统遭受攻击。 你的系统需要 SMB2 或更高版本。关于如何解决此问题的信息，请参见 https://go.microsoft.com/fwlink/?linkeid=851747 解决方法： 方法 1 使用命令行操作 点击 window 左下角开始 在安装程序中找到 windows PowerShell 文件夹 下面的 windows PowerShell 鼠标右击选择以管理员身份运行 在命令行执行 Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol 命令执行完后会提示是否要重新启动电脑 输入 Y 重启电脑 ，重启后共享目录可以使用了 命令说明： SMB v1 检测： Get-WindowsOptionalFeature –Online –FeatureName SMB1Protocol 禁用： Disable-Wi...."/>    <meta name="keywords" content="随笔,Java,博客,Linux,python"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources"><link rel="icon" type="image/png" href="https://static.b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://static.b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://static.b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="【共享】解决 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议 - LGX 的个人博客"/><meta property="og:site_name" content="LGX 的个人博客"/><meta property="og:url"      content="https://23095100.github.io/articles/2020/07/23/1595493202227.html?"/><meta property="og:image" content="https://static.b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="【共享】解决 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议 - LGX 的个人博客" href="/opensearch.xml"><link href="https://23095100.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://23095100.github.io/manifest.json">        <link rel="canonical" href="https://23095100.github.io/articles/2020/07/23/1595493202227.html">        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/css/base.css?1599471736118"/>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>【共享】解决 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议 - LGX 的个人博客</title><meta name="description" content="  在使用 window10 访问共享目录时出现如下错误： 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的 SMB1 协议，而此协议是不安全的，可能会使你的系统遭受攻击。 你的系统需要 SMB2 或更高版本。关于如何解决此问题的信息，请参见 https://go.microsoft.com/fwlink/?linkeid=851747 解决方法： 方法 1 使用命令行操作 点击 window 左下角开始 在安装程序中找到 windows PowerShell 文件夹 下面的 windows PowerShell 鼠标右击选择以管理员身份运行 在命令行执行 Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol 命令执行完后会提示是否要重新启动电脑 输入 Y 重启电脑 ，重启后共享目录可以使用了 命令说明： SMB v1 检测： Get-WindowsOptionalFeature –Online –FeatureName SMB1Protocol 禁用： Disable-Wi...."/><meta property="og:description" content="  在使用 window10 访问共享目录时出现如下错误： 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的 SMB1 协议，而此协议是不安全的，可能会使你的系统遭受攻击。 你的系统需要 SMB2 或更高版本。关于如何解决此问题的信息，请参见 https://go.microsoft.com/fwlink/?linkeid=851747 解决方法： 方法 1 使用命令行操作 点击 window 左下角开始 在安装程序中找到 windows PowerShell 文件夹 下面的 windows PowerShell 鼠标右击选择以管理员身份运行 在命令行执行 Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol 命令执行完后会提示是否要重新启动电脑 输入 Y 重启电脑 ，重启后共享目录可以使用了 命令说明： SMB v1 检测： Get-WindowsOptionalFeature –Online –FeatureName SMB1Protocol 禁用： Disable-Wi...."/>    <meta name="keywords" content="随笔,Java,博客,Linux,python"/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/gh/88250/solo@4.3.1/src/main/resources"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://cdn.jsdelivr.net/gh/88250/solo@4.3.1/src/main/resources"><link rel="icon" type="image/png" href="https://b3logfile.com/avatar/1594718285889_1599444034163.jpeg"/><link rel="apple-touch-icon" href="https://b3logfile.com/avatar/1594718285889_1599444034163.jpeg"><link rel="shortcut icon" type="image/x-icon" href="https://b3logfile.com/avatar/1594718285889_1599444034163.jpeg"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="【共享】解决 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议 - LGX 的个人博客"/><meta property="og:site_name" content="LGX 的个人博客"/><meta property="og:url"      content="https://23095100.github.io/articles/2020/07/23/1595493202227.html?"/><meta property="og:image" content="https://b3logfile.com/avatar/1594718285889_1599444034163.jpeg"/><link rel="search" type="application/opensearchdescription+xml" title="【共享】解决 因为文件共享不安全，所以你不能连接到文件共享。此共享需要过时的SMB1协议 - LGX 的个人博客" href="/opensearch.xml"><link href="https://23095100.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://23095100.github.io/manifest.json">        <link rel="canonical" href="https://23095100.github.io/articles/2020/07/23/1595493202227.html">        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/88250/solo@4.3.1/src/main/resources/skins/Pinghsu/css/base.css?1599721633920"/>
             <link rel="prev" title="重生之我是大司马 第十四章 绝地反击" href="https://23095100.github.io/articles/2020/07/21/1595328681931.html">
             <link rel="next" title="查询操作：从示例数据中执行" href="https://23095100.github.io/articles/2020/07/24/1595579776594.html">
-    </head>
+    <script src="https://cdn.jsdelivr.net/npm/vditor@3.5.3/dist/js/icons/ant.js" async="" id="vditorIconScript"></script></head>
 <body>
 <header class="header">
     <div class="wrapper">
@@ -129,6 +129,7 @@
 </ul>    </div>
     <div class="body--gray post__gray">
         <div class="wrapper comment">
+                <div id="gitalk-container" style="padding: 30px 0;"></div>
                 <div id="b3logsolocomments"></div>
                 <div id="vcomment" style="padding: 30px 0;" data-name="23095100" data-postId="1595493202051"></div>
 
@@ -184,8 +185,8 @@
 </main>
 <footer class="footer">
     <div class="ft__center">
-    <a href="https://hacpai.com/member/23095100"
-       aria-label="https://hacpai.com/member/23095100"
+    <a href="https://ld246.com/member/23095100"
+       aria-label="https://ld246.com/member/23095100"
        class="vditor-tooltipped__n vditor-tooltipped  user__site"
        target="_blank" rel="noopener nofollow">
         <svg viewBox="0 0 32 32" width="100%" height="100%">
@@ -212,7 +213,7 @@
 
         <div class="fn__flex-1 footer__copyright">
             <a class="ft__link" href="https://23095100.github.io/archives.html">
-                21
+                22
                 文章
             </a>
            <br>
@@ -228,21 +229,22 @@
   var Label = {
     speech: true,
     servePath: "https://23095100.github.io",
-    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources",
+    staticServePath: "https://cdn.jsdelivr.net/gh/88250/solo@4.3.1/src/main/resources",
     luteAvailable: true,
     hljsStyle: 'github',
     langLabel: "zh_CN",
-    version: "4.2.0",
+    version: "4.3.1",
     staticSite: true,
     showCodeBlockLn: true,
+    articleId: "1595493202051",
   }
 </script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/js/headroom.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/88250/solo@4.3.1/src/main/resources/skins/Pinghsu/js/headroom.min.js"></script>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/skins/Pinghsu/js/common.min.js?1599471736118"
+        src="https://cdn.jsdelivr.net/gh/88250/solo@4.3.1/src/main/resources/skins/Pinghsu/js/common.min.js?1599721633920"
         charset="utf-8"></script>
-<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.8/index.css"/>
-<script async src="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.8/index.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.10/index.css"/>
+<script async src="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.10/index.js"></script>
 <div class="solo-kanbanniang">
     <div class="solo-kanbanniang__tip"></div>
     <canvas id="soloKanbanniang" width="280" height="250"></canvas>
@@ -274,9 +276,9 @@
 
 
 <script type="text/javascript">
-    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.2.0/src/main/resources/js/page.min.js?1599471736118', 'soloPageScript')
+    Util.addScript('https://cdn.jsdelivr.net/gh/88250/solo@4.3.1/src/main/resources/js/page.min.js?1599721633920', 'soloPageScript')
     var page = new Page({
-        "commentContentCannotEmptyLabel": "评论内容只能为 2 到 500 个字符！",
+        "commentContentCannotEmptyLabel": "评论不能为空",
         "oId": "1595493202051",
         "blogHost": "https://23095100.github.io",
         "randomArticles1Label": "随机阅读：",
@@ -294,4 +296,4 @@ Skin.initArticle()
 </body>
 </html>
 
-<!-- Generated by Latke (https://github.com/88250/latke) in 24ms, 2020/09/07 17:51:18 -->
+<!-- Generated by Latke (https://github.com/88250/latke) in 60ms, 2020/09/10 15:37:37 -->

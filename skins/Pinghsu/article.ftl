@@ -12,7 +12,6 @@
 
 -->
 <#include "../../common-template/macro-common_head.ftl">
-<#include "macro-comments.ftl">
 <#include "../../common-template/macro-comment_script.ftl">
 <!DOCTYPE html>
 <html>
@@ -56,10 +55,8 @@
             <#if article.category??>
                 in <a href="${servePath}/category/${article.category.categoryURI}">${article.category.categoryTitle}</a>
             </#if>
-            with <span data-uvstaturl="${servePath}${article.articlePermalink}">${article.articleViewCount}</span> views
-            <#if commentable>
-                and <a href="#b3logsolocomments"><span data-uvstatcmt="${article.oId}">${article.articleCommentCount}</span> comments</a>
-            </#if>
+            with <span data-uvstaturl="${servePath}${article.articlePermalink}">0</span> views
+                and <a href="#b3logsolocomments"><span data-uvstatcmt="${article.oId}">0</span> comments</a>
         </div>
         <div class="item__tags">
             <#list article.articleTags?split(",") as articleTag>
@@ -84,15 +81,9 @@
     </div>
     <div class="body--gray post__gray">
         <div class="wrapper comment">
-            <#if commentable>
+                <div id="gitalk-container" style="padding: 30px 0;"></div>
                 <div id="b3logsolocomments"></div>
                 <div id="vcomment" style="padding: 30px 0;" data-name="${article.authorName}" data-postId="${article.oId}"></div>
-                <#if !staticSite>
-                    <div id="soloComments" style="display: none;">
-                        <@comments commentList=articleComments article=article></@comments>
-                    </div>
-                </#if>
-            </#if>
 
             <div class="post__list fn__flex">
                 <div class="fn__flex-1">
@@ -151,7 +142,7 @@
 <#include "footer.ftl">
 
 <#if pjax><!---- pjax {#pjax} start ----></#if>
-<@comment_script oId=article.oId commentable=article.commentable>
+<@comment_script oId=article.oId>
     page.tips.externalRelevantArticlesDisplayCount = "${externalRelevantArticlesDisplayCount}";
     <#if 0 != randomArticlesDisplayCount>
     page.loadRandomArticles('<h3>RECOMMEND POSTS</h3>');

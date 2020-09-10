@@ -32,16 +32,14 @@
                 </li>
                 <li>
                     <a rel="nofollow" href="${servePath}${article.articlePermalink}" title="${viewLabel}">
-                        ${viewLabel} (<span data-uvstaturl="${servePath}${article.articlePermalink}">${article.articleViewCount}</span>)
+                        ${viewLabel} (<span data-uvstaturl="${servePath}${article.articlePermalink}">0</span>)
                     </a>
                 </li>
-                <#if commentable>
                 <li>
                     <a rel="nofollow" title="${commentLabel}" href="${servePath}${article.articlePermalink}#b3logsolocomments">
-                        ${commentLabel} (<span data-uvstatcmt="${article.oId}">${article.articleCommentCount}</span>)
+                        ${commentLabel} (<span data-uvstatcmt="${article.oId}">0</span>)
                     </a>
                 </li>
-                </#if>
             </ul>
         </div>
         <div class="article-main">

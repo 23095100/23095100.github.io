@@ -12,7 +12,6 @@
 
 -->
 <#include "../../common-template/macro-common_head.ftl">
-<#include "macro-comments.ftl">
 <#include "../../common-template/macro-comment_script.ftl">
 <!DOCTYPE html>
 <html>
@@ -71,7 +70,7 @@
                     ${article.articleUpdateDate?string("yyyy-MM-dd")} •
                     </time>
                     <a class="post__view" href="${servePath}${article.articlePermalink}">
-                        <span data-uvstaturl="${servePath}${article.articlePermalink}">${article.articleViewCount}</span> ${viewLabel}</a>
+                        <span data-uvstaturl="${servePath}${article.articlePermalink}">0</span> ${viewLabel}</a>
                     <div class="fn-right">
                     <span class="vditor-tooltipped vditor-tooltipped__n post__share-icon ft-green"
                           onclick="$('#comment').focus()"
@@ -79,7 +78,7 @@
                         <svg>
                             <use xlink:href="#icon-comment"></use>
                         </svg>
-                    <span data-uvstatcmt="${article.oId}">${article.articleCommentCount}</span>  &nbsp; &nbsp;
+                    <span data-uvstatcmt="${article.oId}">0</span>  &nbsp; &nbsp;
                     </span>
 
                         <span id="articleShare">
@@ -112,22 +111,16 @@
                     <div class="fn-flex-1" id="relevantArticles"></div>
                     <div class="fn-flex-1" id="randomArticles"></div>
                 </div>
-                <#if commentable>
+                    <div id="gitalk-container" class="article__comment"></div>
                     <div id="b3logsolocomments"></div>
                     <div id="vcomment" class="article__comment" data-name="${article.authorName}" data-postId="${article.oId}"></div>
-                    <#if !staticSite>
-                        <div id="soloComments" style="display: none;">
-                            <@comments commentList=articleComments article=article></@comments>
-                        </div>
-                    </#if>
-                </#if>
             </div>
         </div>
 
         <div class="article__toolbar">
             <div class="wrapper">
                 <a class="post__view" href="${servePath}${article.articlePermalink}">
-                    <span data-uvstaturl="${servePath}${article.articlePermalink}">${article.articleViewCount}</span> ${viewLabel}
+                    <span data-uvstaturl="${servePath}${article.articlePermalink}">0</span> ${viewLabel}
                 </a>
                 <div class="fn-right">
                 <span class="vditor-tooltipped vditor-tooltipped__n post__share-icon ft-green"
@@ -136,7 +129,7 @@
                     <svg>
                         <use xlink:href="#icon-comment"></use>
                     </svg>
-                <span data-uvstatcmt="${article.oId}">${article.articleCommentCount}</span>  &nbsp; &nbsp;
+                <span data-uvstatcmt="${article.oId}">0</span>  &nbsp; &nbsp;
                 </span>
                     <span id="articleBottomShare">
                     <span class="post__share-icon" data-type="wechat">
@@ -172,7 +165,7 @@
         <span class="vditor-tooltipped vditor-tooltipped__e post__share-icon ft-green"
               onclick="$('#comment').focus()"
               aria-label="${commentLabel}">
-            <span class="ft-gray" data-uvstatcmt="${article.oId}">${article.articleCommentCount}</span>
+            <span class="ft-gray" data-uvstatcmt="${article.oId}">0</span>
             <svg>
                 <use xlink:href="#icon-comment"></use>
             </svg>
@@ -208,7 +201,7 @@
 </div>
 <#include "footer.ftl">
 <#if pjax><!---- pjax {#pjax} start ----></#if>
-<@comment_script oId=article.oId commentable=article.commentable>
+<@comment_script oId=article.oId>
     Skin.initArticle()
     Skin.initComment = function (articleOId, articleTags) {
         page.tips.externalRelevantArticlesDisplayCount = "${externalRelevantArticlesDisplayCount}";

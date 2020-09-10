@@ -41,18 +41,16 @@
                         ${article.articleUpdateDate?string("yyyy-MM-dd")}
                     </time>
                 </span>
-                <#if commentable>
                 &nbsp; | &nbsp;
                 <span class="vditor-tooltipped vditor-tooltipped__n" aria-label="${commentCountLabel}">
                     <i class="icon-comments"></i>
                     <a href="${servePath}${article.articlePermalink}#b3logsolocomments">
-                        <span data-uvstatcmt="${article.oId}">${article.articleCommentCount}</span> ${commentLabel}</a>
+                        <span data-uvstatcmt="${article.oId}">0</span> ${commentLabel}</a>
                 </span>
-                </#if>
                 &nbsp; | &nbsp;
                 <span class="vditor-tooltipped vditor-tooltipped__n" aria-label="${viewCountLabel}">
                     <i class="icon-views"></i>
-                    <span data-uvstaturl="${servePath}${article.articlePermalink}">${article.articleViewCount}</span> ${viewLabel}
+                    <span data-uvstaturl="${servePath}${article.articlePermalink}">0</span> ${viewLabel}
                 </span>
             </div>
         </header>
@@ -65,7 +63,7 @@
                     ${articleTag}</a>
             </#list>
             <a href="${servePath}${article.articlePermalink}#more" rel="contents" class="fn-right">
-                ${readLabel} &raquo;
+                ${readmoreLabel}
             </a>
         </footer>
     </article>

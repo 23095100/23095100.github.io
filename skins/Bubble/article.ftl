@@ -12,7 +12,6 @@
 
 -->
 <#include "../../common-template/macro-common_head.ftl">
-<#include "macro-comments.ftl">
 <#include "../../common-template/macro-comment_script.ftl">
 <!DOCTYPE html>
 <html>
@@ -76,9 +75,8 @@
             <#include "../../common-template/toc.ftl"/>
         </div>
     </#if>
-    <#if commentable>
-        <div id="b3logsolocomments"></div>
         <div class="wrapper">
+            <div id="gitalk-container"></div>
             <div id="vcomment"
                  style="    margin-bottom: 40px; margin-top: 80px;
         border: 1px solid rgba(255,255,255,0.8);
@@ -87,13 +85,8 @@
         box-shadow: 0 1px 4px rgba(0,0,0,0.04);
         padding: 20px;"
                  data-name="${article.authorName}" data-postId="${article.oId}"></div>
+            <div id="b3logsolocomments"></div>
         </div>
-        <#if !staticSite>
-        <div id="soloComments" style="display: none;">
-            <@comments commentList=articleComments article=article></@comments>
-        </div>
-        </#if>
-    </#if>
     <div class="article__bottom">
         <div class="wrapper">
             <div class="fn__flex">
@@ -117,7 +110,7 @@
     </svg>
 </#if>
 <#if pjax><!---- pjax {#pjax} start ----></#if>
-<@comment_script oId=article.oId commentable=article.commentable>
+<@comment_script oId=article.oId>
     page.tips.externalRelevantArticlesDisplayCount = "${externalRelevantArticlesDisplayCount}";
     <#if 0 != randomArticlesDisplayCount>
         page.loadRandomArticles('<h3>${randomArticlesLabel}</h3>');

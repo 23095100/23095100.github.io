@@ -12,7 +12,6 @@
 
 -->
 <#include "../../common-template/macro-common_head.ftl">
-<#include "macro-comments.ftl">
 <#include "../../common-template/macro-comment_script.ftl">
 <!DOCTYPE html>
 <html>
@@ -85,15 +84,9 @@
                 <#if externalRelevantArticlesDisplayCount?? && 0 != externalRelevantArticlesDisplayCount>
                 <div id="externalRelevantArticles" class="fn-wrap"></div>
                 </#if>
-                <#if commentable>
+                    <div id="gitalk-container" style="margin-top: 100px" class="fn-wrap"></div>
                     <div id="b3logsolocomments"></div>
                     <div id="vcomment" style="margin-top: 100px" class="fn-wrap" data-name="${article.authorName}" data-postId="${article.oId}"></div>
-                    <#if !staticSite>
-                        <div id="soloComments" style="display: none;">
-                            <@comments commentList=articleComments article=article></@comments>
-                        </div>
-                    </#if>
-                </#if>
             </main>
             <#if nextArticlePermalink?? || previousArticlePermalink??>
             <aside class="read-next">
@@ -119,7 +112,7 @@
             </#if>
             <#include "footer.ftl">
 
-            <@comment_script oId=article.oId commentable=article.commentable>
+            <@comment_script oId=article.oId>
             page.tips.externalRelevantArticlesDisplayCount = "${externalRelevantArticlesDisplayCount}";
             <#if 0 != externalRelevantArticlesDisplayCount>
             page.loadExternalRelevantArticles("<#list article.articleTags?split(",") as articleTag>${articleTag}<#if articleTag_has_next>,</#if></#list>");

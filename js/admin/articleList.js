@@ -23,7 +23,7 @@ admin.articleList = {
   tablePagination: new TablePaginate('article'),
 
   /*
-   * 初始化 table, pagination, comments dialog
+   * 初始化 table, pagination
    */
   init: function (page) {
     this.tablePagination.buildTable([
@@ -54,7 +54,6 @@ admin.articleList = {
         style: 'padding-left: 12px;',
       }])
     this.tablePagination.initPagination()
-    this.tablePagination.initCommentsDialog()
     this.getList(page)
 
     var that = this
@@ -69,7 +68,7 @@ admin.articleList = {
   },
 
   /**
-   * 同步到黑客派社区
+   * 同步到社区
    * @param id 文章 id
    */
   syncToHacpai: function (id) {
@@ -118,10 +117,9 @@ admin.articleList = {
             + articles[i].articleTitle + '</a><span class=\'table-tag\'>' +
             articles[i].articleTags + '</span>'
           articleData[i].date = $.bowknot.getDate(articles[i].articleCreateTime)
-          articleData[i].comments = `<span data-uvstatcmt="${articles[i].oId}">${articles[i].articleCommentCount}</span>`
+          articleData[i].comments = `<span data-uvstatcmt="${articles[i].oId}">0</span>`
           articleData[i].articleViewCount = '<span data-uvstaturl="' +
-            Label.servePath + articles[i].articlePermalink + '">' +
-            articles[i].articleViewCount + '</span>'
+            Label.servePath + articles[i].articlePermalink + '">0</span>'
           articleData[i].author = articles[i].authorName
 
           var topClass = articles[i].articlePutTop
@@ -136,9 +134,7 @@ admin.articleList = {
                                 <a href=\'javascript:void(0)\' onclick="admin.articleList.syncToHacpai(\'' +
             articles[i].oId + '\')">' + Label.pushToHacpaiLabel + '</a>  \
                                 <a href=\'javascript:void(0)\' onclick="admin.articleList.popTop(this, \'' +
-            articles[i].oId + '\')">' + topClass + '</a>  \
-                                <a href=\'javascript:void(0)\' onclick="admin.comment.open(\'' +
-            articles[i].oId + '\', \'article\')">' + Label.commentLabel + '</a>'
+            articles[i].oId + '\')">' + topClass + '</a>'
         }
 
         that.tablePagination.updateTablePagination(articleData, pageNum,

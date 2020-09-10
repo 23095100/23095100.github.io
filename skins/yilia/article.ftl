@@ -12,7 +12,6 @@
 
 -->
 <#include "../../common-template/macro-common_head.ftl">
-<#include "macro-comments.ftl">
 <#include "../../common-template/macro-comment_script.ftl">
 <!DOCTYPE html>
 <html>
@@ -55,18 +54,16 @@
                 </#list>
             </div>
             <span>&nbsp;&nbsp;&nbsp;</span>
-            <#if commentable>
                 <a href="${servePath}${article.articlePermalink}#b3logsolocomments"
                    class="vditor-tooltipped__n vditor-tooltipped link fn__flex-center"
                    aria-label="${commentLabel}">
-                    <span data-uvstatcmt="${article.oId}">${article.articleCommentCount}</span>
+                    <span data-uvstatcmt="${article.oId}">0</span>
                     <span class="icon-chat"></span>
                 </a>
-            </#if>
             <a class="vditor-tooltipped__n vditor-tooltipped link fn__flex-center"
                href="${servePath}${article.articlePermalink}"
                aria-label="${viewLabel}">
-                <span data-uvstaturl="${servePath}${article.articlePermalink}">${article.articleViewCount}</span>
+                <span data-uvstaturl="${servePath}${article.articlePermalink}">0</span>
                 <span class="icon-views"></span>
             </a>
             <a rel="nofollow" href="${servePath}/authors/${article.authorId}" class="fn__flex-center">
@@ -117,20 +114,14 @@
         </#if>
         <br>
     </article>
-    <#if commentable>
+        <div style="padding: 30px 60px 30px 50px;" id="gitalk-container"></div>
         <div id="b3logsolocomments"></div>
         <div id="vcomment" style="padding: 30px 60px 30px 50px;" data-name="${article.authorName}"
              data-postId="${article.oId}"></div>
-        <#if !staticSite>
-            <div id="soloComments" style="display: none;">
-                <@comments commentList=articleComments article=article></@comments>
-            </div>
-        </#if>
-    </#if>
 
     <#include "footer.ftl">
 
-    <@comment_script oId=article.oId commentable=article.commentable>
+    <@comment_script oId=article.oId>
         page.tips.externalRelevantArticlesDisplayCount = "${externalRelevantArticlesDisplayCount}";
         <#if 0 != externalRelevantArticlesDisplayCount>
             page.loadExternalRelevantArticles("<#list article.articleTags?split(",") as articleTag>${articleTag}<#if articleTag_has_next>,</#if></#list>");

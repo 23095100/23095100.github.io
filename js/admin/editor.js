@@ -14,7 +14,7 @@
  *
  * @author <a href="http://vanessa.b3log.org">Liyuan Li</a>
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @version 1.6.0.1, Apr 30, 2020
+ * @version 1.6.0.2, Jul 11, 2020
  */
 admin.editors = {}
 
@@ -38,7 +38,7 @@ $.extend(SoloEditor.prototype, {
 
     // 编辑器常用表情使用社区端的设置
     $.ajax({
-      url: 'https://hacpai.com/apis/vcomment/users/emotions',
+      url: 'https://ld246.com/apis/vcomment/users/emotions',
       type: 'GET',
       cache: true,
       async: false,
@@ -76,7 +76,6 @@ $.extend(SoloEditor.prototype, {
           if (element.style.display === 'none') {
             return
           }
-          Util.parseMarkdown()
         },
       },
       upload: {
@@ -100,7 +99,7 @@ $.extend(SoloEditor.prototype, {
       },
       lang: Label.localeString,
       hint: {
-        emojiTail: `<a href="https://hacpai.com/settings/function" target="_blank">设置常用表情</a>`,
+        emojiTail: `<a href="https://ld246.com/settings/function" target="_blank">设置常用表情</a>`,
         emoji: Label.emoji,
       },
       toolbarConfig: {
@@ -145,7 +144,6 @@ $.extend(SoloEditor.prototype, {
             "export",
             "outline",
             "preview",
-            "format",
             "devtools",
             "info",
             "help",
@@ -170,7 +168,6 @@ $.extend(SoloEditor.prototype, {
             'insert-after',
             'fullscreen',
             'preview',
-            'format',
             'info',
             'help',
           ],
@@ -180,13 +177,7 @@ $.extend(SoloEditor.prototype, {
       options.toolbarConfig.pin = true
     }
 
-    if (typeof Vditor === 'undefined') {
-      Util.loadVditor(() => {
-        this.editor = new Vditor(this.conf.id, options)
-      })
-    } else {
-      this.editor = new Vditor(this.conf.id, options)
-    }
+    this.editor = new Vditor(this.conf.id, options)
   },
   /*
    * @description 获取编辑器值

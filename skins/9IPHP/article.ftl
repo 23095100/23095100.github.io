@@ -12,7 +12,6 @@
 
 -->
 <#include "../../common-template/macro-common_head.ftl">
-<#include "macro-comments.ftl">
 <#include "../../common-template/macro-comment_script.ftl">
 <!DOCTYPE html>
 <html>
@@ -53,18 +52,16 @@
                                     ${article.articleUpdateDate?string("yyyy-MM-dd")}
                                     </time>
                                 </span>
-                        <#if commentable>
                         &nbsp; | &nbsp;
                         <span class="vditor-tooltipped vditor-tooltipped__n" aria-label="${commentCountLabel}">
                                     <i class="icon-comments"></i>
                                     <a href="${servePath}${article.articlePermalink}#b3logsolocomments">
-                                        <span data-uvstatcmt="${article.oId}">${article.articleCommentCount}</span> ${commentLabel}</a>
+                                        <span data-uvstatcmt="${article.oId}">0</span> ${commentLabel}</a>
                                 </span>
-                        </#if>
                         &nbsp; | &nbsp;
                         <span class="vditor-tooltipped vditor-tooltipped__n" aria-label="${viewCountLabel}">
                                     <i class="icon-views"></i>
-                        <span data-uvstaturl="${servePath}${article.articlePermalink}">${article.articleViewCount}</span> ${viewLabel}
+                        <span data-uvstaturl="${servePath}${article.articlePermalink}">0</span> ${viewLabel}
                                 </span>
                     </div>
                 </header>
@@ -102,15 +99,9 @@
                         </#if>
                     </div>
                 </footer>
-                <#if commentable>
+                    <div id="gitalk-container"></div>
                     <div id="b3logsolocomments"></div>
                     <div id="vcomment" data-name="${article.authorName}" data-postId="${article.oId}"></div>
-                    <#if !staticSite>
-                    <div id="soloComments" class="fn__none">
-                        <@comments commentList=articleComments article=article></@comments>
-                    </div>
-                    </#if>
-                </#if>
                 <br>
                 <div id="externalRelevantArticles" class="list"></div>
                 <div id="relevantArticles" class="list"></div>
@@ -121,7 +112,7 @@
     </div>
 </div>
 <#include "footer.ftl">
-<@comment_script oId=article.oId commentable=article.commentable>
+<@comment_script oId=article.oId>
     page.tips.externalRelevantArticlesDisplayCount = "${externalRelevantArticlesDisplayCount}";
     <#if 0 != randomArticlesDisplayCount>
         page.loadRandomArticles();

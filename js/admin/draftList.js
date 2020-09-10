@@ -54,7 +54,6 @@ admin.draftList = {
         style: 'padding-left: 12px;',
       }])
     this.tablePagination.initPagination()
-    this.tablePagination.initCommentsDialog()
     this.getList(page)
   },
 
@@ -85,10 +84,9 @@ admin.draftList = {
           articleData[i].tags = articles[i].articleTags
           articleData[i].date = $.bowknot.getDate(
             articles[i].articleCreateTime)
-          articleData[i].comments = `<span data-uvstatcmt="${articles[i].oId}">${articles[i].articleCommentCount}</span>`
+          articleData[i].comments = `<span data-uvstatcmt="${articles[i].oId}">0</span>`
           articleData[i].articleViewCount = '<span data-uvstaturl="' +
-            Label.servePath + articles[i].articlePermalink + '">' +
-            articles[i].articleViewCount + '</span>'
+            Label.servePath + articles[i].articlePermalink + '">0</span>'
           articleData[i].author = articles[i].authorName
           articleData[i].title = '<a class=\'no-underline\' href=\'' +
             Label.servePath +
@@ -100,9 +98,7 @@ admin.draftList = {
                                 <a href=\'javascript:void(0)\' onclick="admin.article.del(\'' +
             articles[i].oId + '\', \'draft\', \'' +
             encodeURIComponent(articles[i].articleTitle) + '\')">' +
-            Label.removeLabel + '</a>  \
-                                <a href=\'javascript:void(0)\' onclick="admin.comment.open(\'' +
-            articles[i].oId + '\', \'draft\')">' + Label.commentLabel + '</a>'
+            Label.removeLabel + '</a>'
         }
 
         that.tablePagination.updateTablePagination(articleData, pageNum,

@@ -41,14 +41,12 @@
                 ${article.articleUpdateDate?string("yyyy-MM-dd HH:mm:ss")}
             </span>
         </div>
-        <#if commentable>
         <div class="right">
             <a rel="nofollow" href="${servePath}${article.articlePermalink}#b3logsolocomments" class="left">
                 <span class="left articles-commentIcon" title="${commentLabel}"></span>
-                <span data-uvstatcmt="${article.oId}">${article.articleCommentCount}</span>
+                <span data-uvstatcmt="${article.oId}">0</span>
             </a>
         </div>
-        </#if>
         <div class="clear"></div>
     </div>
     <div class="article-abstract vditor-reset">
@@ -58,7 +56,7 @@
     <div class="article-footer">
         <a rel="nofollow" href="${servePath}${article.articlePermalink}" class="left">
             <span class="left article-browserIcon" title="${viewLabel}"></span>
-            <span data-uvstaturl="${servePath}${article.articlePermalink}">${article.articleViewCount}</span>
+            <span data-uvstaturl="${servePath}${article.articlePermalink}">0</span>
         </a>
         <div class="left">
             <span class="tagsIcon" title="${tagLabel}"></span>
